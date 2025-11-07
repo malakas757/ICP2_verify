@@ -1,0 +1,7 @@
+core   0: 0x80000000 (0x01800293) li      t0, 24
+core   0: 3 0x80000000 (0x01800293) x5  0x00000018
+core   0: 0x80000004 (0x00c00313) li      t1, 12
+core   0: 3 0x80000004 (0x00c00313) x6  0x0000000c
+core   0: 0x80000008 (0x0062a223) sw      t1, 4(t0)
+core   0: exception trap_store_access_fault, epc 0x80000008
+core   0:           tval 0x0000001c

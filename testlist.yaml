@@ -1,0 +1,11 @@
+- test: riscv_rand_instr_test
+  description: "Random + IRQ handshake to 0x8FFFFFFC"
+  iterations: 1
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+  gen_opts: >
+    +instr_cnt=1000
+    +require_signature_addr=1
+    +signature_addr=0x8ffffffc
+    +enable_interrupt=1
+

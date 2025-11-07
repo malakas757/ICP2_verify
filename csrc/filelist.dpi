@@ -1,0 +1,4 @@
+DPI_STUB_OBJS += ./../work_lib/simv.daidir/vc_hdrs.o
+./../work_lib/simv.daidir/vc_hdrs.o: ./../work_lib/simv.daidir/vc_hdrs.c
+	@$(CC) -I/usr/software/vcs2018/vcs/O-2018.09-SP2/include  -pipe -DVCS -DUVM_DPI_DO_TYPE_CHECK -fPIC    -I/usr/software/vcs2018/vcs/O-2018.09-SP2/include  -fPIC -c -o ./../work_lib/simv.daidir/vc_hdrs.o ./../work_lib/simv.daidir/vc_hdrs.c
+	@strip -g ./../work_lib/simv.daidir/vc_hdrs.o
