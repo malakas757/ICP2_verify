@@ -158,12 +158,14 @@ show:
 	@echo "EXTRA_LIBS=$(EXTRA_LIBS)"
 #=============================================================
 #=======vcs=======
-#RTL_FILE     = fileset/rtl.f
+DESIGN_FILE  = fileset/design.f
 TOP_TB_FILE  = fileset/tb.f
 MEM_FILE     = fileset/mem.f
 COSIM_FILE   = fileset/cosim.f
-#TEST_FILE    = fileset/uvm_tb.f
+TEST_FILE    = fileset/uvm_tb.f
+TEST_NAME_FILE = fileset/testname.f
 TEST_NAME ?=
+TEST_NAMES	 = `cat $(TEST_NAME_FILE)` 
 CM       = -cm line+cond+fsm+branch+tgl
 CM_NAME  = -cm_name $(TEST_NAME)
 CM_DIR   = -cm_dir cover/$(TEST_NAME).vdb
@@ -190,22 +192,55 @@ vcs_compile:
 	    -l vcs_compile.log \
 	    -o work_lib/simv \
 	    $(CM) $(ASS_ON) \
-	    -f $(COSIM_FILE) \
-	    -f $(MEM_FILE) \
-	    -f $(TOP_TB_FILE) 
-
+	    -f $(DESIGN_FILE) \
+		-f $(TEST_FILE)
+	#	-f $(MEM_FILE) \
+	#   -f $(TOP_TB_FILE)\ 
+	
 
 vcs_sim:
-	@mkdir -p cover log 
-	ln -sf $(abspath $(DPI_SO)) ./libcosim_dpi.so
-	LD_LIBRARY_PATH=/opt/spike-cosim/lib:$$LD_LIBRARY_PATH \
-	./work_lib/simv -sv_lib libcosim_dpi \
-	  -l ./log/$(TEST_NAME).log \
-	+ntb_random_seed_automatic	\
+	@echo "Running Tests"
+	@mkdir -p log
+	./work_lib/simv -l log/${TEST_NAME}.log +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
+
+vcs_sim_all:
+	@echo "Running Tests"
+	@mkdir -p log
+	@for i in $(TEST_NAMES); do \
+		./work_lib/simv -l log/$$i.log +UVM_TIMEOUT=900000000 +UVM_TESTNAME=$$i;\
+	done
+
+vcs_sim_cov:
+	@echo "====================================================="
+	@echo " Running Tests with Coverage"
+	@echo "====================================================="
+	@rm -rf cover log $(MERGED_VDB) $(REPORT_DIR)
+	@mkdir -p cover log $(REPORT_DIR)
+
+	@for i in $(TEST_NAMES); do \
+		echo "==> Running Test: $$i"; \
+		./work_lib/simv \
+			+UVM_TIMEOUT=900000000 +UVM_TESTNAME=$$i \
+			-cm_dir cover/$$i.vdb \
+			-l log/$$i.log; \
+	done
+
+	@echo "====================================================="
+	@echo "==> Merging coverage reports..."
+	@echo "====================================================="
+	urg -dir work_lib/simv.vdb \
+		-dir cover/*.vdb \
+		-elfile exclusion.el \
+		-excl_bypass_checks \
+		-report $(REPORT_DIR)
 
 vcs_clean:
 	rm -rf *fsdb* *.log
 
+test-list:
+			@for i in $(TEST_NAMES); do \
+				echo $$i; \
+			done
 
 
 
