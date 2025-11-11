@@ -28,7 +28,7 @@ task bpu_driver::run_phase(uvm_phase phase);
     forever begin
         @(posedge BPU.clk);
         seq_item_port.get_next_item(req);
-        BPU.pred <= req.pred;
+        BPU.drv_cb.pred <= req.pred;
         seq_item_port.item_done();
     end
     

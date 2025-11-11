@@ -25,13 +25,14 @@ endfunction
 task exec_driver::run_phase(uvm_phase phase);
     exec_seq_item req;
     @(posedge EXEC.rstn)
+    //wait(EXEC.run_flag);
     repeat(2) @(posedge EXEC.clk);
     forever begin
         @(posedge EXEC.clk);
         seq_item_port.get_next_item(req);
-        EXEC.pc_src <= req.pc_src;
-        EXEC.jalr_flag <= req.jalr_flag;
-        EXEC.jalr_target_offset <= req.jalr_target_offset;
+        EXEC.drv_cb.pc_src <= req.pc_src;
+        EXEC.drv_cb.jalr_flag <= req.jalr_flag;
+        EXEC.drv_cb.jalr_target_offset <= req.jalr_target_offset;
         seq_item_port.item_done();
     end
     

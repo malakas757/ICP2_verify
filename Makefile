@@ -234,6 +234,9 @@ vcs_sim_cov:
 		-excl_bypass_checks \
 		-report $(REPORT_DIR)
 
+vcs_check:
+	vcs -sverilog -full64 -ntb_opts uvm-1.2 -l compile.log -f ./fileset/agents.f
+	
 vcs_clean:
 	rm -rf *fsdb* *.log
 

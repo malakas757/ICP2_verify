@@ -28,12 +28,12 @@ task exec_monitor::run_phase(uvm_phase phase);
 
     item = exec_seq_item::type_id::create("item");
     @(posedge EXEC.rstn);
-    repeat(2) @(posedge EXEC.clk)
+    repeat(3) @(posedge EXEC.clk) // Add one more cycle to sync with driver
     forever begin
         @(posedge EXEC.clk);
-        item.pc_src = EXEC.pc_src;
-        item.jalr_flag = EXEC.jalr_flag;
-        item.jalr_target_offset = EXEC.jalr_target_offset;
+        item.pc_src = EXEC.mon_cb.pc_src;
+        item.jalr_flag = EXEC.mon_cb.jalr_flag;
+        item.jalr_target_offset = EXEC.mon_cb.jalr_target_offset;
         $cast(cloned_item, item.clone());
         ap.write(cloned_item);
     end
