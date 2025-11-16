@@ -1,12 +1,14 @@
 class bpu_seq_item extends uvm_sequence_item;
 
+rand bit pred;
+
 `uvm_object_utils_begin(bpu_seq_item)
     `uvm_field_int(pred, UVM_DEFAULT)
     //`uvm_field_int(delay_cycles, UVM_DEFAULT);
 `uvm_object_utils_end
 
-rand logic pred;
-rand int delay_cycles;
+
+//rand int delay_cycles;
 
 /*
 constraint delay_bounds {

@@ -1,6 +1,7 @@
 class exec_agent extends uvm_component;
 
-    `uvm_component_utils(exec_agent);
+    `uvm_component_utils(exec_agent)
+    
     exec_driver driver;
     exec_monitor monitor;
     exec_sequencer sequencer;

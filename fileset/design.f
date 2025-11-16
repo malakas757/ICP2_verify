@@ -1,7 +1,6 @@
-./design/Defines.sv 
-./design/tick_generator.sv 
-./design/uart_rx_BB.sv 
-./design/uart_transmitter.sv 
-./design/apb_uart.sv
-./design/apb_slave.sv
-./design/apb_uart_top.sv
+./fetch_tb/rtl/common.sv
+./fetch_tb/rtl/instr_decompressor.sv
+./fetch_tb/rtl/fetch_stage.sv
+./fetch_tb/rtl/program_memory.sv
+./fetch_tb/rtl/ifu.sv
+

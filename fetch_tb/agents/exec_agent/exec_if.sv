@@ -2,13 +2,15 @@ interface exec_if(input clk, input rstn);
     logic [31:0] jalr_target_offset;
     logic jalr_flag;
     logic pc_src;
+    logic pc_write;
+
     clocking drv_cb @(posedge clk);
         default output #1ns;
-        output jalr_flag, jalr_target_offset, pc_src;
+        output jalr_flag, jalr_target_offset, pc_src, pc_write;
     endclocking
     clocking mon_cb @(posedge clk);
         default input #1ns;
-        input jalr_flag, jalr_target_offset, pc_src;
+        input jalr_flag, jalr_target_offset, pc_src, pc_write;
     endclocking
 
 endinterface

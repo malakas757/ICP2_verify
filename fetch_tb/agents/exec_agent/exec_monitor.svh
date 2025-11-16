@@ -34,6 +34,7 @@ task exec_monitor::run_phase(uvm_phase phase);
         item.pc_src = EXEC.mon_cb.pc_src;
         item.jalr_flag = EXEC.mon_cb.jalr_flag;
         item.jalr_target_offset = EXEC.mon_cb.jalr_target_offset;
+        item.pc_write = EXEC.mon_cb.pc_write;
         $cast(cloned_item, item.clone());
         ap.write(cloned_item);
     end

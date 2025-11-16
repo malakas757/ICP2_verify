@@ -159,12 +159,13 @@ show:
 #=============================================================
 #=======vcs=======
 DESIGN_FILE  = fileset/design.f
-TOP_TB_FILE  = fileset/tb.f
+TOP_TB_FILE  = fileset/top_tb.f
+AGENT_FILE	 = fileset/agent.f
 MEM_FILE     = fileset/mem.f
 COSIM_FILE   = fileset/cosim.f
 TEST_FILE    = fileset/uvm_tb.f
 TEST_NAME_FILE = fileset/testname.f
-TEST_NAME ?=
+TEST_NAME ?= fetch_random_test
 TEST_NAMES	 = `cat $(TEST_NAME_FILE)` 
 CM       = -cm line+cond+fsm+branch+tgl
 CM_NAME  = -cm_name $(TEST_NAME)
@@ -187,13 +188,15 @@ buildso: $(DPI_SO)
 vcs_compile:
 	@mkdir -p work_lib cover log
 	vcs -sverilog -ntb_opts uvm-1.2 \
-	    -full64 -debug_access+all -kdb \
+	    -full64 -debug_access+all -fsdb -kdb \
 	    -timescale=1ns/1ns +vcs+lic+wait +vcsd +memcbk +vpi \
 	    -l vcs_compile.log \
 	    -o work_lib/simv \
 	    $(CM) $(ASS_ON) \
 	    -f $(DESIGN_FILE) \
-		-f $(TEST_FILE)
+		-f $(AGENT_FILE)\
+		-f $(TEST_FILE)\
+		-f $(TOP_TB_FILE)
 	#	-f $(MEM_FILE) \
 	#   -f $(TOP_TB_FILE)\ 
 	
@@ -235,7 +238,7 @@ vcs_sim_cov:
 		-report $(REPORT_DIR)
 
 vcs_check:
-	vcs -sverilog -full64 -ntb_opts uvm-1.2 -l compile.log -f ./fileset/agents.f
+	vcs -sverilog -full64 -ntb_opts uvm-1.2 -l compile.log -f ./fileset/test.f
 	
 vcs_clean:
 	rm -rf *fsdb* *.log
