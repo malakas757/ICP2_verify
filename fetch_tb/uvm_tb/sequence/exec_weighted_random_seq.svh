@@ -1,6 +1,17 @@
 class exec_weighted_random_seq extends exec_base_seq;
 
-`uvm_object_utils(exec_weighted_random_seq)
+`uvm_object_utils_begin(exec_weighted_random_seq)
+    `uvm_field_int(pc_write_0_weight, UVM_DEFAULT)
+    `uvm_field_int(jalr_0_weight, UVM_DEFAULT)
+`uvm_object_utils_end
+
+rand int jalr_0_weight;
+rand int pc_write_0_weight;
+
+constraint weight_alignment{
+    jalr_0_weight inside {[0:10]};
+    pc_write_0_weight inside {[0:10]};
+}
 
 function new(string name = "exec_weighted_random_seq");
     super.new(name);
