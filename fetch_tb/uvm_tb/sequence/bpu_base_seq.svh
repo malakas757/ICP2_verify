@@ -1,9 +1,7 @@
 class bpu_base_seq extends uvm_sequence #(bpu_seq_item);
     rand int nitem;
-    rand int pred;
 
 `uvm_object_utils_begin(bpu_base_seq)
-    `uvm_field_int(pred, UVM_DEFAULT)
     `uvm_field_int(nitem, UVM_DEFAULT)
 
 `uvm_object_utils_end

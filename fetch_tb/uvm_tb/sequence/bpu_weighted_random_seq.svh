@@ -22,7 +22,7 @@ virtual task send_item();
             1:= 10 - pred_0_weight
         };
     })
-    `uvm_info(get_type_name(), req.sprint(), UVM_HIGH)
+    `uvm_info(get_type_name(), req.sprint(), UVM_LOW)
 endtask
 
 endclass
