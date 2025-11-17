@@ -8,6 +8,7 @@ package fetch_env_pkg;
 	import if_id_agent_pkg::*;
 	
 	`include "fetch_env_config.svh"
+	`include "refmod.svh"
 	`include "fetch_env.svh"
 
 

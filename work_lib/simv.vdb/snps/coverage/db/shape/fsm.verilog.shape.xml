@@ -2,5 +2,25 @@
 <!DOCTYPE cov SYSTEM "ucdb_fsm.dtd">
   <fsm count="0"  noconst="0"  >
     <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="O-2018.09-SP2"  />
-          <metric_sig chksum="65346B85311F2B356F944DB142EE5F5060E09C14"  />
+      <fsmdef file="164"  name="fetch_stage"  lib=""  chksum="300395582"  >
+        <fsmshape >
+          <fsmfsm name="state"  id="0"  width="32"  line="75"  chksum="300395582"  >
+            <state name="DIRECT"  value="1"  id="0"  flag="L"  line="126"  />
+            <state name="IDLE"  value="0"  id="1"  flag="L"  line="75"  />
+            <state name="USE_BUFFER"  value="2"  id="2"  flag="L"  line="124"  />
+
+            <transition fromid="0"  toid="1"  flag="L"  line="75"  />
+            <transition fromid="0"  toid="2"  flag="L"  line="137"  />
+            
+            <transition fromid="1"  toid="0"  flag="L"  line="126"  />
+            <transition fromid="1"  toid="2"  flag="L"  line="124"  />
+            
+            <transition fromid="2"  toid="0"  flag="L"  line="153"  />
+            <transition fromid="2"  toid="1"  flag="L"  line="75"  />
+            
+          </fsmfsm>
+        </fsmshape>
+        <fsminst name="top_tb.DUT.inst_fetch_stage"  />
+      </fsmdef>
+          <metric_sig chksum="87ED7086884864C605B4491FF437B68F8B4670A4"  />
     </fsm>

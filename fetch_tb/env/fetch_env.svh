@@ -5,6 +5,7 @@ class fetch_env extends uvm_component;
 bpu_agent m_bpu_agent;
 exec_agent m_exec_agent;
 if_id_agent m_if_id_agent;
+if_ref      refmod;
 virtual bpu_if BPU;
 virtual exec_if EXEC;
 virtual if_id_if IFID;
@@ -23,7 +24,8 @@ function void build_phase(uvm_phase phase);
     m_bpu_agent = bpu_agent::type_id::create("m_bpu_agent", this);
     m_exec_agent = exec_agent::type_id::create("m_exec_agent", this);
     m_if_id_agent = if_id_agent::type_id::create("m_if_id_agent", this);
-
+    refmod = if_ref::type_id::create("refmod", this);
+    uvm_config_db #(fetch_env_config)::set(this, "ref_mod", "fetch_env_config", m_cfg);
     uvm_config_db #(bpu_agent_config)::set(this, "m_bpu_agent*", "bpu_agent_config", m_cfg.m_bpu_agent_cfg);
     uvm_config_db #(exec_agent_config)::set(this, "m_exec_agent*", "exec_agent_config", m_cfg.m_exec_agent_cfg);
     uvm_config_db #(if_id_agent_config)::set(this, "m_if_id_agent*", "if_id_agent_config", m_cfg.m_if_id_agent_cfg);

@@ -1,6 +1,6 @@
 // Synopsys, Inc.
 // User: sjp
-// Date: Tue Oct 21 20:05:52 2025
+// Date: Mon Nov 17 10:24:17 2025
 
 // ==================================================================================================
 // This config file prototype is produced from the last run using the complete list of extracted fsms.
@@ -74,3 +74,13 @@
 //SEQ_NUMBER_MAX=10000
 //SEQ_LENGTH_MAX=32
 
+MODULE=fetch_stage
+CURRENT=state
+NEXT=state_next
+STATES=DIRECT,IDLE,USE_BUFFER
+TRANSITIONS=DIRECT->IDLE,
+DIRECT->USE_BUFFER,
+IDLE->DIRECT,
+IDLE->USE_BUFFER,
+USE_BUFFER->DIRECT,
+USE_BUFFER->IDLE

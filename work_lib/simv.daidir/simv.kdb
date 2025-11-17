@@ -1,19 +1,19 @@
 rc file Version 1.0
 
 [Design]
-COMPILE_PATH=/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core
+COMPILE_PATH=/home/sjp/Desktop/ICP2_verify/ICP2_verify
 SystemC=FALSE
 UUM=FALSE
 KDB=TRUE
 USE_NOVAS_HOME=FALSE
 COSIM=FALSE
-TOP=uvm_custom_install_recording uvm_custom_install_verdi_recording mem_load_bin_tb 
+TOP=uvm_custom_install_recording uvm_custom_install_verdi_recording top_tb 
 OPTION=-ssv -ssy 
 ELAB_OPTION=-ssv -ssy 
 ELAB=TRUE
 SIMV_WRAPPER=FALSE
 [vcs]
-RUN_ELABCOM=unset TURBO_LOG_DIR ;\rm -rf /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/elabcomLog ;/usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/bin/elabcom -logdir /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/elabcomLog  -simvdaidir /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir  -lib /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/work  -saveLevel  -elab /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/kdb -simflow -simdir /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/kdb_libs -top 'uvm_custom_install_recording uvm_custom_install_verdi_recording mem_load_bin_tb' -ssv -ssy  -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389  >& /dev/null  && echo Success >& /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/.elabcomReport || echo Fail >& /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/.elabcomReport; \rm -rf /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/work.lib++ /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/work_lib/simv.daidir/kdb_libs/ 
+RUN_ELABCOM=unset TURBO_LOG_DIR ;\rm -rf /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/elabcomLog ;/usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/bin/elabcom -logdir /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/elabcomLog  -simvdaidir /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir  -lib /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/work  -saveLevel  -elab /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/kdb -simflow -simdir /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/kdb_libs -top 'uvm_custom_install_recording uvm_custom_install_verdi_recording top_tb' -ssv -ssy  -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389  >& /dev/null  && echo Success >& /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/.elabcomReport || echo Fail >& /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/.elabcomReport; \rm -rf /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/work.lib++ /home/sjp/Desktop/ICP2_verify/ICP2_verify/work_lib/simv.daidir/kdb_libs/ 
 
 [Value]
 WREALX=ffff534e50535f58

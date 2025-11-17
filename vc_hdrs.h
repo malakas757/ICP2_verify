@@ -191,42 +191,6 @@ struct	_vcs_dpi_rsrc_msg_struct	{
  extern unsigned int fsdbTransDPI_get_enum_id(/* OUTPUT */int *state, /* INPUT */const char* enum_var_name);
 
  extern SV_STRING fsdbTransDPI_get_class_str(/* OUTPUT */int *state, /* INPUT */const char* class_var_name, /* INPUT */const char* options);
-
- extern void* spike_cosim_init(/* INPUT */const char* isa_string, const /* INPUT */svBitVecVal *start_pc, const /* INPUT */svBitVecVal *start_mtvec, /* INPUT */const char* log_file_path, const /* INPUT */svBitVecVal *pmp_num_regions, const /* INPUT */svBitVecVal *pmp_granularity, const /* INPUT */svBitVecVal *mhpm_counter_num, /* INPUT */unsigned char secure_ibex, /* INPUT */unsigned char icache, const /* INPUT */svBitVecVal *dm_start_addr, 
-const /* INPUT */svBitVecVal *dm_end_addr);
-
- extern void spike_cosim_release(/* INPUT */void* cosim_handle);
-
- extern int riscv_cosim_step(/* INPUT */void* cosim_handle, const /* INPUT */svBitVecVal *write_reg, const /* INPUT */svBitVecVal *write_reg_data, const /* INPUT */svBitVecVal *pc, /* INPUT */unsigned char sync_trap, /* INPUT */unsigned char suppress_reg_write);
-
- extern void riscv_cosim_set_mip(/* INPUT */void* cosim_handle, const /* INPUT */svBitVecVal *pre_mip, const /* INPUT */svBitVecVal *post_mip);
-
- extern void riscv_cosim_set_nmi(/* INPUT */void* cosim_handle, /* INPUT */unsigned char nmi);
-
- extern void riscv_cosim_set_nmi_int(/* INPUT */void* cosim_handle, /* INPUT */unsigned char nmi_int);
-
- extern void riscv_cosim_set_debug_req(/* INPUT */void* cosim_handle, /* INPUT */unsigned char debug_req);
-
- extern void riscv_cosim_set_mcycle(/* INPUT */void* cosim_handle, const /* INPUT */svBitVecVal *mcycle);
-
- extern void riscv_cosim_set_csr(/* INPUT */void* cosim_handle, /* INPUT */int csr_id, const /* INPUT */svBitVecVal *csr_val);
-
- extern void riscv_cosim_set_ic_scr_key_valid(/* INPUT */void* cosim_handle, /* INPUT */unsigned char valid);
-
- extern void riscv_cosim_notify_dside_access(/* INPUT */void* cosim_handle, /* INPUT */unsigned char store, const /* INPUT */svBitVecVal *addr, const /* INPUT */svBitVecVal *data, const /* INPUT */svBitVecVal *be, /* INPUT */unsigned char error, /* INPUT */unsigned char misaligned_first, /* INPUT */unsigned char misaligned_second, /* INPUT */unsigned char misaligned_first_saw_error, /* INPUT */unsigned char m_mode_access
-);
-
- extern int riscv_cosim_set_iside_error(/* INPUT */void* cosim_handle, const /* INPUT */svBitVecVal *addr);
-
- extern int riscv_cosim_get_num_errors(/* INPUT */void* cosim_handle);
-
- extern SV_STRING riscv_cosim_get_error(/* INPUT */void* cosim_handle, /* INPUT */int index);
-
- extern void riscv_cosim_clear_errors(/* INPUT */void* cosim_handle);
-
- extern void riscv_cosim_write_mem_byte(/* INPUT */void* cosim_handle, const /* INPUT */svBitVecVal *addr, const /* INPUT */svBitVecVal *d);
-
- extern unsigned int riscv_cosim_get_insn_cnt(/* INPUT */void* cosim_handle);
 void SdisableFork();
 
 #ifdef __cplusplus

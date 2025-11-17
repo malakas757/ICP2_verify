@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
-  <srcinfo name="/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core"  >
+  <srcinfo name="/home/sjp/Desktop/ICP2_verify/ICP2_verify"  >
     <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="O-2018.09-SP2"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv"  id="0"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh"  id="1"  />
@@ -164,12 +164,49 @@
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv"  id="159"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/verdi_trans_recorder_dpi.svh"  id="160"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh"  id="161"  />
-      <fileinfo name="./agent/cosim_agent/cosim_agent_pkg.sv"  id="162"  />
-      <fileinfo name="./agent/cosim_agent/spike_cosim_dpi.svh"  id="163"  />
-      <fileinfo name="../../cosim/cosim_dpi.svh"  id="164"  />
-      <fileinfo name="./vendor/lowrisc_ip/dv/sv/mem_model/mem_model_pkg.sv"  id="165"  />
-      <fileinfo name="./vendor/lowrisc_ip/dv/sv/dv_utils/dv_macros.svh"  id="166"  />
-      <fileinfo name="./vendor/lowrisc_ip/dv/sv/mem_model/mem_model.svh"  id="167"  />
-      <fileinfo name="./tb/mem_test.sv"  id="168"  />
-      <fileinfo name=""  id="169"  />
+      <fileinfo name="./fetch_tb/rtl/common.sv"  id="162"  />
+      <fileinfo name="./fetch_tb/rtl/instr_decompressor.sv"  id="163"  />
+      <fileinfo name="./fetch_tb/rtl/fetch_stage.sv"  id="164"  />
+      <fileinfo name="./fetch_tb/rtl/program_memory.sv"  id="165"  />
+      <fileinfo name="./fetch_tb/rtl/ifu.sv"  id="166"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_if.sv"  id="167"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_agent_pkg.sv"  id="168"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_seq_item.svh"  id="169"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_agent_config.svh"  id="170"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_driver.svh"  id="171"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_monitor.svh"  id="172"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_agent.svh"  id="173"  />
+      <fileinfo name="./fetch_tb/agents/bpu_agent/bpu_seq.svh"  id="174"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_if.sv"  id="175"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_agent_pkg.sv"  id="176"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_seq_item.svh"  id="177"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_agent_config.svh"  id="178"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_driver.svh"  id="179"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_monitor.svh"  id="180"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_agent.svh"  id="181"  />
+      <fileinfo name="./fetch_tb/agents/exec_agent/exec_seq.svh"  id="182"  />
+      <fileinfo name="./fetch_tb/agents/if_id_agent/if_id_if.sv"  id="183"  />
+      <fileinfo name="./fetch_tb/agents/if_id_agent/if_id_agent_pkg.sv"  id="184"  />
+      <fileinfo name="./fetch_tb/agents/if_id_agent/if_id_seq_item.svh"  id="185"  />
+      <fileinfo name="./fetch_tb/agents/if_id_agent/if_id_agent_config.svh"  id="186"  />
+      <fileinfo name="./fetch_tb/agents/if_id_agent/if_id_monitor.svh"  id="187"  />
+      <fileinfo name="./fetch_tb/agents/if_id_agent/if_id_agent.svh"  id="188"  />
+      <fileinfo name="./fetch_tb/env/fetch_env_pkg.sv"  id="189"  />
+      <fileinfo name="./fetch_tb/env/fetch_env_config.svh"  id="190"  />
+      <fileinfo name="./fetch_tb/env/refmod.svh"  id="191"  />
+      <fileinfo name="./fetch_tb/env/fetch_env.svh"  id="192"  />
+      <fileinfo name="./fetch_tb/uvm_tb/sequence/seq_pkg.sv"  id="193"  />
+      <fileinfo name="./fetch_tb/uvm_tb/sequence/exec_base_seq.svh"  id="194"  />
+      <fileinfo name="./fetch_tb/uvm_tb/sequence/bpu_base_seq.svh"  id="195"  />
+      <fileinfo name="./fetch_tb/uvm_tb/sequence/bpu_weighted_random_seq.svh"  id="196"  />
+      <fileinfo name="./fetch_tb/uvm_tb/sequence/exec_weighted_random_seq.svh"  id="197"  />
+      <fileinfo name="./fetch_tb/uvm_tb/sequence/exec_pc_jalr_conflict_seq.svh"  id="198"  />
+      <fileinfo name="./fetch_tb/uvm_tb/virtual_sequence/fetch_vseq_pkg.sv"  id="199"  />
+      <fileinfo name="./fetch_tb/uvm_tb/virtual_sequence/fetch_vseq_base.svh"  id="200"  />
+      <fileinfo name="./fetch_tb/uvm_tb/virtual_sequence/fetch_random_vseq.svh"  id="201"  />
+      <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_test_pkg.sv"  id="202"  />
+      <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_test_base.svh"  id="203"  />
+      <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_random_test.svh"  id="204"  />
+      <fileinfo name="./fetch_tb/uvm_tb/top_tb.sv"  id="205"  />
+      <fileinfo name=""  id="206"  />
     </srcinfo>
