@@ -7,8 +7,8 @@ exec_agent_config m_exec_agent_cfg;
 if_id_agent_config m_if_id_agent_cfg;
 
 //ref mod
-	string     BIN_PATH;  // MEM BIN file
-	bit[31:0]  BASE_ADDR  = 32'h8000_0000;
+	string     BIN_PATH = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/test.bin";  // MEM BIN file
+	bit[31:0]  BASE_ADDR  = 32'h0000_0000;
 	int        MEM_DEPTH = 1024;
 
 function new(string name = "fetch_env_config");

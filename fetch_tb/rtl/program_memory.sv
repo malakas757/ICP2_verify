@@ -9,15 +9,31 @@ module program_memory (
     // output logic [31:0] curr_read_data,
     // output logic [31:0] next_read_data
 );
-
-    logic [31:0] ram [0:255];
-    logic [7:0] word_address;
+    parameter int BASE_ADDR = 0;
+    parameter string BASE_PATH = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/test.bin";
+    logic [7:0] ram [2048];
+    logic [9:0] half_word_address;
     
     initial begin
-        $readmemb("./fetch_tb/rtl/instruction_mem.mem", ram);
+	load_binary_to_dut_mem(BASE_ADDR,BASE_PATH);
     end    
-    assign word_address = byte_address[9:2];
-    assign read_data = ram[word_address];
+    assign half_word_address = byte_address[10:1];
+    assign read_data = {ram[half_word_address+1],ram[half_word_address]};
+    
+function void load_binary_to_dut_mem(int base_addr, string bin);
+   bit [7:0]  r8;
+   int unsigned addr = base_addr; // use int cause dynamic array need int to index
+   int 		bin_fd;
+   bin_fd = $fopen(bin,"rb");
+   if (!bin_fd)
+     $display("Error !!! can not open bin file");
+   while ($fread(r8, bin_fd)) begin
+      $display("load one byte Init mem [0x%h] = 0x%0h", addr, r8);
+      ram[addr] = r8;
+      addr++;
+   end
+endfunction // load_binary_to_dut_mem
+
     
     // initial begin
         // $readmemb("instruction_mem.mem", ram);  the reading process is not functional

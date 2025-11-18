@@ -1,64 +1,79 @@
 *design* DebussyLib (btIdent Verdi_O-2018.09-SP2)
 Command arguments:
     +define+verilog
-    /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv
+    /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv
     -sv
 
 
-*Error* `include file "uvm_macros.svh" cannot be read
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 5: 
-
 *Error* failed to find the package 'uvm_pkg'.
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 6: 
-
-*Error* failed to find the package 'mem_model_pkg'.
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 7: 
-
-*Error* failed to find the package 'uvm_pkg'.
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 14: 
-
-*Error* Syntax error at ;
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 24: 
-
-*Error* macro `uvm_info not defined
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 31: 
-
-*Error* Syntax error at )
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 31: 
-
-*Error* macro `uvm_fatal not defined
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 45: 
-
-*Error* macro `uvm_info not defined
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 47: 
-
-*Error* Syntax error at )
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 47: 
-
-*Error* macro `uvm_info not defined
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 61: 
-
-*Error* Syntax error at ,
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 61: 
-
-*Error* Syntax error at $finish
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 64: 
-
-*Error* Syntax error at end
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 65: 
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 3: 
 Highest level modules:
-mem_load_bin_tb
+top_tb
 
 
-*Error* failed to find identifier UVM_NONE
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 47: 
+*Error* failed to find identifier EXEC.redirect_target
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 15: 
 
-*Error* failed to find identifier mem.write
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 48: 
+*Error* failed to find identifier EXEC.redirect_flag
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 16: 
 
-*Error* failed to find identifier mem
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 55: 
+*Error* failed to find identifier IFID.run_flag
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 17: 
 
-*Error* failed to find identifier mem.new
-"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 55: 
-Total	18 error(s),   0 warning(s)
+*Error* failed to find identifier BPU.pred
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 18: 
+
+*Error* failed to find identifier EXEC.pc_src
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 19: 
+
+*Error* failed to find identifier EXEC.pc_write
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 20: 
+
+*Error* failed to find identifier IFID.pc_out
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 21: 
+
+*Error* failed to find identifier IFID.instruction_out
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 22: 
+
+*Error* failed to find identifier IFID.address
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 23: 
+
+*Error* failed to find identifier IFID.if_id_flush
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 24: 
+
+*Error* failed to find identifier IFID.id_ex_flush
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 25: 
+
+*Error* failed to find identifier IFID.run_finished_next
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 26: 
+
+*Error* failed to find identifier IFID.decompress_failed
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 27: 
+
+*Error* failed to find identifier IFID.is_conditional_branch
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 28: 
+
+*Error* failed to find identifier uvm_config_db(bpu_if)::set
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 32: 
+
+*Error* failed to find identifier uvm_config_db(exec_if)::set
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 33: 
+
+*Error* failed to find identifier uvm_config_db(if_id_if)::set
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 34: 
+
+*Error* failed to find identifier run_test
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 35: 
+
+*Error* view bpu_if is not defined for instance BPU
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 8: 
+
+*Error* view exec_if is not defined for instance EXEC
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 9: 
+
+*Error* view if_id_if is not defined for instance IFID
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 10: 
+
+*Error* view ifu is not defined for instance DUT
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv", 12: 
+Total	23 error(s),   0 warning(s)

@@ -4,6 +4,7 @@
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_driver.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_if.sv
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_monitor.svh
+/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_predictor.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_seq.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_seq_item.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/exec_agent/exec_agent.svh
@@ -23,6 +24,7 @@
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/env/fetch_env.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/env/fetch_env_config.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/env/fetch_env_pkg.sv
+/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/env/if_scoreboard.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/env/refmod.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/common.sv
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/fetch_stage.sv
@@ -32,7 +34,7 @@
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/bpu_base_seq.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/bpu_weighted_random_seq.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/exec_base_seq.svh
-/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/exec_pc_jalr_conflict_seq.svh
+/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/exec_pc_redirect_conflict_seq.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/exec_weighted_random_seq.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/sequence/seq_pkg.sv
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/tests/fetch_random_test.svh

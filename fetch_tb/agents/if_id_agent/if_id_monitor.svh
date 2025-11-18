@@ -4,11 +4,14 @@ class if_id_monitor extends uvm_component;
 
 virtual if_id_if IFID;
 
+if_id_seq_item item;
+
 uvm_analysis_port #(if_id_seq_item) ap;
 
 extern function new(string name = "if_id_monitor", uvm_component parent = null);
 extern function void build_phase(uvm_phase phase);
 extern task run_phase(uvm_phase phase);
+extern task debug_info();
 //extern function void report_phase(uvm_phase phase);
 
 endclass
@@ -23,7 +26,7 @@ function void if_id_monitor::build_phase(uvm_phase phase);
 endfunction
 
 task if_id_monitor::run_phase(uvm_phase phase);
-    if_id_seq_item item;
+
     if_id_seq_item cloned_item;
 
     item = if_id_seq_item::type_id::create("item");
@@ -42,10 +45,18 @@ task if_id_monitor::run_phase(uvm_phase phase);
         item.run_finished_next = IFID.mon_cb.run_finished_next;
         item.is_conditional_branch = IFID.mon_cb.is_conditional_branch;
         $cast(cloned_item, item.clone());
+        debug_info();       
         ap.write(cloned_item);
     end
 
 endtask
 
+task if_id_monitor::debug_info();
+  `uvm_info("if_id_mon","send an instruction",UVM_LOW);
+  `uvm_info("if_id_mon",$sformatf("pc=%h",item.pc_out),UVM_LOW);
+  `uvm_info("if_id_mon",$sformatf("instruction=%h",item.instruction_out),UVM_LOW);
+  `uvm_info("if_id_mon",$sformatf("if_id_flush=%b",item.if_id_flush),UVM_LOW);
+  `uvm_info("if_id_mon",$sformatf("id_ex_flush=%b",item.id_ex_flush),UVM_LOW);
+endtask
 
 

@@ -1,33 +1,43 @@
 debImport "-full64"
 nsMsgSwitchTab -tab general
-debImport "/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv" "-sv" -path \
-          {/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core}
+debImport "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv" \
+          "-sv" -path {/home/sjp/Desktop/ICP2_verify/ICP2_verify}
+srcSignalView -on
 wvCreateWindow
 wvSetPosition -win $_nWave2 {("G1" 0)}
-wvOpenFile -win $_nWave2 {/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/test.fsdb}
-srcSignalView -on
-srcHBSelect "mem_load_bin_tb" -win $_nTrace1
-srcSetScope -win $_nTrace1 "mem_load_bin_tb" -delim "."
-srcHBSelect "mem_load_bin_tb" -win $_nTrace1
-srcSignalViewExpand "mem_load_bin_tb.BASE_ADDR\[31:0\]"
-srcSignalViewCollapse "mem_load_bin_tb.BASE_ADDR\[31:0\]"
-srcHBSelect "mem_load_bin_tb.load_binary_to_dut_mem" -win $_nTrace1
-srcSetScope -win $_nTrace1 "mem_load_bin_tb.load_binary_to_dut_mem" -delim "."
-srcHBSelect "mem_load_bin_tb.load_binary_to_dut_mem" -win $_nTrace1
-srcHBSelect "mem_load_bin_tb.sanity_peek" -win $_nTrace1
-srcSetScope -win $_nTrace1 "mem_load_bin_tb.sanity_peek" -delim "."
-srcHBSelect "mem_load_bin_tb.sanity_peek" -win $_nTrace1
-srcHBSelect "mem_load_bin_tb.load_binary_to_dut_mem" -win $_nTrace1
-srcSetScope -win $_nTrace1 "mem_load_bin_tb.load_binary_to_dut_mem" -delim "."
-srcHBSelect "mem_load_bin_tb.load_binary_to_dut_mem" -win $_nTrace1
-srcHBSelect "mem_load_bin_tb" -win $_nTrace1
-srcSetScope -win $_nTrace1 "mem_load_bin_tb" -delim "."
-srcHBSelect "mem_load_bin_tb" -win $_nTrace1
+wvOpenFile -win $_nWave2 {/home/sjp/Desktop/ICP2_verify/ICP2_verify/test.fsdb}
 wvGetSignalOpen -win $_nWave2
 wvGetSignalSetScope -win $_nWave2 "/_vcs_msglog"
-wvGetSignalSetScope -win $_nWave2 "/mem_load_bin_tb"
-wvGetSignalSetScope -win $_nWave2 "/mem_model_pkg"
-wvGetSignalSetScope -win $_nWave2 "/mem_model_pkg"
-wvGetSignalSetScope -win $_nWave2 "/uvm_custom_install_recording"
-wvGetSignalSetScope -win $_nWave2 "/uvm_custom_install_recording/unnamed\$\$_0"
-wvGetSignalSetScope -win $_nWave2 "/uvm_custom_install_verdi_recording"
+wvGetSignalSetScope -win $_nWave2 "/top_tb/DUT/inst_mem"
+wvSetPosition -win $_nWave2 {("G1" 6)}
+wvSetPosition -win $_nWave2 {("G1" 6)}
+wvAddSignal -win $_nWave2 -clear
+wvAddSignal -win $_nWave2 -group {"G1" \
+{/top_tb/DUT/inst_mem/byte_address\[31:0\]} \
+{/top_tb/DUT/inst_mem/clk} \
+{/top_tb/DUT/inst_mem/half_word_address\[9:0\]} \
+{/top_tb/DUT/inst_mem/read_data\[31:0\]} \
+{/top_tb/DUT/inst_mem/write_data\[31:0\]} \
+{/top_tb/DUT/inst_mem/write_enable} \
+}
+wvAddSignal -win $_nWave2 -group {"G2" \
+}
+wvSelectSignal -win $_nWave2 {( "G1" 1 2 3 4 5 6 )} 
+wvSetPosition -win $_nWave2 {("G1" 6)}
+wvGetSignalClose -win $_nWave2
+wvZoomOut -win $_nWave2
+wvZoomOut -win $_nWave2
+wvSelectSignal -win $_nWave2 {( "G1" 4 )} 
+wvSelectSignal -win $_nWave2 {( "G1" 3 )} 
+wvDisplayGridCount -win $_nWave2 -off
+wvGetSignalClose -win $_nWave2
+wvReloadFile -win $_nWave2
+wvGoToTime -win $_nWave2 16300
+wvGoToTime -win $_nWave2 163000
+wvScrollUp -win $_nWave2 1
+wvGoToTime -win $_nWave2 238000
+wvGoToTime -win $_nWave2 263000
+wvGetSignalOpen -win $_nWave2
+wvGetSignalSetScope -win $_nWave2 "/top_tb/DUT"
+wvGetSignalSetScope -win $_nWave2 "/top_tb"
+wvGetSignalSetScope -win $_nWave2 "/fetch_env_pkg"

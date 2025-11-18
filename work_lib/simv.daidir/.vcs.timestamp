@@ -1,4 +1,4 @@
-817      
+832      
 0 uvm_macros.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/uvm_macros.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_macros.svh
@@ -612,6 +612,34 @@
 0 uvm_verdi_pli.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/uvm_verdi_pli.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_pli.svh
+0 if_id_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_seq_item.svh
+0 ./fetch_tb/agents/bpu_agent/if_id_seq_item.svh
+0 ./fetch_tb/agents/exec_agent/if_id_seq_item.svh
+0 if_id_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_agent_config.svh
+0 ./fetch_tb/agents/bpu_agent/if_id_agent_config.svh
+0 ./fetch_tb/agents/exec_agent/if_id_agent_config.svh
+0 if_id_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_monitor.svh
+0 ./fetch_tb/agents/bpu_agent/if_id_monitor.svh
+0 ./fetch_tb/agents/exec_agent/if_id_monitor.svh
+0 if_id_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_agent.svh
+0 ./fetch_tb/agents/bpu_agent/if_id_agent.svh
+0 ./fetch_tb/agents/exec_agent/if_id_agent.svh
 0 bpu_seq_item.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/bpu_seq_item.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/bpu_seq_item.svh
@@ -632,6 +660,11 @@
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/bpu_monitor.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/bpu_monitor.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/bpu_monitor.svh
+0 bpu_predictor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/bpu_predictor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/bpu_predictor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/bpu_predictor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/bpu_predictor.svh
 0 bpu_agent.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/bpu_agent.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/bpu_agent.svh
@@ -678,34 +711,6 @@
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/exec_seq.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/exec_seq.svh
 0 ./fetch_tb/agents/bpu_agent/exec_seq.svh
-0 if_id_seq_item.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_seq_item.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_seq_item.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_seq_item.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_seq_item.svh
-0 ./fetch_tb/agents/bpu_agent/if_id_seq_item.svh
-0 ./fetch_tb/agents/exec_agent/if_id_seq_item.svh
-0 if_id_agent_config.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_agent_config.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_agent_config.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_agent_config.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_agent_config.svh
-0 ./fetch_tb/agents/bpu_agent/if_id_agent_config.svh
-0 ./fetch_tb/agents/exec_agent/if_id_agent_config.svh
-0 if_id_monitor.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_monitor.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_monitor.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_monitor.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_monitor.svh
-0 ./fetch_tb/agents/bpu_agent/if_id_monitor.svh
-0 ./fetch_tb/agents/exec_agent/if_id_monitor.svh
-0 if_id_agent.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_id_agent.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_id_agent.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_id_agent.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_id_agent.svh
-0 ./fetch_tb/agents/bpu_agent/if_id_agent.svh
-0 ./fetch_tb/agents/exec_agent/if_id_agent.svh
 0 fetch_env_config.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/fetch_env_config.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/fetch_env_config.svh
@@ -726,6 +731,16 @@
 0 ./fetch_tb/agents/if_id_agent/refmod.svh
 0 ./fetch_tb/uvm_tb/sequence/refmod.svh
 0 ./fetch_tb/uvm_tb/virtual_sequence/refmod.svh
+0 if_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/if_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/if_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/if_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/if_scoreboard.svh
+0 ./fetch_tb/agents/bpu_agent/if_scoreboard.svh
+0 ./fetch_tb/agents/exec_agent/if_scoreboard.svh
+0 ./fetch_tb/agents/if_id_agent/if_scoreboard.svh
+0 ./fetch_tb/uvm_tb/sequence/if_scoreboard.svh
+0 ./fetch_tb/uvm_tb/virtual_sequence/if_scoreboard.svh
 0 fetch_env.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/fetch_env.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/fetch_env.svh
@@ -768,14 +783,14 @@
 0 ./fetch_tb/agents/bpu_agent/exec_weighted_random_seq.svh
 0 ./fetch_tb/agents/exec_agent/exec_weighted_random_seq.svh
 0 ./fetch_tb/agents/if_id_agent/exec_weighted_random_seq.svh
-0 exec_pc_jalr_conflict_seq.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/exec_pc_jalr_conflict_seq.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/exec_pc_jalr_conflict_seq.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/exec_pc_jalr_conflict_seq.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/exec_pc_jalr_conflict_seq.svh
-0 ./fetch_tb/agents/bpu_agent/exec_pc_jalr_conflict_seq.svh
-0 ./fetch_tb/agents/exec_agent/exec_pc_jalr_conflict_seq.svh
-0 ./fetch_tb/agents/if_id_agent/exec_pc_jalr_conflict_seq.svh
+0 exec_pc_redirect_conflict_seq.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/exec_pc_redirect_conflict_seq.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/exec_pc_redirect_conflict_seq.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/exec_pc_redirect_conflict_seq.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/exec_pc_redirect_conflict_seq.svh
+0 ./fetch_tb/agents/bpu_agent/exec_pc_redirect_conflict_seq.svh
+0 ./fetch_tb/agents/exec_agent/exec_pc_redirect_conflict_seq.svh
+0 ./fetch_tb/agents/if_id_agent/exec_pc_redirect_conflict_seq.svh
 0 fetch_vseq_base.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/fetch_vseq_base.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/fetch_vseq_base.svh
@@ -931,8 +946,8 @@ NOOP_HOME=/home/sjp/Desktop/difftest_xiangshan/chisel-template
 NEMU_HOME=/home/sjp/Desktop/difftest_xiangshan/NEMU
 MFLAGS=
 MANAGERPID=1153
-MAKE_TERMOUT=/dev/pts/3
-MAKE_TERMERR=/dev/pts/3
+MAKE_TERMOUT=/dev/pts/9
+MAKE_TERMERR=/dev/pts/9
 MAKELEVEL=1
 MAKEFLAGS=
 LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
@@ -955,7 +970,7 @@ GTK_MODULES=gail:atk-bridge
 GTK_IM_MODULE=fcitx
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 GNOME_TERMINAL_SERVICE=:1.97
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/25c93e07_be85_4ce7_a258_6ea54c5685db
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/23c11e56_0366_4987_8d2a_cc69ec5695b0
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GDMSESSION=ubuntu
@@ -973,35 +988,37 @@ CPATH=/usr/include/x86_64-linux-gnu
 COLORTERM=truecolor
 CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 0
-214
+216
 1763369759 ./fetch_tb/uvm_tb/tests/fetch_random_test.svh
 1763369759 ./fetch_tb/uvm_tb/tests/fetch_test_base.svh
-1763369759 ./fetch_tb/uvm_tb/virtual_sequence/fetch_random_vseq.svh
-1763369759 ./fetch_tb/uvm_tb/virtual_sequence/fetch_vseq_base.svh
-1763369759 ./fetch_tb/uvm_tb/sequence/exec_pc_jalr_conflict_seq.svh
-1763369759 ./fetch_tb/uvm_tb/sequence/exec_weighted_random_seq.svh
+1763490920 ./fetch_tb/uvm_tb/virtual_sequence/fetch_random_vseq.svh
+1763490920 ./fetch_tb/uvm_tb/virtual_sequence/fetch_vseq_base.svh
+1763490920 ./fetch_tb/uvm_tb/sequence/exec_pc_redirect_conflict_seq.svh
+1763490920 ./fetch_tb/uvm_tb/sequence/exec_weighted_random_seq.svh
 1763369759 ./fetch_tb/uvm_tb/sequence/bpu_weighted_random_seq.svh
 1763369759 ./fetch_tb/uvm_tb/sequence/bpu_base_seq.svh
 1763369759 ./fetch_tb/uvm_tb/sequence/exec_base_seq.svh
-1763370926 ./fetch_tb/env/fetch_env.svh
-1763371443 ./fetch_tb/env/refmod.svh
-1763371157 ./fetch_tb/env/fetch_env_config.svh
-1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent.svh
-1763308347 ./fetch_tb/agents/if_id_agent/if_id_monitor.svh
-1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent_config.svh
-1763308347 ./fetch_tb/agents/if_id_agent/if_id_seq_item.svh
+1763497495 ./fetch_tb/env/fetch_env.svh
+1763490920 ./fetch_tb/env/if_scoreboard.svh
+1763505520 ./fetch_tb/env/refmod.svh
+1763499263 ./fetch_tb/env/fetch_env_config.svh
 1763308347 ./fetch_tb/agents/exec_agent/exec_seq.svh
 1763369759 ./fetch_tb/agents/exec_agent/exec_agent.svh
-1763369759 ./fetch_tb/agents/exec_agent/exec_monitor.svh
-1763369759 ./fetch_tb/agents/exec_agent/exec_driver.svh
+1763490920 ./fetch_tb/agents/exec_agent/exec_monitor.svh
+1763490920 ./fetch_tb/agents/exec_agent/exec_driver.svh
 1763308347 ./fetch_tb/agents/exec_agent/exec_agent_config.svh
-1763369759 ./fetch_tb/agents/exec_agent/exec_seq_item.svh
+1763490920 ./fetch_tb/agents/exec_agent/exec_seq_item.svh
 1763308347 ./fetch_tb/agents/bpu_agent/bpu_seq.svh
-1763308347 ./fetch_tb/agents/bpu_agent/bpu_agent.svh
-1763308347 ./fetch_tb/agents/bpu_agent/bpu_monitor.svh
-1763308347 ./fetch_tb/agents/bpu_agent/bpu_driver.svh
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_agent.svh
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_predictor.svh
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_monitor.svh
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_driver.svh
 1763308347 ./fetch_tb/agents/bpu_agent/bpu_agent_config.svh
-1763369759 ./fetch_tb/agents/bpu_agent/bpu_seq_item.svh
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_seq_item.svh
+1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent.svh
+1763500375 ./fetch_tb/agents/if_id_agent/if_id_monitor.svh
+1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent_config.svh
+1763308347 ./fetch_tb/agents/if_id_agent/if_id_seq_item.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/verdi_trans_recorder_dpi.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv
@@ -1161,22 +1178,22 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_global_defines.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_version_defines.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh
-1763369759 ./fetch_tb/uvm_tb/top_tb.sv
+1763490920 ./fetch_tb/uvm_tb/top_tb.sv
 1763369759 ./fetch_tb/uvm_tb/tests/fetch_test_pkg.sv
 1763369759 ./fetch_tb/uvm_tb/virtual_sequence/fetch_vseq_pkg.sv
-1763369759 ./fetch_tb/uvm_tb/sequence/seq_pkg.sv
-1763370713 ./fetch_tb/env/fetch_env_pkg.sv
+1763490920 ./fetch_tb/uvm_tb/sequence/seq_pkg.sv
+1763490920 ./fetch_tb/env/fetch_env_pkg.sv
+1763308347 ./fetch_tb/agents/exec_agent/exec_agent_pkg.sv
+1763490920 ./fetch_tb/agents/exec_agent/exec_if.sv
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_agent_pkg.sv
+1763490920 ./fetch_tb/agents/bpu_agent/bpu_if.sv
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent_pkg.sv
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_if.sv
-1763308347 ./fetch_tb/agents/exec_agent/exec_agent_pkg.sv
-1763369759 ./fetch_tb/agents/exec_agent/exec_if.sv
-1763308347 ./fetch_tb/agents/bpu_agent/bpu_agent_pkg.sv
-1763308347 ./fetch_tb/agents/bpu_agent/bpu_if.sv
 1763369759 ./fetch_tb/rtl/ifu.sv
-1763369759 ./fetch_tb/rtl/program_memory.sv
+1763502299 ./fetch_tb/rtl/program_memory.sv
 1763369759 ./fetch_tb/rtl/fetch_stage.sv
 1763369759 ./fetch_tb/rtl/instr_decompressor.sv
-1763369759 ./fetch_tb/rtl/common.sv
+1763490920 ./fetch_tb/rtl/common.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv
@@ -1184,7 +1201,7 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551421444 /usr/software/vcs2018/vcs/O-2018.09-SP2/include/cm_vcsd.tab
 1763369759 fileset/top_tb.f
 1763369759 fileset/uvm_tb.f
-1763369759 fileset/agent.f
+1763490920 fileset/agent.f
 1763369759 fileset/design.f
 1550753332 /usr/software/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
 1551421246 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
@@ -1195,5 +1212,5 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551421792 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1763371463 work_lib/simv.daidir
+1763505570 work_lib/simv.daidir
 -1 partitionlib

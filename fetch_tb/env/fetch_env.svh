@@ -6,6 +6,7 @@ bpu_agent m_bpu_agent;
 exec_agent m_exec_agent;
 if_id_agent m_if_id_agent;
 if_ref      refmod;
+if_scoreboard  if_sb;
 virtual bpu_if BPU;
 virtual exec_if EXEC;
 virtual if_id_if IFID;
@@ -25,6 +26,7 @@ function void build_phase(uvm_phase phase);
     m_exec_agent = exec_agent::type_id::create("m_exec_agent", this);
     m_if_id_agent = if_id_agent::type_id::create("m_if_id_agent", this);
     refmod = if_ref::type_id::create("refmod", this);
+    if_sb = if_scoreboard::type_id::create("if_sb", this);
     uvm_config_db #(fetch_env_config)::set(this, "ref_mod", "fetch_env_config", m_cfg);
     uvm_config_db #(bpu_agent_config)::set(this, "m_bpu_agent*", "bpu_agent_config", m_cfg.m_bpu_agent_cfg);
     uvm_config_db #(exec_agent_config)::set(this, "m_exec_agent*", "exec_agent_config", m_cfg.m_exec_agent_cfg);
@@ -34,8 +36,13 @@ endfunction
 
 function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-    m_if_id_agent.monitor.ap.connect(m_bpu_agent.predictor.analysis_export);
-
+    m_if_id_agent.ap.connect(m_bpu_agent.predictor.analysis_export);
+    m_exec_agent.ap.connect(refmod.exec_fifo.analysis_export);
+    m_bpu_agent.ap.connect(refmod.bpu_fifo.analysis_export);
+    refmod.ap.connect(if_sb.ref_fifo.analysis_export);
+    m_if_id_agent.ap.connect(if_sb.dut_fifo.analysis_export);
+    refmod.vif = m_if_id_agent.cfg.IFID;
+   
 endfunction
 
 endclass
