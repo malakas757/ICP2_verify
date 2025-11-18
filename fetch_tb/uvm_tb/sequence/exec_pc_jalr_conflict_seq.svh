@@ -12,7 +12,7 @@ class exec_pc_jalr_conflict_seq extends exec_base_seq;
             jalr_flag == 1'b1;
             jalr_target_offset inside {[0:offset_boundary]};
         })
-        `uvm_info(get_type_name(), req.sprint(), UVM_LOW)
+        `uvm_info(get_type_name(), req.sprint(), UVM_HIGH)
     endtask
 
 endclass

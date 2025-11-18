@@ -6,7 +6,7 @@ function new(string name = "if_scoreboard", uvm_component parent = null);
 	super.new(name, parent);
 endfunction
 
-uvm_tlm_analysis_fifo #(if_id_sequence_item) dut_fifo;
+uvm_tlm_analysis_fifo #(if_id_seq_item) dut_fifo;
 uvm_tlm_analysis_fifo #(if_id_seq_item) ref_fifo;
 
 
@@ -31,9 +31,9 @@ task run_phase(uvm_phase phase);
     join
 endtask
 
-if_id_sequence_item dut_q[$];
+if_id_seq_item dut_q[$];
 task monitor_dut();
-    if_id_sequence_item dut_item;
+    if_id_seq_item dut_item;
     forever begin
         dut_fifo.get(dut_item);
         dut_q.push_back(dut_item);
@@ -53,7 +53,7 @@ endtask
 
 task compare_if_ready();
     if (dut_q.size() > 0 && ref_q.size() > 0) begin
-        if_id_sequence_item d = dut_q.pop_front();
+        if_id_seq_item d = dut_q.pop_front();
         if_id_seq_item r = ref_q.pop_front();
 
         no_total++;

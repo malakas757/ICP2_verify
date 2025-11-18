@@ -142,5 +142,10 @@ package common;
             default: immediate_extension = { {20{instruction.funct7[6]}}, {instruction.funct7, instruction.rs2} };
         endcase 
     endfunction
+
+    typedef struct packed {
+    bit [31:0] id_instr;
+    bit [31:0] id_pc;
+    } predictor_info;
     
 endpackage

@@ -85,8 +85,8 @@ task if_ref::run_phase(uvm_phase phase);
       end
       //TO DO need change name
       if(exec_fifo.try_get(exec_item)) begin
-	 if(/*exec_item.redirect_flag*/exec_item.jalr_flag) begin
-	    pc_reg_next  <= /*exe_item.redirect_target*/exec_item.jalr_target_offset;
+	 if(exec_item.redirect_flag/*exec_item.jalr_flag*/) begin
+	    pc_reg_next  <= exec_item.redirect_target/*exec_item.jalr_target_offset*/;
 	    id_seq.if_id_flush = 0;
 	    id_seq.instruction_out = 0;	    
 	 end

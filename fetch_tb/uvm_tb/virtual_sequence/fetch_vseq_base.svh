@@ -6,7 +6,7 @@ bpu_sequencer bpu_sqr;
 exec_sequencer exec_sqr;
 
 bpu_weighted_random_seq bpu_weighted_random_seq;
-exec_pc_jalr_conflict_seq exec_pc_jalr_conflict_seq;
+exec_pc_redirect_conflict_seq exec_pc_redirect_conflict_seq;
 exec_weighted_random_seq exec_weighted_random_seq;
 
 function new(string name = "fetch_vseq_base");

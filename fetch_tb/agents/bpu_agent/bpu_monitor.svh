@@ -32,6 +32,7 @@ task bpu_monitor::run_phase(uvm_phase phase);
     forever begin
         @(posedge BPU.clk);
         item.pred = BPU.mon_cb.pred;
+        item.bpu_target = BPU.mon_cb.bpu_target;
         $cast(cloned_item, item.clone());
         ap.write(cloned_item);
     end

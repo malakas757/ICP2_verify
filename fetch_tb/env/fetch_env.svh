@@ -33,7 +33,9 @@ function void build_phase(uvm_phase phase);
 endfunction
 
 function void connect_phase(uvm_phase phase);
-    // to do
+    super.connect_phase(phase);
+    m_if_id_agent.monitor.ap.connect(m_bpu_agent.predictor.analysis_export);
+
 endfunction
 
 endclass

@@ -4,6 +4,7 @@ class bpu_agent extends uvm_component;
     bpu_driver driver;
     bpu_monitor monitor;
     bpu_sequencer sequencer;
+    bpu_predictor predictor;
     //bpu_coverage_monitor fcov_monitor;
     bpu_agent_config cfg;
     uvm_analysis_port #(bpu_seq_item) ap;
@@ -29,6 +30,7 @@ function void bpu_agent::build_phase(uvm_phase phase);
     if(cfg.active == UVM_ACTIVE) begin
         driver = bpu_driver::type_id::create("driver", this);
         sequencer = bpu_sequencer::type_id::create("sequencer", this);
+        predictor = bpu_predictor::type_id::create("predictor", this);
     end
     ap = new("ap", this);
 // To do: fcov monitor
@@ -42,6 +44,7 @@ function void bpu_agent::connect_phase(uvm_phase phase);
     if(cfg.active == UVM_ACTIVE) begin
         driver.BPU = cfg.BPU;
         driver.seq_item_port.connect(sequencer.seq_item_export);
+        driver.info_bg_port.connect(predictor.predictor_fifo.blocking_get_export);
     end
     // To do: Connect monitor ap with fcov monitor 
 

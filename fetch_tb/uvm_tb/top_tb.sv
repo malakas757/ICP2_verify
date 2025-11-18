@@ -12,8 +12,8 @@ if_id_if IFID(.clk(clk), .rstn(rstn));
 ifu DUT (
     .clk(clk),
     .reset_n(rstn),
-    .execute_jalr_target_offset(EXEC.jalr_target_offset),
-    .execute_jalr_flag(EXEC.jalr_flag),
+    .execute_jalr_target_offset(EXEC.redirect_target),
+    .execute_jalr_flag(EXEC.redirect_flag),
     .run_flag(IFID.run_flag),
     .fetch_prediction(BPU.pred),
     .pc_src(EXEC.pc_src),

@@ -32,8 +32,8 @@ task exec_monitor::run_phase(uvm_phase phase);
     forever begin
         @(posedge EXEC.clk);
         item.pc_src = EXEC.mon_cb.pc_src;
-        item.jalr_flag = EXEC.mon_cb.jalr_flag;
-        item.jalr_target_offset = EXEC.mon_cb.jalr_target_offset;
+        item.redirect_flag = EXEC.mon_cb.redirect_flag;
+        item.redirect_target = EXEC.mon_cb.redirect_target;
         item.pc_write = EXEC.mon_cb.pc_write;
         $cast(cloned_item, item.clone());
         ap.write(cloned_item);

@@ -9,6 +9,7 @@ package fetch_env_pkg;
 	
 	`include "fetch_env_config.svh"
 	`include "refmod.svh"
+	`include "if_scoreboard.svh"
 	`include "fetch_env.svh"
 
 

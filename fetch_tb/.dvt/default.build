@@ -1,0 +1,44 @@
+################################################################################
+#                    DO NOT MANUALLY EDIT THIS FILE!                           #
+################################################################################
+# This file contains the automatically generated build configuration (2025/11/16 00:17:50)
+# requested at line 9 in C:\Users\lxy\Desktop\UVM\fetch_tb\.dvt\default.build
+
+
+################ Verilog Auto-config Directives ################
++dvt_init
+
+
+
+
+
+-uvm
+
++incdir+agents/if_id_agent
++incdir+agents/bpu_agent
++incdir+agents/exec_agent
+
++incdir+env
++incdir+uvm_tb/sequence
++incdir+uvm_tb/tests
++incdir+uvm_tb/virtual_sequence
+
+rtl/common.sv
+rtl/fetch_stage.sv
+rtl/ifu.sv
+rtl/program_memory.sv
+
+agents/if_id_agent/if_id_if.sv
+agents/bpu_agent/bpu_if.sv
+agents/exec_agent/exec_if.sv
+
+agents/if_id_agent/if_id_agent_pkg.sv
+agents/bpu_agent/bpu_agent_pkg.sv
+agents/exec_agent/exec_agent_pkg.sv
+
+
+env/fetch_env_pkg.sv
+uvm_tb/sequence/seq_pkg.sv
+uvm_tb/virtual_sequence/fetch_vseq_pkg.sv
+uvm_tb/tests/fetch_test_pkg.sv
+uvm_tb/top_tb.sv

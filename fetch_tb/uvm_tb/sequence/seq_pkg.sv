@@ -8,5 +8,5 @@ package seq_pkg;
     `include "bpu_base_seq.svh"
     `include "bpu_weighted_random_seq.svh"
     `include "exec_weighted_random_seq.svh"
-    `include "exec_pc_jalr_conflict_seq.svh"
+    `include "exec_pc_redirect_conflict_seq.svh"
 endpackage

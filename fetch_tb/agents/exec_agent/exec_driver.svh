@@ -31,8 +31,8 @@ task exec_driver::run_phase(uvm_phase phase);
         @(posedge EXEC.clk);
         seq_item_port.get_next_item(req);
         EXEC.drv_cb.pc_src <= req.pc_src;
-        EXEC.drv_cb.jalr_flag <= req.jalr_flag;
-        EXEC.drv_cb.jalr_target_offset <= req.jalr_target_offset;
+        EXEC.drv_cb.redirect_flag <= req.redirect_flag;
+        EXEC.drv_cb.redirect_target <= req.redirect_target;
         EXEC.drv_cb.pc_write <= req.pc_write;
         seq_item_port.item_done();
     end
