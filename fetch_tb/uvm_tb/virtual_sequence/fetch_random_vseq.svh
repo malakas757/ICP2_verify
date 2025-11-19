@@ -10,7 +10,7 @@ virtual task do_bpu();
 endtask
 virtual task do_exec();
     `uvm_do_on_with(exec_weighted_random_seq, exec_sqr, {nitem == 100; redirect_0_weight == 9; offset_boundary inside {[0:80]}; 
-    pc_write_0_weight == 1; offset_boundary == 20;})
+    pc_write_0_weight == 1;})
 endtask
 
 

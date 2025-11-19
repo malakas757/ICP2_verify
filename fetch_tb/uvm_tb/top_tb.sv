@@ -47,7 +47,7 @@ end
 
 initial begin
     $fsdbDumpfile("test.fsdb");
-    $fsdbDumpvars;
+    $fsdbDumpvars(0, top_tb);
 end
 
 endmodule

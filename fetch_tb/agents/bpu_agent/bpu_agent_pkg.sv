@@ -11,7 +11,7 @@ typedef uvm_sequencer #(bpu_seq_item) bpu_sequencer;
 `include "bpu_driver.svh"
 //`include "bpu_coverage_monitor.svh"
 `include "bpu_monitor.svh"
-`include "bpu_predictor.svh"
+//`include "bpu_predictor.svh"
 `include "bpu_agent.svh"
 
 // Utility Sequences

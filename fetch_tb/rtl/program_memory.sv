@@ -10,7 +10,7 @@ module program_memory (
     // output logic [31:0] next_read_data
 );
     parameter int BASE_ADDR = 0;
-    parameter string BASE_PATH = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/test.bin";
+    parameter string BASE_PATH = /*"/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/test.bin"*/ "/home/rfic/ICP2_verify/fetch_tb/rtl/test.bin";
     logic [7:0] ram [2048];
     logic [9:0] half_word_address;
     
@@ -18,7 +18,7 @@ module program_memory (
 	load_binary_to_dut_mem(BASE_ADDR,BASE_PATH);
     end    
     assign half_word_address = byte_address[10:1];
-    assign read_data = {ram[half_word_address+1],ram[half_word_address]};
+    assign read_data = {ram[half_word_address+3],ram[half_word_address+2],ram[half_word_address+1],ram[half_word_address]};
     
 function void load_binary_to_dut_mem(int base_addr, string bin);
    bit [7:0]  r8;

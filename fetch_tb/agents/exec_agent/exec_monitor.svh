@@ -28,9 +28,9 @@ task exec_monitor::run_phase(uvm_phase phase);
 
     item = exec_seq_item::type_id::create("item");
     @(posedge EXEC.rstn);
-    repeat(3) @(posedge EXEC.clk) // Add one more cycle to sync with driver
+    repeat(3) @(EXEC.mon_cb) // Add one more cycle to sync with driver
     forever begin
-        @(posedge EXEC.clk);
+        @(EXEC.mon_cb);
         item.pc_src = EXEC.mon_cb.pc_src;
         item.redirect_flag = EXEC.mon_cb.redirect_flag;
         item.redirect_target = EXEC.mon_cb.redirect_target;
