@@ -208,7 +208,8 @@
       <fileinfo name="./fetch_tb/uvm_tb/virtual_sequence/fetch_random_vseq.svh"  id="203"  />
       <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_test_pkg.sv"  id="204"  />
       <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_test_base.svh"  id="205"  />
-      <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_random_test.svh"  id="206"  />
-      <fileinfo name="./fetch_tb/uvm_tb/top_tb.sv"  id="207"  />
-      <fileinfo name=""  id="208"  />
+      <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_inorder_test.svh"  id="206"  />
+      <fileinfo name="./fetch_tb/uvm_tb/tests/fetch_random_test.svh"  id="207"  />
+      <fileinfo name="./fetch_tb/uvm_tb/top_tb.sv"  id="208"  />
+      <fileinfo name=""  id="209"  />
     </srcinfo>

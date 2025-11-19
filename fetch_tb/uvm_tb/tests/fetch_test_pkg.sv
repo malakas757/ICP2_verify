@@ -11,6 +11,7 @@ import seq_pkg::*;
 import fetch_vseq_pkg::*;
 
 `include "fetch_test_base.svh"
+`include "fetch_inorder_test.svh"
 `include "fetch_random_test.svh"
 
 endpackage

@@ -34,9 +34,23 @@ endfunction
 virtual task set_run_flag(int delay_cycles);
     `uvm_info(get_type_name(), $sformatf("Waiting %0d cycles to set run_flag",delay_cycles), UVM_LOW)
     repeat(delay_cycles) @(posedge m_if_id_agent_cfg.IFID.clk);
-    @(posedge m_if_id_agent_cfg.IFID.clk);
+    //@(posedge m_if_id_agent_cfg.IFID.clk);
     m_if_id_agent_cfg.IFID.run_flag <= 1'b1;
     `uvm_info(get_type_name(), "run_flag is set to 1", UVM_LOW)
+endtask
+
+virtual task init_input(int delay_cycles);
+    `uvm_info(get_type_name(), $sformatf("Waiting %0d cycles to set run_flag",delay_cycles), UVM_LOW)
+    repeat(delay_cycles) @(posedge m_if_id_agent_cfg.IFID.clk);
+    //@(posedge m_if_id_agent_cfg.IFID.clk);
+    m_exec_agent_cfg.EXEC.redirect_target <= 32'd0;
+    m_exec_agent_cfg.EXEC.redirect_flag <= 1'd0;
+    m_exec_agent_cfg.EXEC.pc_src <= 1'd0;
+    m_exec_agent_cfg.EXEC.pc_write <= 1'd1;
+    
+    m_bpu_agent_cfg.BPU.pred <= 1'd0;
+    m_bpu_agent_cfg.BPU.bpu_target <= 32'd0;
+    `uvm_info(get_type_name(), "EXEC and BPU interface is initialized", UVM_LOW)
 endtask
 
 function init_vseq(fetch_vseq_base vseq);

@@ -15,6 +15,13 @@ rand bit pc_write;
 constraint c_redirect_alignment{
         redirect_target[0] == 1'b0;
 }
+//debug
+constraint c_redirect_flag{
+        redirect_flag == 1'b0;
+}
+constraint c_pc_write{
+        pc_write == 1'b1;
+}
 
 extern function new(string name = "exec_sequence_item");
 endclass

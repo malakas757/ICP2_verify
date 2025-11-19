@@ -18,7 +18,12 @@ AnnotationShow = 0
 Console = FALSE
 powerDumped = 0
 [hb]
-viewport = 604 120 900 700 0 0 215 898
+postSimFile = /home/sjp/Desktop/ICP2_verify/ICP2_verify/test.fsdb
+syncTime = 263000
+viewport = 71 26 2806 1418 0 0 179 898
+activeNode = "top_tb"
+activeScope = "top_tb"
+activeFile = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv"
 interactiveMode = False
 viewType = Source
 simulatorMode = False
@@ -38,13 +43,27 @@ traceCrossHier = True
 DnDtraceCrossHierOnly = True
 traceIncTopPort = False
 leadingZero = False
-signalPane = False
+signalPane = True
+Scope1 = "top_tb"
+multipleSelection = 1 0 2 0 0
 sdfCheckUndef = FALSE
 simFlow = FALSE
+[hb.design]
+importCmd = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv" "-sv" 
+workPath = /home/sjp/Desktop/ICP2_verify/ICP2_verify
+invokeDir = /home/sjp/Desktop/ICP2_verify/ICP2_verify
+[hb.sourceTab.1]
+scope = top_tb
+File = /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv
+Line = 1
+[nMemoryManager]
+WaveformFile = /home/sjp/Desktop/ICP2_verify/ICP2_verify/test.fsdb
+UserActionNum = 0
+nMemWindowNum = 0
 [wave.0]
-viewPort = 0 35 900 238 100 65
+viewPort = 0 35 2806 577 186 65
 primaryWindow = TRUE
-Empty = /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/verdiLog/novas_autosave.ses.wave.0
+SessionFile = /home/sjp/Desktop/ICP2_verify/ICP2_verify/verdiLog/novas_autosave.ses.wave.0
 displayGrid = FALSE
 hierarchicalName = FALSE
 snap = TRUE

@@ -68,6 +68,7 @@ task if_ref::run_phase(uvm_phase phase);
    load_binary_to_dut_mem(BASE_ADDR,BIN_PATH);
    pc_reg = BASE_ADDR;
    `uvm_info("refmod",$sformatf("PC in refmod is initialized to 0x%h",BASE_ADDR),UVM_LOW);
+   @(posedge vif.clk);
    while(1) begin
       @(posedge vif.clk);
       id_seq.pc_out = pc_reg;
@@ -130,7 +131,7 @@ function void if_ref::load_binary_to_dut_mem(bit[31:0] base_addr, string bin);
    if (!bin_fd)
      `uvm_fatal("load_dut_mem", $sformatf("Cannot open file %0s", bin))
    while ($fread(r8, bin_fd)) begin
-      `uvm_info("load one byte", $sformatf("Init mem [0x%h] = 0x%0h", addr, r8), UVM_NONE)
+      `uvm_info("refmod: load one byte", $sformatf("Init mem [0x%h] = 0x%0h", addr, r8), UVM_LOW)
       MEM[addr] = r8;
       addr++;
    end

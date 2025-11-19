@@ -28,8 +28,8 @@ function void load_binary_to_dut_mem(int base_addr, string bin);
    if (!bin_fd)
      $display("Error !!! can not open bin file");
    while ($fread(r8, bin_fd)) begin
-      $display("load one byte Init mem [0x%h] = 0x%0h", addr, r8);
       ram[addr] = r8;
+      $display("dut:load one byte Init mem [0x%h] = 0x%0h", addr, ram[addr]);
       addr++;
    end
 endfunction // load_binary_to_dut_mem
