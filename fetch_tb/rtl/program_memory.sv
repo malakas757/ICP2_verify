@@ -17,7 +17,7 @@ module program_memory (
     initial begin
 	load_binary_to_dut_mem(BASE_ADDR,BASE_PATH);
     end    
-    assign half_word_address = byte_address[10:1];
+    assign half_word_address = byte_address[9:0];
     assign read_data = {ram[half_word_address+3],ram[half_word_address+2],ram[half_word_address+1],ram[half_word_address]};
     
 function void load_binary_to_dut_mem(int base_addr, string bin);
