@@ -26,9 +26,9 @@ task exec_driver::run_phase(uvm_phase phase);
     exec_seq_item req;
     @(posedge EXEC.rstn)
     //wait(EXEC.run_flag);
-    repeat(2) @(posedge EXEC.clk);
+    repeat(2) @(EXEC.drv_cb);
     forever begin
-        @(posedge EXEC.clk);
+        @(EXEC.drv_cb);
         seq_item_port.get_next_item(req);
         EXEC.drv_cb.pc_src <= req.pc_src;
         EXEC.drv_cb.redirect_flag <= req.redirect_flag;

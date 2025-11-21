@@ -28,9 +28,9 @@ task bpu_monitor::run_phase(uvm_phase phase);
 
     item = bpu_seq_item::type_id::create("item");
     @(posedge BPU.rstn);
-    @(posedge BPU.clk); // Add one cycle delay to sync with driver
+    @(BPU.mon_cb); // Add one cycle delay to sync with driver
     forever begin
-        @(posedge BPU.clk);
+        @(BPU.mon_cb);
         item.pred = BPU.mon_cb.pred;
         item.bpu_target = BPU.mon_cb.bpu_target;
         $cast(cloned_item, item.clone());

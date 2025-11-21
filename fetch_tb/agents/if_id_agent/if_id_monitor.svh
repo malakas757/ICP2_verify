@@ -32,10 +32,9 @@ task if_id_monitor::run_phase(uvm_phase phase);
     item = if_id_seq_item::type_id::create("item");
     @(posedge IFID.rstn);
     wait(IFID.run_flag == 1);
-    @(posedge IFID.clk);
-   // @(posedge IFID.clk);//to align with refmod
+    @(IFID.mon_cb);
     forever begin
-        @(posedge IFID.clk);
+        @(IFID.mon_cb);
         // copy all monitored signals into the sequence item
         item.address = IFID.mon_cb.address;
         item.pc_out = IFID.mon_cb.pc_out;

@@ -21,6 +21,8 @@ virtual task send_item();
             0:= pred_0_weight,
             1:= 10 - pred_0_weight
         };
+        bpu_target[0] == 1'b0;
+        bpu_target inside {[0:80]};
     })
     `uvm_info(get_type_name(), req.sprint(), UVM_LOW)
 endtask

@@ -36,7 +36,6 @@ endfunction
 
 function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-    m_if_id_agent.ap.connect(m_bpu_agent.predictor.analysis_export);
     m_exec_agent.ap.connect(refmod.exec_fifo.analysis_export);
     m_bpu_agent.ap.connect(refmod.bpu_fifo.analysis_export);
     refmod.ap.connect(if_sb.ref_fifo.analysis_export);

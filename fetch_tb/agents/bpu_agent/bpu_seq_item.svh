@@ -9,9 +9,11 @@ rand bit [31:0] bpu_target;
 `uvm_object_utils_end
 
 //debug
+
 constraint c_pred_flag{
         pred == 1'b0;
 }
+
 
 extern function new(string name = "bpu_sequence_item");
 endclass
