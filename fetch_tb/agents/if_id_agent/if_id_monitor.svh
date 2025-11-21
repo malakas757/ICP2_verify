@@ -33,6 +33,7 @@ task if_id_monitor::run_phase(uvm_phase phase);
     @(posedge IFID.rstn);
     wait(IFID.run_flag == 1);
     @(posedge IFID.clk);
+   // @(posedge IFID.clk);//to align with refmod
     forever begin
         @(posedge IFID.clk);
         // copy all monitored signals into the sequence item

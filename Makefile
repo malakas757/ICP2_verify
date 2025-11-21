@@ -1,6 +1,6 @@
 # ===== User config =====
 # riscv-dv 仓库路径（改成你的实际路径）
-RISCV_DV_DIR ?= $(HOME)/Desktop/ibex/ibex/vendor/google_riscv-dv
+RISCV_DV_DIR ?= ./vendor/google_riscv-dv
 USR_EXT    ?= $(RISCV_DV_DIR)/user_extension
 UVM_TEST_NAME ?= base_test
 SEED ?=  
@@ -24,12 +24,40 @@ BIN_DIR ?= $(RISCV_DV_DIR)/bins
 
 
 
+#=======vcs=======
+DESIGN_FILE  = fileset/design.f
+TOP_TB_FILE  = fileset/top_tb.f
+AGENT_FILE	 = fileset/agent.f
+MEM_FILE     = fileset/mem.f
+COSIM_FILE   = fileset/cosim.f
+TEST_FILE    = fileset/uvm_tb.f
+TEST_NAME_FILE = fileset/testname.f
+TEST_NAME   ?= fetch_random_test
+TEST_NAMES	 = `cat $(TEST_NAME_FILE)` 
+CM       = -cm line+cond+fsm+branch+tgl
+CM_NAME  = -cm_name $(TEST_NAME)
+CM_DIR   = -cm_dir cover/$(TEST_NAME).vdb
+ASS_ON   = +define+SVA+ASSERT_ON
+ASS_RUN  = +sva_success
+
+# Coverage paths
+DESIGN_VDB := cover/simv.vdb
+REPORT_DIR := cover/html
+MERGED_VDB := cover/merged.vdb
+
+# Collect all test vdbs under cover/, EXCEPT the design vdb
+TEST_VDBS  := $(filter-out $(DESIGN_VDB),$(wildcard cover/*.vdb))
+
+#==============================================================
+
+
+
 # ===== Internals =====
 PYTHON ?= python3
 RUNPY  := $(RISCV_DV_DIR)/run.py
-TEST_YAML := /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/testlist.yaml 
+TEST_YAML := ./testlist.yaml 
 # 运行 riscv-dv 的命令（用 run.py 避免入口脚本环境问题）
-DV_GEN_OUT ?= $(abspath ./dv_out/out_$(UVM_TEST_NAME)_seed$(SEED))
+DV_GEN_OUT ?= $(abspath ./dv_out/out_$(TEST_NAME)_seed$(SEED))
 RUN_CMD := $(PYTHON) $(RUNPY) --custom_target=$(RISCV_DV_DIR)/target/$(CUSTOM_TARGET) --isa=$(ISA) --mabi=$(MABI) --test=$(TEST)  --iterations=$(ITER) --testlist=$(TEST_YAML) \
 	--o $(DV_GEN_OUT)
 ifneq ($(strip $(EXTRA_GCC_OPTS)),)
@@ -38,7 +66,7 @@ endif
 
 LATEST_OUT := $(DV_GEN_OUT)
 
-.PHONY:	gens bin_compile clean_dv
+.PHONY:	gens bin_compile clean_dv vcs_compile vcs_sim buildso clean_so
 
 
 #setup:
@@ -134,7 +162,7 @@ COSIM_SRCS := $(COSIM_DIR)/cosim_dpi.cc $(COSIM_DIR)/spike_cosim.cc $(COSIM_DIR)
 COSIM_HDRS := $(COSIM_DIR)/cosim_dpi.h  $(COSIM_DIR)/spike_cosim.h  $(COSIM_DIR)/cosim.h
 DPI_SO     := $(BUILD_DIR)/libcosim_dpi.so
 
-.PHONY:  buildso clean_so
+
 
 buildso: $(DPI_SO)
 
@@ -158,30 +186,9 @@ show:
 	@echo "EXTRA_LIBS=$(EXTRA_LIBS)"
 #=============================================================
 #=======vcs=======
-DESIGN_FILE  = fileset/design.f
-TOP_TB_FILE  = fileset/top_tb.f
-AGENT_FILE	 = fileset/agent.f
-MEM_FILE     = fileset/mem.f
-COSIM_FILE   = fileset/cosim.f
-TEST_FILE    = fileset/uvm_tb.f
-TEST_NAME_FILE = fileset/testname.f
-TEST_NAME   ?= fetch_random_test
-TEST_NAMES	 = `cat $(TEST_NAME_FILE)` 
-CM       = -cm line+cond+fsm+branch+tgl
-CM_NAME  = -cm_name $(TEST_NAME)
-CM_DIR   = -cm_dir cover/$(TEST_NAME).vdb
-ASS_ON   = +define+SVA+ASSERT_ON
-ASS_RUN  = +sva_success
 
-# Coverage paths
-DESIGN_VDB := cover/simv.vdb
-REPORT_DIR := cover/html
-MERGED_VDB := cover/merged.vdb
 
-# Collect all test vdbs under cover/, EXCEPT the design vdb
-TEST_VDBS  := $(filter-out $(DESIGN_VDB),$(wildcard cover/*.vdb))
 
-.PHONY: vcs_compile vcs_sim buildso
 
 buildso: $(DPI_SO)
 
@@ -204,7 +211,8 @@ vcs_compile:
 vcs_sim:
 	@echo "Running Tests"
 	@mkdir -p log
-	./work_lib/simv -l log/${TEST_NAME}.log +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
+	$(MAKE) gens
+	./work_lib/simv -l log/${TEST_NAME}.log +MEM_FILE=./dv_out/out_$(TEST_NAME)_seed$(SEED)/asm_test/test.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
 
 vcs_sim_all:
 	@echo "Running Tests"

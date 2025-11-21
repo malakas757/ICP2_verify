@@ -10,15 +10,23 @@ module program_memory (
     // output logic [31:0] next_read_data
 );
     parameter int BASE_ADDR = 0;
-    parameter string BASE_PATH = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/rtl/test.bin";
-    logic [7:0] ram [2048];
-    logic [9:0] half_word_address;
+    parameter string BIN_PATH = "./dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test_0.bin";
+    logic [7:0] ram [131072];
+    logic [16:0] half_word_address;
     
     initial begin
-	load_binary_to_dut_mem(BASE_ADDR,BASE_PATH);
+    	if ($value$plusargs("MEM_FILE=%s", BIN_PATH)) begin
+   	   $display("MEM_File = %s", BIN_PATH);
+    	end else begin
+           $display("No MEM_FILE argument");
+    	end
+     end
+  
+    initial begin
+	load_binary_to_dut_mem(BASE_ADDR,BIN_PATH);
     end    
-    assign half_word_address = byte_address[10:1];
-    assign read_data = {ram[half_word_address+1],ram[half_word_address]};
+    assign half_word_address = byte_address[16:0];
+    assign read_data = {ram[half_word_address+3],ram[half_word_address+2],ram[half_word_address+1],ram[half_word_address]};
     
 function void load_binary_to_dut_mem(int base_addr, string bin);
    bit [7:0]  r8;

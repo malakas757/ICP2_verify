@@ -395,11 +395,14 @@ savePropStat = FALSE
 savePropDtl = TRUE
 [QtDialog]
 monoFontDlg = 839,445,366,432
-openFileDlg = 617,241,736,483
-QwWarnMsgDlg = 694,346,600,250
-qWaveSignalDialog = 546,243,878,479
-importDesignForm = 92,100,715,574
-QwUserAskDlg = 1271,647,409,252
+restoreSigDlg = 648,244,692,438
+QwWarnMsgDlg = 694,568,600,250
+openFileDlg = 626,221,736,483
+QwQuestionMsgDlg = 832,387,324,188
+QwInfoMsgDlg = 619,393,750,250
+qWaveSignalDialog = 555,223,878,479
+importDesignForm = 636,176,715,574
+QwUserAskDlg = 791,365,409,252
 [Relationship]
 hideRecursiceNode = FALSE
 [Session Cache]
@@ -598,7 +601,7 @@ pdmlMacro = ID_BLACK
 font = COURIER24
 annotFont = Helvetica_M_R_14
 [Text.1]
-viewport = 71 26 2806 1418 45
+viewport = 71 26 1846 854 45
 [TextPrinter]
 Orientation = Landscape
 Indicator = FALSE
@@ -693,10 +696,10 @@ DefaultLogTimeUnit = "1.000000ns"
 [VIA.oneSearch.preference.vgifColumnSettingRC.setting0]
 parRuleSets = ""
 [VIA.oneSearch.preference.vgifColumnSettingRC.setting0.column0]
-name = Severity
-width = 60
-visualIndex = 1
-isHidden = TRUE
+name = Message
+width = 2000
+visualIndex = 4
+isHidden = FALSE
 isUserChangeColumnVisible = FALSE
 [VIA.oneSearch.preference.vgifColumnSettingRC.setting0.column1]
 name = Time
@@ -717,10 +720,10 @@ visualIndex = 3
 isHidden = TRUE
 isUserChangeColumnVisible = FALSE
 [VIA.oneSearch.preference.vgifColumnSettingRC.setting0.column4]
-name = Message
-width = 2000
-visualIndex = 4
-isHidden = FALSE
+name = Severity
+width = 60
+visualIndex = 1
+isHidden = TRUE
 isUserChangeColumnVisible = FALSE
 [Vi]
 ViFont = "Clean 14"
@@ -740,8 +743,8 @@ waveform_vertical_scroll_bar = TRUE
 scope_to_save_with_macro
 open_file_dir
 open_rc_file_dir
-getSignalForm = 546 206 878 479 299 358 529 171
-viewPort = 0 35 2806 577 186 65
+getSignalForm = 555 186 878 479 299 358 529 171
+viewPort = 0 35 1846 711 478 65
 signalSpacing = 5
 digitalSignalHeight = 15
 analogSignalHeight = 98
@@ -1618,7 +1621,7 @@ AddImportArgument = FALSE
 LineBreakWithScope = TRUE
 StopAfterCompileOption = -s
 [wave.0]
-viewPort = 0 35 2806 577 186 65
+viewPort = 0 35 1846 711 478 65
 [wave.1]
 viewPort = 127 219 960 332 100 65
 [wave.2]

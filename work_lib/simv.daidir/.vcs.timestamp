@@ -957,8 +957,8 @@ NOOP_HOME=/home/sjp/Desktop/difftest_xiangshan/chisel-template
 NEMU_HOME=/home/sjp/Desktop/difftest_xiangshan/NEMU
 MFLAGS=
 MANAGERPID=1153
-MAKE_TERMOUT=/dev/pts/0
-MAKE_TERMERR=/dev/pts/0
+MAKE_TERMOUT=/dev/pts/7
+MAKE_TERMERR=/dev/pts/7
 MAKELEVEL=1
 MAKEFLAGS=
 LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
@@ -981,7 +981,7 @@ GTK_MODULES=gail:atk-bridge
 GTK_IM_MODULE=fcitx
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 GNOME_TERMINAL_SERVICE=:1.97
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/26824f09_ea16_486c_86c5_f44042837db1
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/e221c0f8_9515_407f_a000_81f3ba004a24
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GDMSESSION=ubuntu
@@ -1000,7 +1000,7 @@ COLORTERM=truecolor
 CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 0
 217
-1763580044 ./fetch_tb/uvm_tb/tests/fetch_random_test.svh
+1763761593 ./fetch_tb/uvm_tb/tests/fetch_random_test.svh
 1763580685 ./fetch_tb/uvm_tb/tests/fetch_inorder_test.svh
 1763580088 ./fetch_tb/uvm_tb/tests/fetch_test_base.svh
 1763490920 ./fetch_tb/uvm_tb/virtual_sequence/fetch_random_vseq.svh
@@ -1012,7 +1012,7 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1763369759 ./fetch_tb/uvm_tb/sequence/exec_base_seq.svh
 1763497495 ./fetch_tb/env/fetch_env.svh
 1763490920 ./fetch_tb/env/if_scoreboard.svh
-1763582347 ./fetch_tb/env/refmod.svh
+1763759618 ./fetch_tb/env/refmod.svh
 1763499263 ./fetch_tb/env/fetch_env_config.svh
 1763308347 ./fetch_tb/agents/exec_agent/exec_seq.svh
 1763369759 ./fetch_tb/agents/exec_agent/exec_agent.svh
@@ -1028,7 +1028,7 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1763308347 ./fetch_tb/agents/bpu_agent/bpu_agent_config.svh
 1763577705 ./fetch_tb/agents/bpu_agent/bpu_seq_item.svh
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent.svh
-1763500375 ./fetch_tb/agents/if_id_agent/if_id_monitor.svh
+1763762412 ./fetch_tb/agents/if_id_agent/if_id_monitor.svh
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent_config.svh
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_seq_item.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh
@@ -1202,7 +1202,7 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_agent_pkg.sv
 1763308347 ./fetch_tb/agents/if_id_agent/if_id_if.sv
 1763369759 ./fetch_tb/rtl/ifu.sv
-1763584577 ./fetch_tb/rtl/program_memory.sv
+1763761654 ./fetch_tb/rtl/program_memory.sv
 1763369759 ./fetch_tb/rtl/fetch_stage.sv
 1763369759 ./fetch_tb/rtl/instr_decompressor.sv
 1763490920 ./fetch_tb/rtl/common.sv
@@ -1224,5 +1224,5 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551421792 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1763584609 work_lib/simv.daidir
+1763762433 work_lib/simv.daidir
 -1 partitionlib

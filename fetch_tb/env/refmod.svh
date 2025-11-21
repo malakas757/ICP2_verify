@@ -15,7 +15,7 @@ class if_ref extends uvm_component;
    
    virtual if_id_if  vif;
    if_id_seq_item id_seq;   
-   bit [7:0] MEM[2048];
+   bit [7:0] MEM[131072];
    string     BIN_PATH;             
    logic [31:0] BASE_ADDR;
    logic [31:0] pc_reg;

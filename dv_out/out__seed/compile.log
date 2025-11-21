@@ -1,0 +1,30 @@
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '5.15.0-139-generic' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+Command: vcs -file /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/vcs.compile.option.f \
++incdir+./vendor/google_riscv-dv/target/my_rv32i +incdir+/home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/user_extension \
++vcs+lic+wait -f /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/files.f \
+-full64 -l /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out__seed/compile.log \
+-LDFLAGS -Wl,--no-as-needed -CFLAGS --std=c99 -fno-extended-identifiers -Mdir=/home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out__seed/vcs_simv.csrc \
+-o /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out__seed/vcs_simv
+                         Chronologic VCS (TM)
+       Version O-2018.09-SP2_Full64 -- Fri Nov 21 21:51:31 2025
+               Copyright (c) 1991-2018 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+The design hasn't changed and need not be recompiled. 
+If you really want to, delete file /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out__seed/vcs_simv.daidir/.vcs.timestamp and
+run VCS again.
+

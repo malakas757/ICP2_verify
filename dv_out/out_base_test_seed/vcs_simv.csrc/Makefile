@@ -2,13 +2,13 @@
 # This file may be modified; VCS will not overwrite it unless -Mupdate is used
 
 # define default verilog source directory 
-VSRC=/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core
+VSRC=/home/sjp/Desktop/ICP2_verify/ICP2_verify
 
 # Override TARGET_ARCH
 TARGET_ARCH=
 
 # Choose name of executable 
-PRODUCTBASE=/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/dv_out/out_base_test_seed/vcs_simv
+PRODUCTBASE=/home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_base_test_seed/vcs_simv
 
 PRODUCT=$(PRODUCTBASE)
 
