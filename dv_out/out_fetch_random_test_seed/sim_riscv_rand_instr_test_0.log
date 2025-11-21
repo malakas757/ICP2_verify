@@ -1,7 +1,7 @@
-Command: /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_random_test_seed/vcs_simv +vcs+lic+wait +ntb_random_seed=820790261 +UVM_TESTNAME=riscv_instr_base_test +num_of_tests=1 +start_idx=0 +asm_file_name=/home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test -l /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_random_test_seed/sim_riscv_rand_instr_test_0.log +instr_cnt=1000 +require_signature_addr=1 +signature_addr=0x8ffffffc +enable_interrupt=1
+Command: /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_random_test_seed/vcs_simv +vcs+lic+wait +ntb_random_seed=973094670 +UVM_TESTNAME=riscv_instr_base_test +num_of_tests=1 +start_idx=0 +asm_file_name=/home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test -l /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_random_test_seed/sim_riscv_rand_instr_test_0.log +instr_cnt=1000 +require_signature_addr=1 +signature_addr=0x8ffffffc +enable_interrupt=1
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Nov 21 22:47 2025
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Nov 21 23:49 2025
 UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -545,23 +545,23 @@ UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/test/r
 Name                               Type                     Size  Value       
 ------------------------------------------------------------------------------
 cfg                                riscv_instr_gen_config   -     @1343       
-  main_program_instr_cnt           integral                 32    'h29        
+  main_program_instr_cnt           integral                 32    'h118       
   sub_program_instr_cnt            sa(integral)             5     -           
-    [0]                            integral                 32    'h2a        
-    [1]                            integral                 32    'h19c       
-    [2]                            integral                 32    'hda        
-    [3]                            integral                 32    'hec        
-    [4]                            integral                 32    'h33        
-  debug_program_instr_cnt          integral                 32    'hc46a8861  
-  data_page_pattern                data_pattern_t           2     INCR_VAL    
+    [0]                            integral                 32    'h43        
+    [1]                            integral                 32    'h196       
+    [2]                            integral                 32    'h12        
+    [3]                            integral                 32    'ha3        
+    [4]                            integral                 32    'h42        
+  debug_program_instr_cnt          integral                 32    'he0fb79ee  
+  data_page_pattern                data_pattern_t           2     ALL_ZERO    
   init_privileged_mode             privileged_mode_t        2     MACHINE_MODE
   reserved_regs                    array(riscv_reg_t)       3     -           
-    [0]                            riscv_reg_t              5     A1          
+    [0]                            riscv_reg_t              5     S1          
     [1]                            riscv_reg_t              5     A6          
-    [2]                            riscv_reg_t              5     T1          
-  ra                               riscv_reg_t              5     S3          
+    [2]                            riscv_reg_t              5     A1          
+  ra                               riscv_reg_t              5     GP          
   sp                               riscv_reg_t              5     A6          
-  tp                               riscv_reg_t              5     A1          
+  tp                               riscv_reg_t              5     S1          
   tvec_alignment                   integral                 32    'h4         
   no_data_page                     integral                 1     'h0         
   no_branch_jump                   integral                 1     'h0         
@@ -605,7 +605,7 @@ cfg                                riscv_instr_gen_config   -     @1343
   set_dcsr_ebreak                  integral                 1     'h0         
   num_debug_sub_program            integral                 32    'h0         
   enable_debug_single_step         integral                 1     'h0         
-  single_step_iterations           integral                 32    'h2fc8e75d  
+  single_step_iterations           integral                 32    'h21e3451   
   set_mstatus_tw                   integral                 1     'h0         
   set_mstatus_mprv                 integral                 1     'h0         
   max_branch_step                  integral                 32    'h14        
@@ -637,62 +637,56 @@ UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/ri
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_privileged_common_seq.sv(104) @ 0: reporter@@privil_seq [privil_seq] mstatus_val: 0x18b2
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(797) @ 0: reporter [asm_gen] Unsupported privileged_mode MACHINE_MODE
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(256) @ 0: reporter [asm_gen] sub program name: sub_1
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_1 [sub_1] Start generating 42 instruction
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_1 [sub_1] Start generating 67 instruction
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(87) @ 0: reporter@@sub_1 [sub_1] Finishing instruction generation
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(256) @ 0: reporter [asm_gen] sub program name: sub_2
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_2 [sub_2] Start generating 412 instruction
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_2 [sub_2] Start generating 406 instruction
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(87) @ 0: reporter@@sub_2 [sub_2] Finishing instruction generation
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(256) @ 0: reporter [asm_gen] sub program name: sub_3
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_3 [sub_3] Start generating 218 instruction
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_3 [sub_3] Start generating 18 instruction
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(87) @ 0: reporter@@sub_3 [sub_3] Finishing instruction generation
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(256) @ 0: reporter [asm_gen] sub program name: sub_4
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_4 [sub_4] Start generating 236 instruction
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_4 [sub_4] Start generating 163 instruction
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(87) @ 0: reporter@@sub_4 [sub_4] Finishing instruction generation
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(256) @ 0: reporter [asm_gen] sub program name: sub_5
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_5 [sub_5] Start generating 51 instruction
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@sub_5 [sub_5] Start generating 66 instruction
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(87) @ 0: reporter@@sub_5 [sub_5] Finishing instruction generation
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@main [main] Start generating 41 instruction
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(77) @ 0: reporter@@main [main] Start generating 280 instruction
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(87) @ 0: reporter@@main [main] Finishing instruction generation
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(284) @ 0: reporter [asm_gen] Randomizing call stack
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(170) @ 0: reporter [callstack_gen] 1 programs @Lv0-> 2 programs at next level
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(181) @ 0: reporter [callstack_gen] 2 sub programs are assigned to program[0]
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(170) @ 0: reporter [callstack_gen] 1 programs @Lv1-> 1 programs at next level
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(181) @ 0: reporter [callstack_gen] 1 sub programs are assigned to program[1]
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(170) @ 0: reporter [callstack_gen] 1 programs @Lv2-> 2 programs at next level
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(170) @ 0: reporter [callstack_gen] 2 programs @Lv1-> 4 programs at next level
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(181) @ 0: reporter [callstack_gen] 2 sub programs are assigned to program[1]
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(181) @ 0: reporter [callstack_gen] 2 sub programs are assigned to program[2]
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(170) @ 0: reporter [callstack_gen] 2 programs @Lv3-> 2 programs at next level
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(181) @ 0: reporter [callstack_gen] 2 sub programs are assigned to program[3]
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_callstack_gen.sv(181) @ 0: reporter [callstack_gen] 0 sub programs are assigned to program[4]
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 0 -> sub[0] 1
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@main [main] JALR -> sub_1...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 0 -> sub[1] 1
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@main [main] JALR -> sub_1...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 1 -> sub[0] 2
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_1 [sub_1] JALR -> sub_2...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 2 -> sub[0] 4
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_2 [sub_2] JAL -> sub_4...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 2 -> sub[1] 3
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_2 [sub_2] JAL -> sub_3...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 3 -> sub[0] 5
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_3 [sub_3] JALR -> sub_5...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 3 -> sub[1] 5
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_3 [sub_3] JALR -> sub_5...done
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 0 -> sub[1] 2
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@main [main] JALR -> sub_2...done
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 1 -> sub[0] 4
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_1 [sub_1] JALR -> sub_4...done
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 1 -> sub[1] 4
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_1 [sub_1] JALR -> sub_4...done
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 2 -> sub[0] 3
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_2 [sub_2] JALR -> sub_3...done
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(293) @ 0: reporter [asm_gen] Gen jump instr 2 -> sub[1] 5
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(248) @ 0: reporter@@sub_2 [sub_2] JALR -> sub_5...done
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(305) @ 0: reporter [asm_gen] Randomizing call stack..done
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(119) @ 0: reporter [asm_gen] Generating callstack...done
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(121) @ 0: reporter [asm_gen] Post-processing main program...done
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@main [main] Injecting 0 illegal instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@main [main] Injecting 0 HINT instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(123) @ 0: reporter [asm_gen] Generating main program instruction stream...done
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_2 [sub_2] Injecting 0 illegal instructions, ratio 0/100
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_2 [sub_2] Injecting 0 HINT instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_1 [sub_1] Injecting 0 illegal instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_1 [sub_1] Injecting 0 HINT instructions, ratio 0/100
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_5 [sub_5] Injecting 0 illegal instructions, ratio 0/100
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_5 [sub_5] Injecting 0 HINT instructions, ratio 0/100
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_3 [sub_3] Injecting 0 illegal instructions, ratio 0/100
-UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_3 [sub_3] Injecting 0 HINT instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_4 [sub_4] Injecting 0 illegal instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_4 [sub_4] Injecting 0 HINT instructions, ratio 0/100
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_3 [sub_3] Injecting 0 illegal instructions, ratio 0/100
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_3 [sub_3] Injecting 0 HINT instructions, ratio 0/100
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_5 [sub_5] Injecting 0 illegal instructions, ratio 0/100
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_5 [sub_5] Injecting 0 HINT instructions, ratio 0/100
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(326) @ 0: reporter@@sub_2 [sub_2] Injecting 0 illegal instructions, ratio 0/100
+UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_instr_sequence.sv(339) @ 0: reporter@@sub_2 [sub_2] Injecting 0 HINT instructions, ratio 0/100
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(138) @ 0: reporter [asm_gen] Inserting sub-programs...done
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_asm_program_gen.sv(139) @ 0: reporter [asm_gen] Main/sub program generation...done
 UVM_INFO /home/sjp/Desktop/ICP2_verify/ICP2_verify/vendor/google_riscv-dv/src/riscv_data_page_gen.sv(70) @ 0: reporter [data_page_gen] Generate data section: region_0 size:0x1000  xwr:0x7]
@@ -704,7 +698,7 @@ UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_ser
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :  579
+UVM_INFO :  573
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
@@ -712,17 +706,17 @@ UVM_FATAL :    0
 []     2
 [RNTST]     1
 [UVM/RELNOTES]     1
-[asm_gen]    22
-[callstack_gen]     9
+[asm_gen]    21
+[callstack_gen]     5
 [cfg]     1
 [data_page_gen]     2
 [main]     6
 [pmp_cfg]     2
 [privil_seq]     1
 [riscv_instr]   496
-[sub_1]     5
+[sub_1]     6
 [sub_2]     6
-[sub_3]     6
+[sub_3]     4
 [sub_4]     4
 [sub_5]     4
 [uvm_test_top]     4
@@ -732,5 +726,5 @@ $finish called from file "/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/ba
 $finish at simulation time                    0
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 00 ps
-CPU Time:      0.430 seconds;       Data structure size:   0.6Mb
-Fri Nov 21 22:47:40 2025
+CPU Time:      0.440 seconds;       Data structure size:   0.6Mb
+Fri Nov 21 23:49:13 2025

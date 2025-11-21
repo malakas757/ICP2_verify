@@ -13,9 +13,10 @@ function fetch_inorder_test::new(string name = "fetch_inorder_test", uvm_compone
 endfunction
 
 task fetch_inorder_test::run_phase(uvm_phase phase);
-    fetch_random_vseq vseq = fetch_random_vseq::type_id::create("vseq");
+
+    fetch_random_vseq vseq;
+    vseq = fetch_random_vseq::type_id::create("vseq");
     phase.raise_objection(this);
-    init_vseq(vseq);
     fork
         set_run_flag(0);
         init_input(0);

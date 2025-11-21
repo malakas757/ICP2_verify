@@ -1,21 +1,9 @@
 {
-    "riscv_instr_test_pkg": [
-        "riscv_instr_test_pkg",
-        "ejhbY",
-        "module",
-        7
-    ],
     "_vcs_DPI_package": [
         "_vcs_DPI_package",
         "uM9F1",
         "module",
         1
-    ],
-    "std": [
-        "std",
-        "reYIK",
-        "module",
-        3
     ],
     "vcs_paramclassrepository": [
         "vcs_paramclassrepository",
@@ -23,17 +11,23 @@
         "module",
         2
     ],
-    "uvm_pkg": [
-        "uvm_pkg",
-        "zr7M1",
+    "std": [
+        "std",
+        "reYIK",
         "module",
-        4
+        3
     ],
     "riscv_instr_gen_tb_top": [
         "riscv_instr_gen_tb_top",
         "PLawZ",
         "module",
         8
+    ],
+    "uvm_pkg": [
+        "uvm_pkg",
+        "zr7M1",
+        "module",
+        4
     ],
     "riscv_signature_pkg": [
         "riscv_signature_pkg",
@@ -46,6 +40,12 @@
         "ZW9aD",
         "module",
         6
+    ],
+    "riscv_instr_test_pkg": [
+        "riscv_instr_test_pkg",
+        "ejhbY",
+        "module",
+        7
     ],
     "...MASTER...": [
         "SIM",

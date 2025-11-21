@@ -212,7 +212,7 @@ vcs_sim:
 	@echo "Running Tests"
 	@mkdir -p log
 	$(MAKE) gens
-	./work_lib/simv -l log/${TEST_NAME}.log +MEM_FILE=./dv_out/out_$(TEST_NAME)_seed$(SEED)/asm_test/test.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
+	./work_lib/simv -l log/${TEST_NAME}.log +MEM_FILE=./dv_out/out_$(TEST_NAME)_seed$(SEED)/asm_test/riscv_rand_instr_test_0.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
 
 vcs_sim_all:
 	@echo "Running Tests"

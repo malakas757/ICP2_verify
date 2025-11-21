@@ -46,8 +46,16 @@ function void if_ref::build_phase(uvm_phase phase);
    if(!uvm_config_db #(fetch_env_config)::get(this, "", "fetch_env_config", cfg)) begin
       `uvm_error("build_phase", "env config not found")
    end
-   BIN_PATH = cfg.BIN_PATH;
+   
    BASE_ADDR = cfg.BASE_ADDR;
+   
+       if ($value$plusargs("MEM_FILE=%s", BIN_PATH)) begin
+   	   $display("MEM_File = %s",BIN_PATH);
+    end 
+    else begin
+           $display("No MEM_FILE argument");
+    end
+
    
    //$readmemb("./fetch_tb/rtl/instruction_mem.mem", MEM);
    
@@ -57,6 +65,7 @@ endfunction // build_phase
 task if_ref::run_phase(uvm_phase phase);
 
    //load_binary_to_dut_mem(BASE_ADDR,BIN_PATH);
+
    
    exec_seq_item  exec_item;
    bpu_seq_item   bpu_item;

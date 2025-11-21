@@ -13,16 +13,12 @@ function fetch_random_test::new(string name = "fetch_random_test", uvm_component
 endfunction
 
 task fetch_random_test::run_phase(uvm_phase phase);
+
+
 	
     fetch_random_vseq vseq;
+	
 
-    if ($value$plusargs("MEM_FILE=%s", m_env_config.BIN_PATH)) begin
-   	   $display("MEM_File = %s", m_env_config.BIN_PATH);
-    end 
-    else begin
-           $display("No MEM_FILE argument");
-    end	
-   
     vseq = fetch_random_vseq::type_id::create("vseq");
     phase.raise_objection(this);
     init_vseq(vseq);

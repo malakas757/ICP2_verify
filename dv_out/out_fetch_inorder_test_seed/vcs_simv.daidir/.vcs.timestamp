@@ -733,8 +733,8 @@ NOOP_HOME=/home/sjp/Desktop/difftest_xiangshan/chisel-template
 NEMU_HOME=/home/sjp/Desktop/difftest_xiangshan/NEMU
 MFLAGS=-w
 MANAGERPID=1153
-MAKE_TERMOUT=/dev/pts/7
-MAKE_TERMERR=/dev/pts/7
+MAKE_TERMOUT=/dev/pts/9
+MAKE_TERMERR=/dev/pts/9
 MAKEOVERRIDES=${-*-command-variables-*-}
 MAKELEVEL=2
 MAKEFLAGS=w -- TEST_NAME=fetch_inorder_test
@@ -758,7 +758,7 @@ GTK_MODULES=gail:atk-bridge
 GTK_IM_MODULE=fcitx
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 GNOME_TERMINAL_SERVICE=:1.97
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/e221c0f8_9515_407f_a000_81f3ba004a24
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/5a1ebd5d_cdf3_4c3b_9f59_6491c6137bad
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GDMSESSION=ubuntu
@@ -1003,5 +1003,5 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551421792 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1763762456 /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_inorder_test_seed/vcs_simv.daidir
+1763763684 /home/sjp/Desktop/ICP2_verify/ICP2_verify/dv_out/out_fetch_inorder_test_seed/vcs_simv.daidir
 -1 partitionlib

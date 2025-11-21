@@ -4,7 +4,6 @@
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_driver.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_if.sv
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_monitor.svh
-/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_predictor.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_seq.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/bpu_agent/bpu_seq_item.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/agents/exec_agent/exec_agent.svh
