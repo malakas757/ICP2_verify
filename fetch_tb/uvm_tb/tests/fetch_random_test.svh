@@ -24,7 +24,7 @@ task fetch_random_test::run_phase(uvm_phase phase);
     init_vseq(vseq);
     fork
         set_run_flag(0);
-        init_input(0);
+        //init_input(0);
         vseq.start(null);
     join
     phase.drop_objection(this);

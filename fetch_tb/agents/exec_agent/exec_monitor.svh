@@ -35,6 +35,8 @@ task exec_monitor::run_phase(uvm_phase phase);
         item.redirect_flag = EXEC.mon_cb.redirect_flag;
         item.redirect_target = EXEC.mon_cb.redirect_target;
         item.pc_write = EXEC.mon_cb.pc_write;
+        item.exe_pc_in = EXEC.mon_cb.exe_pc_in;
+        item.exe_isbranch = EXEC.mon_cb.exe_isbranch;
         $cast(cloned_item, item.clone());
         ap.write(cloned_item);
     end

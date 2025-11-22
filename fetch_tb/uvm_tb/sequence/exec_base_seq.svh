@@ -5,7 +5,7 @@ class exec_base_seq extends uvm_sequence #(exec_seq_item);
     `uvm_field_int(offset_boundary, UVM_DEFAULT)
 `uvm_object_utils_end
 
-
+rand int exe_pc_boundary;
 rand int offset_boundary;
 rand int nitem;
 

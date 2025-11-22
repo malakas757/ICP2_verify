@@ -9,6 +9,9 @@ module ifu(
     input fetch_prediction,
     input pc_src,
     input pc_write,
+    input [31:0] exe_pc_in,
+    input exe_isbranch,
+    
     output logic [31:0] fetch_pc,
     output logic [31:0] uncompressed_instr,
     output logic [31:0] fetch_read_address,
@@ -38,7 +41,9 @@ module ifu(
         .id_ex_flush(branch_id_ex_flush),
         .run_finished_next(run_finished),
         .decompress_failed(fetch_decpompress_failed),
-        .is_conditional_branch(is_conditional_branch)
+        .is_conditional_branch(is_conditional_branch),
+        .exe_pc_in(exe_pc_in),
+        .exe_isbranch(exe_isbranch)
     );
 
 

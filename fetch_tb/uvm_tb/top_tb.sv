@@ -12,12 +12,17 @@ if_id_if IFID(.clk(clk), .rstn(rstn));
 ifu DUT (
     .clk(clk),
     .reset_n(rstn),
+    
+    .fetch_prediction(BPU.pred),
+    
     .execute_jalr_target_offset(EXEC.redirect_target),
     .execute_jalr_flag(EXEC.redirect_flag),
-    .run_flag(IFID.run_flag),
-    .fetch_prediction(BPU.pred),
     .pc_src(EXEC.pc_src),
     .pc_write(EXEC.pc_write),
+    .exe_isbranch(EXEC.exe_isbranch),
+    .exe_pc_in(EXEC.exe_pc_in),
+
+    .run_flag(IFID.run_flag),
     .fetch_pc(IFID.pc_out),
     .uncompressed_instr(IFID.instruction_out),
     .fetch_read_address(IFID.address),
