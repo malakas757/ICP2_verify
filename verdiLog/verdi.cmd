@@ -70,3 +70,4 @@ wvSetCursor -win $_nWave2 189558.481488 -snap {("G1" 1)}
 wvSetCursor -win $_nWave2 162478.698419 -snap {("G1" 1)}
 wvSetCursor -win $_nWave2 154514.056339 -snap {("G1" 1)}
 wvSetCursor -win $_nWave2 160089.305795 -snap {("G1" 1)}
+debExit

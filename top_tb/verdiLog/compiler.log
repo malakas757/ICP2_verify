@@ -1,0 +1,64 @@
+*design* DebussyLib (btIdent Verdi_O-2018.09-SP2)
+Command arguments:
+    +define+verilog
+    /home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv
+    -sv
+
+
+*Error* `include file "uvm_macros.svh" cannot be read
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 5: 
+
+*Error* failed to find the package 'uvm_pkg'.
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 6: 
+
+*Error* failed to find the package 'mem_model_pkg'.
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 7: 
+
+*Error* failed to find the package 'uvm_pkg'.
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 14: 
+
+*Error* Syntax error at ;
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 24: 
+
+*Error* macro `uvm_info not defined
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 31: 
+
+*Error* Syntax error at )
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 31: 
+
+*Error* macro `uvm_fatal not defined
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 45: 
+
+*Error* macro `uvm_info not defined
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 47: 
+
+*Error* Syntax error at )
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 47: 
+
+*Error* macro `uvm_info not defined
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 61: 
+
+*Error* Syntax error at ,
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 61: 
+
+*Error* Syntax error at $finish
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 64: 
+
+*Error* Syntax error at end
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 65: 
+Highest level modules:
+mem_load_bin_tb
+
+
+*Error* failed to find identifier UVM_NONE
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 47: 
+
+*Error* failed to find identifier mem.write
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 48: 
+
+*Error* failed to find identifier mem
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 55: 
+
+*Error* failed to find identifier mem.new
+"/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/tb/mem_test.sv", 55: 
+Total	18 error(s),   0 warning(s)

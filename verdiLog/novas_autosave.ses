@@ -19,8 +19,8 @@ Console = FALSE
 powerDumped = 0
 [hb]
 postSimFile = /home/sjp/Desktop/ICP2_verify/ICP2_verify/test.fsdb
-syncTime = 137500
-viewport = 71 26 1846 854 0 0 243 1844
+syncTime = 162500
+viewport = 144 73 1384 631 0 0 243 1844
 activeNode = "top_tb"
 activeScope = "top_tb"
 activeFile = "/home/sjp/Desktop/ICP2_verify/ICP2_verify/fetch_tb/uvm_tb/top_tb.sv"
@@ -61,7 +61,7 @@ WaveformFile = /home/sjp/Desktop/ICP2_verify/ICP2_verify/test.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
 [wave.0]
-viewPort = 0 35 1846 711 478 65
+viewPort = 0 35 1384 488 478 65
 primaryWindow = TRUE
 SessionFile = /home/sjp/Desktop/ICP2_verify/ICP2_verify/verdiLog/novas_autosave.ses.wave.0
 displayGrid = FALSE

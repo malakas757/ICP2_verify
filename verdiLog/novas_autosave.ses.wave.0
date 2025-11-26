@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi_O-2018.09-SP2
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 35 1846 711 478 65
+viewPort 0 35 1384 488 478 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,8 +16,8 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 593739.388092
-cursor 137500.000000
+zoom 0.000000 649118.329466
+cursor 162500.000000
 marker 0.000000
 
 ; user define markers
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 2
+markerPos 6
 
 ; event list
 ; addEvent event_name event_expression
@@ -47,18 +47,12 @@ curSTATUS ByChange
 
 addGroup "G1"
 activeDirFile "" "/home/sjp/Desktop/ICP2_verify/ICP2_verify/test.fsdb"
-addSignal -h 15 -UNSIGNED -HEX /top_tb/DUT/inst_fetch_stage/address[31:0]
-addSignal -h 15 -UNSIGNED -HEX /top_tb/IFID/instruction_out[31:0]
-addSignal -h 15 /top_tb/DUT/inst_fetch_stage/clk
+addSignal -h 15 /top_tb/IFID/clk
 addSignal -h 15 -holdScope id_ex_flush
 addSignal -h 15 -holdScope if_id_flush
-addSignal -h 15 -holdScope is_compressed
-addSignal -h 15 -UNSIGNED -holdScope state[31:0]
-addSignal -h 15 -holdScope pc_reg[31:0]
-addSignal -h 15 -holdScope pc_src
-addSignal -h 15 -holdScope pc_write
-addSignal -h 15 -holdScope reset_n
-addSignal -h 15 -holdScope run_flag
+addSignal -h 15 -holdScope instruction_out[31:0]
+addSignal -h 15 -holdScope pc_out[31:0]
+addSignal -h 15 -holdScope rstn
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status
@@ -70,47 +64,15 @@ getSignalForm close
 
 "/_vcs_msglog"
 "/top_tb"
-"/top_tb/DUT"
-"/top_tb/DUT/inst_fetch_stage"
-"/top_tb/IFID"
 
 SCOPE_LIST_BEGIN
 "/_vcs_msglog"
-"/top_tb/DUT/inst_fetch_stage"
-"/top_tb/DUT/inst_mem"
-"/top_tb/IFID"
 "/top_tb"
+"/top_tb/IFID"
 "/top_tb/DUT"
-"/top_tb/DUT/inst_fetch_stage/optimized_pc_update"
-"/top_tb/DUT/inst_fetch_stage/flush_logic"
-"/top_tb/DUT/inst_fetch_stage/decompressor"
-"/top_tb/BPU"
-"/top_tb/IFID/mon_cb"
+"/top_tb/EXEC"
 SCOPE_LIST_END
 
 GETSIGNALFORM_SCOPE_HIERARCHY_END
 
 
-
-FILTER_SIGNAL_BEGIN
-
-"*"
-
-FILTER_STRING_LIST_BEGIN
-FILTER_STRING_LIST_END
-
-FILTER_TYPE_LIST_BEGIN
-"All"
-"Input"
-"Output"
-"Inout"
-"Net"
-"Register"
-"Buffer"
-"Linkage"
-"ClassTransaction"
-"Property"
-"Others"
-FILTER_TYPE_LIST_END
-
-FILTER_SIGNAL_END
