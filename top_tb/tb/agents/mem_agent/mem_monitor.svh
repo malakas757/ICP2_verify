@@ -1,9 +1,15 @@
+`include "spike_cosim_dpi.svh"
+`include "cosim_dpi.svh"
+
 class mem_monitor extends uvm_component;
     `uvm_component_utils(mem_monitor)
 
 virtual mem_if vif;
 uvm_analysis_port#(mem_seq_item) ap;
-chandle cosim_h;
+
+mem_agent_config m_cfg;
+top_cosim_config m_cosim_cfg;
+
 
 extern function new(string name = "mem_monitor", uvm_component parent = null);
 extern function void build_phase(uvm_phase phase);
@@ -18,13 +24,14 @@ endfunction
 function void mem_monitor::build_phase(uvm_phase phase);
     super.build_phase(phase);
     ap = new("ap", this);
-    mem_agent_config m_cfg;
 
     if (!uvm_config_db#(mem_agent_config)::get(this, "", "mem_agent_config", m_cfg)) begin
       `uvm_fatal("NOCONFIG", "mem_monitor: cannot get mem_agent_config")
     end
+    if (!uvm_config_db#(top_cosim_config)::get(this, "", "top_cosim_config", m_cosim_cfg)) begin
+      `uvm_fatal("NOCONFIG", "mem_monitor: cannot get cosim_config")
+    end
 
-    cosim_h = m_cfg.cosim_h; 
 endfunction
 
 task mem_monitor::run_phase(uvm_phase phase);
@@ -47,7 +54,7 @@ task mem_monitor::run_phase(uvm_phase phase);
         
         if(vif.mon_cb.control_in.mem_write) begin
             riscv_cosim_notify_dside_access(
-                cosim_h,
+                m_cosim_cfg.cosim_handle,
                 1'b1,
                 vif.mon_cb.alu_data_in,
                 vif.mon_cb.memory_data_in,
@@ -60,7 +67,7 @@ task mem_monitor::run_phase(uvm_phase phase);
         end
         else if (vif.mon_cb.control_in.mem_read) begin
              riscv_cosim_notify_dside_access(
-                cosim_h,
+                m_cosim_cfg.cosim_handle,
                 1'b0,
                 vif.mon_cb.alu_data_in,
                 vif.mon_cb.memory_data_out,
