@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
-  <srcinfo name="/home/sjp/Desktop/ICP2_verify/ICP2_verify"  >
+  <srcinfo name="/home/sjp/Desktop/ICP2/ICP2_verify"  >
     <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="O-2018.09-SP2"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv"  id="0"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh"  id="1"  />

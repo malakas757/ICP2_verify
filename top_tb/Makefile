@@ -158,7 +158,7 @@ show:
 	@echo "EXTRA_LIBS=$(EXTRA_LIBS)"
 #=============================================================
 #=======vcs=======
-#RTL_FILE     = fileset/rtl.f
+RTL_FILE     = fileset/rtl.f
 TOP_TB_FILE  = fileset/tb.f
 MEM_FILE     = fileset/mem.f
 COSIM_FILE   = fileset/cosim.f
@@ -190,6 +190,7 @@ vcs_compile:
 	    -l vcs_compile.log \
 	    -o work_lib/simv \
 	    $(CM) $(ASS_ON) \
+	    -f $(RTL_FILE) \
 	    -f $(COSIM_FILE) \
 	    -f $(MEM_FILE) \
 	    -f $(TOP_TB_FILE) 

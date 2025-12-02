@@ -22,7 +22,7 @@ module mem_load_bin_tb;
   localparam int ADDR_W = 32;
   localparam int DATA_W = 32;
 
-  string BIN_PATH   = "/home/sjp/Desktop/ibex/ibex/dv/uvm/my_core/dv_out/out_base_test_seed/asm_test/riscv_rand_instr_test_0.bin";              
+  string BIN_PATH   = "./dv_out/out_base_test_seed/asm_test/riscv_rand_instr_test_0.bin";              
   logic [ADDR_W-1:0] BASE_ADDR = 32'h8000_0000; // bin 写入的起始地址
 
   // 实例化内存模型
@@ -120,7 +120,8 @@ module mem_load_bin_tb;
       	Test code
 	          addi         x5, zero, 24
 	          addi         x6, zero, 12
-                  sw           x6, 4(x5)     
+                  sw           x6, 4(x5) 
+                  lw           x7, 4(x5)    
       	  	
       	*/
       	for(int i=0;i<1;i++) begin
@@ -133,12 +134,19 @@ module mem_load_bin_tb;
       			//$display(get_cosim_error_str());
       			$display("you success2");
       		end
-      		      riscv_cosim_notify_dside_access(cosim_handle, 1, 32'd28,
+      		riscv_cosim_notify_dside_access(cosim_handle, 1, 32'd28,
         32'd12, 4'b1111, 0, 0, 0,
         0, 1);
-   	   	if(riscv_cosim_step(cosim_handle,5'd0,32'd0,32'h80000008,0,0)) begin
+   	   	if(riscv_cosim_step(cosim_handle,5'd0,32'd12,32'h80000008,0,0)) begin
       			//$display(get_cosim_error_str());
       			$display("you success3");
+      		end
+      		riscv_cosim_notify_dside_access(cosim_handle, 0, 32'd28,
+        32'd12, 4'b1111, 0, 0, 0,
+        0, 1);
+      		if(riscv_cosim_step(cosim_handle,5'd7,32'd12,32'h8000000c,0,0)) begin
+      			//$display(get_cosim_error_str());
+      			$display("you success4");
       		end
       	end
     $finish;

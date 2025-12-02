@@ -201,7 +201,7 @@ GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GTK_IM_MODULE=fcitx
 PKG_CONFIG_PATH=/opt/spike-cosim/lib/pkgconfig:
 VCS_HOME=/usr/software/vcs2018/vcs/O-2018.09-SP2
-MAKE_TERMOUT=/dev/pts/5
+MAKE_TERMOUT=/dev/pts/14
 LC_ADDRESS=zh_CN.UTF-8
 JAVA_HOME=/opt/java/jdk-17.0.14
 GNOME_SHELL_SESSION_MODE=ubuntu
@@ -216,7 +216,7 @@ SSH_AGENT_PID=1399
 CV_SW_MARCH=rv32imc_zicsr
 GTK_MODULES=gail:atk-bridge
 DBUS_STARTER_BUS_TYPE=session
-PWD=/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb
+PWD=/home/sjp/Desktop/ICP2/ICP2_verify/top_tb
 LOGNAME=sjp
 XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=x11
@@ -234,7 +234,7 @@ LC_PAPER=zh_CN.UTF-8
 LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 VTE_VERSION=6003
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/1b4367bf_ec6d_4b60_a64d_7169dd9c7fcd
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/5e7e596e_f370_4b47_a3de_f7b418654372
 UVM_HOME=/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/
 INVOCATION_ID=ac3977a749404a0e915b50c0379937c1
 NOOP_HOME=/home/sjp/Desktop/difftest_xiangshan/chisel-template
@@ -252,7 +252,7 @@ TERM=xterm-256color
 LC_IDENTIFICATION=zh_CN.UTF-8
 LESSOPEN=| /usr/bin/lesspipe %s
 USER=sjp
-MAKE_TERMERR=/dev/pts/5
+MAKE_TERMERR=/dev/pts/14
 RISCV_OBJCOPY=/home/sjp/Desktop/ibex/lowrisc/bin/riscv32-unknown-elf-objcopy
 VERDI_DIR=/usr/software/verdi/verdi/Verdi_O-2018.09-SP2
 GNOME_TERMINAL_SERVICE=:1.97
@@ -297,8 +297,8 @@ argv[3]=-l
 argv[4]=./log/.log
 argv[5]=+ntb_random_seed_automatic
 298 profile - 100
-          CPU/Mem usage: 0.210 sys,  0.090 user,  249.07M mem
-299 Wed Nov 26 12:03:59 2025
+          CPU/Mem usage: 0.050 sys,  0.150 user,  249.06M mem
+299 Mon Dec  1 18:05:30 2025
 300 pliAppInit
 301 FSDB_GATE is set.
 302 FSDB_RTL is set.
@@ -308,48 +308,48 @@ argv[5]=+ntb_random_seed_automatic
 306 LIBSSCORE=found /usr/software/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/lib/LINUXAMD64/libsscore_vcs201809.so through $NOVAS_HOME setting.
 307 FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
 308 (C) 1996 - 2019 by Synopsys, Inc.
-309 sps_call_fsdbDumpfile_main at 0 : ./tb/mem_test.sv(148)
+309 sps_call_fsdbDumpfile_main at 0 : ./tb/mem_test.sv(156)
 310 argv[0]: (test.fsdb)
 311 *Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
 312 *Verdi* : Create FSDB file 'test.fsdb'
-313 compile option from '/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/work_lib/simv.daidir/vcs_rebuild'.
+313 compile option from '/home/sjp/Desktop/ICP2/ICP2_verify/top_tb/work_lib/simv.daidir/vcs_rebuild'.
 314   "vcs '-sverilog' '-ntb_opts' 'uvm-1.2' '-full64' '-debug_access+all' '-kdb' '-timescale=1ns/1ns' '+vcs+lic+wait' '+vcsd' '+memcbk' '+vpi' '-l' 'vcs_compile.log' '-o' 'work_lib/simv' '-cm' 'line+cond+fsm+branch+tgl' '+define+SVA+ASSERT_ON' '-f' 'fileset/cosim.f' '-f' 'fileset/mem.f' '-f' 'fileset/tb.f' 2>&1"
 315 FSDB_VCS_ENABLE_FAST_VC is enable
-316 sps_call_fsdbDumpvars_vd_main at 0 : ./tb/mem_test.sv(149)
+316 sps_call_fsdbDumpvars_vd_main at 0 : ./tb/mem_test.sv(157)
 317 [spi_vcs_vd_ppi_create_root]: no upf option
 318 FSDB dumper cannot dump UPF related power signal ($power_tree): no ppiPowerNetwork.
 319 *Verdi* : Begin traversing the scopes, layer (0).
 320 *Verdi* : End of traversing.
 321 pliAppHDL_DumpVarComplete traverse var: profile - 
-          CPU/Mem usage: 0.270 sys,  0.100 user,  342.11M mem
-                   incr: 0.040 sys,  0.010 user,  5.50M mem
-                   accu: 0.040 sys,  0.010 user,  5.50M mem
-              accu incr: 0.040 sys,  0.010 user,  5.50M mem
+          CPU/Mem usage: 0.060 sys,  0.160 user,  342.07M mem
+                   incr: 0.010 sys,  0.010 user,  5.48M mem
+                   accu: 0.010 sys,  0.010 user,  5.48M mem
+              accu incr: 0.010 sys,  0.010 user,  5.48M mem
 
           Count usage: 28 var,  28 idcode,  28 callback
                  incr: 28 var,  28 idcode,  28 callback
                  accu: 28 var,  28 idcode,  28 callback
             accu incr: 28 var,  28 idcode,  28 callback
-322 Wed Nov 26 12:03:59 2025
+322 Mon Dec  1 18:05:30 2025
 323 pliAppHDL_DumpVarComplete: profile - 
-          CPU/Mem usage: 0.270 sys,  0.100 user,  343.16M mem
+          CPU/Mem usage: 0.060 sys,  0.160 user,  343.13M mem
                    incr: 0.000 sys,  0.000 user,  1.05M mem
-                   accu: 0.040 sys,  0.010 user,  6.55M mem
+                   accu: 0.010 sys,  0.010 user,  6.53M mem
               accu incr: 0.000 sys,  0.000 user,  1.05M mem
 
           Count usage: 28 var,  28 idcode,  28 callback
                  incr: 0 var,  0 idcode,  0 callback
                  accu: 28 var,  28 idcode,  28 callback
             accu incr: 0 var,  0 idcode,  0 callback
-324 Wed Nov 26 12:03:59 2025
+324 Mon Dec  1 18:05:30 2025
 325 End of simulation at 100000
-326 Wed Nov 26 12:03:59 2025
+326 Mon Dec  1 18:05:30 2025
 327 Begin FSDB profile info:
 328 FSDB Writer : bc1(7) bcn(21) mtf/stf(0/0)
-FSDB Writer elapsed time : flush(0.004214) io wait(0.000000) theadpool wait(0.000000) target functin(0.000000)
+FSDB Writer elapsed time : flush(0.001771) io wait(0.000000) theadpool wait(0.000000) target functin(0.000000)
 FSDB Writer cpu time : MT Compression : 0
 329 End FSDB profile info
 330 Parallel profile    -  Flush:3 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
-331                        ProduceTime:0.387259017 ConsumerTime:0.000000000 Buffer:64MB
+331                        ProduceTime:0.240429878 ConsumerTime:0.000000000 Buffer:64MB
 332 SimExit
 333 Sim process exit

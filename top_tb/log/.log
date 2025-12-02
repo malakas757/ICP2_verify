@@ -1,8 +1,8 @@
-Command: /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/./work_lib/simv -sv_lib libcosim_dpi -l ./log/.log +ntb_random_seed_automatic
+Command: /home/sjp/Desktop/ICP2/ICP2_verify/top_tb/./work_lib/simv -sv_lib libcosim_dpi -l ./log/.log +ntb_random_seed_automatic
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Nov 26 12:03 2025
-NOTE: automatic random seed used: 1910271417
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Dec  1 18:05 2025
+NOTE: automatic random seed used: 2339606016
 UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -48,12 +48,17 @@ UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0
 UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000009] = 0xa2
 UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000a] = 0x62
 UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000b] = 0x0
+UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000c] = 0x83
+UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000d] = 0xa3
+UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000e] = 0x42
+UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000f] = 0x0
 you success1
 you success2
 you success3
-$finish called from file "./tb/mem_test.sv", line 144.
+you success4
+$finish called from file "./tb/mem_test.sv", line 152.
 $finish at simulation time               100000
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 100000 ps
-CPU Time:      0.380 seconds;       Data structure size:   0.4Mb
-Wed Nov 26 12:03:59 2025
+CPU Time:      0.240 seconds;       Data structure size:   0.4Mb
+Mon Dec  1 18:05:30 2025
