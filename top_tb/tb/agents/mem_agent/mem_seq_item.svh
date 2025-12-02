@@ -10,7 +10,7 @@ class mem_seq_item extends uvm_sequence_item;
     `uvm_field_int(address, UVM_DEFAULT)
     `uvm_field_int(store_data, UVM_DEFAULT)
     `uvm_field_int(mem_write, UVM_DEFAULT)
-    `uvm_field_enum(control_type, control, UVM_DEFAULT)
+    //`uvm_field_enum(control_type, control, UVM_DEFAULT)
     `uvm_field_int(pc, UVM_DEFAULT)
     `uvm_field_int(load_data, UVM_DEFAULT)
 `uvm_object_utils_end

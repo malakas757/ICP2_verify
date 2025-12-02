@@ -5,6 +5,7 @@ import common::*;
 `include "uvm_macros.svh"
 
 `include "mem_seq_item.svh"
+`include "top_cosim_config.svh"
 `include "mem_agent_config.svh"
 `include "mem_monitor.svh"
 `include "mem_agent.svh"
