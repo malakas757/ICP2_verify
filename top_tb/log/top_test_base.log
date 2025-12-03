@@ -1,8 +1,7 @@
-Command: /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/./work_lib/simv -sv_lib libcosim_dpi -l ./log/top_test_base.log +ntb_random_seed_automatic
+Command: /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/./work_lib/simv -sv_lib libcosim_dpi -l log/top_test_base.log +UVM_VERBOSITY=UVM_HIGH +MEM_FILE=/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/dv_out/out_top_test_base_seed/asm_test/riscv_rand_instr_test_0.bin +UVM_TIMEOUT=900000000 +UVM_TESTNAME=top_test_base
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Dec  3 12:20 2025
-NOTE: automatic random seed used: 560039787
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Dec  3 18:47 2025
 UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -25,24 +24,284 @@ UVM-1.2.Synopsys
 
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
-No MEM_FILE argument
+MEM_File = /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/dv_out/out_top_test_base_seed/asm_test/riscv_rand_instr_test_0.bin
+UVM_INFO @ 0: reporter [RNTST] Running test top_test_base...
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'test.fsdb'
+*Verdi* : Begin traversing the scope (top_tb), layer (0).
+*Verdi* : End of traversing.
+UVM_INFO @ 0: reporter [TIMOUTSET] '+UVM_TIMEOUT=900000000' provided on the command line is being applied.
+UVM_INFO ./tb/uvm_tb/tests/top_test_base.sv(47) @ 0: uvm_test_top [uvm_test_top] Initializing spike...
+SPIKE MEM_File = /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/dv_out/out_top_test_base_seed/asm_test/riscv_rand_instr_test_0.bin
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000000] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000001] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000002] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000003] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000004] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000005] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000006] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000007] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000008] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000009] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000000a] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000000b] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000000c] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000000d] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000000e] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000000f] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000010] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000011] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000012] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000013] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000014] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000015] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000016] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000017] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000018] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000019] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000001a] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000001b] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000001c] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000001d] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000001e] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000001f] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000020] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000021] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000022] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000023] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000024] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000025] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000026] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000027] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000028] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000029] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000002a] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000002b] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000002c] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000002d] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000002e] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000002f] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000030] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000031] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000032] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000033] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000034] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000035] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000036] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000037] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000038] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000039] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000003a] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000003b] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000003c] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000003d] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000003e] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000003f] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000040] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000041] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000042] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000043] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000044] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000045] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000046] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000047] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000048] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000049] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000004a] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000004b] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000004c] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000004d] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000004e] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000004f] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000050] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000051] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000052] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000053] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000054] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000055] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000056] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000057] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000058] = 0x93
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000059] = 0x2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000005a] = 0x80
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000005b] = 0x1
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000005c] = 0x13
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000005d] = 0x3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000005e] = 0xc0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x0000005f] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000060] = 0x23
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000061] = 0xa2
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000062] = 0x62
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000063] = 0x0
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000064] = 0x83
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000065] = 0xa3
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000066] = 0x42
+UVM_INFO ./tb/env/top_env.svh(64) @ 0: uvm_test_top.m_env [uvm_test_top.m_env] Init spike mem [0x00000067] = 0x0
+UVM_INFO ./tb/uvm_tb/tests/top_test_base.sv(89) @ 0: uvm_test_top [top_test_base] Waiting 0 cycles to set run_flag
+UVM_INFO ./tb/uvm_tb/tests/top_test_base.sv(93) @ 0: uvm_test_top [top_test_base] run_flag is set to 1
+UVM_INFO ./tb/uvm_tb/tests/top_test_base.sv(142) @ 0: uvm_test_top [top_test_base] Waiting for test to complete (max 100000 cycles)...
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 263000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=0 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 263000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 263000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000000
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 263000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 263000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 288000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=4 rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 288000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 288000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000004
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 288000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 288000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 313000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=8 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 313000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 313000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000008
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 313000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 313000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 338000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=c rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 338000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 338000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=0000000c
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 338000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 338000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 363000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=10 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 363000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 363000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000010
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 363000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 363000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 388000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=14 rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 388000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 388000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000014
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 388000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 388000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 413000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=18 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 413000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 413000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000018
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 413000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 413000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 438000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=1c rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 438000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 438000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=0000001c
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 438000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 438000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 463000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=20 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 463000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 463000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000020
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 463000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 463000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 488000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=24 rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 488000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 488000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000024
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 488000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 488000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 513000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=28 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 513000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 513000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000028
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 513000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 513000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 538000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=2c rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 538000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 538000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=0000002c
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 538000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 538000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 563000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=30 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 563000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 563000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000030
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 563000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 563000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 588000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=34 rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 588000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 588000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000034
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 588000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 588000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 613000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=38 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 613000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 613000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000038
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 613000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 613000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 638000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=3c rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 638000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 638000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=0000003c
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 638000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 638000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 663000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=40 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 663000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 663000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000040
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 663000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 663000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 688000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=44 rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 688000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 688000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000044
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 688000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 688000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 713000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=48 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 713000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 713000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000048
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 713000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 713000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 738000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=4c rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 738000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 738000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=0000004c
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 738000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 738000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 763000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=50 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 763000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 763000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000050
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 763000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 763000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 788000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=54 rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 788000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 788000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000054
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 788000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 788000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 813000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=58 rd_id=5 data=18 mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 813000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 813000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=00000058
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 813000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 5
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 813000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000011000
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 838000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=5c rd_id=6 data=c mem_read=11010100100000
+UVM_INFO ./tb/env/top_scoreboard.svh(115) @ 838000: uvm_test_top.m_env.m_top_sb [scoreboard] complete an instruction
+UVM_INFO ./tb/env/top_scoreboard.svh(116) @ 838000: uvm_test_top.m_env.m_top_sb [scoreboard] pc=0000005c
+UVM_INFO ./tb/env/top_scoreboard.svh(117) @ 838000: uvm_test_top.m_env.m_top_sb [scoreboard] rd_id= 6
+UVM_INFO ./tb/env/top_scoreboard.svh(118) @ 838000: uvm_test_top.m_env.m_top_sb [scoreboard] data=00000000000000000000000000001100
+UVM_INFO ./tb/agents/wb_agent/wb_monitor.svh(46) @ 863000: uvm_test_top.m_env.m_wb_agent.monitor [WB_MON] pc=60 rd_id=4 data=1c mem_read=11011101001000
+UVM_INFO ./tb/env/top_scoreboard.svh(70) @ 863000: uvm_test_top.m_env.m_top_sb [uvm_test_top.m_env.m_top_sb] Find ERROR(relax_check)
+UVM_FATAL ./tb/env/top_scoreboard.svh(71) @ 863000: uvm_test_top.m_env.m_top_sb [uvm_test_top.m_env.m_top_sb] Cosim mismatch A store at address 1c was expected but there are no pending accesses
+Synchronous trap was expected at ISS PC: f0000000 but the DUT didn't report one at PC 60
 
-Warning-[STASKW_CO] Cannot open file
-tb/rtl/program_memory.sv, 35
-  The file 
-  './dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test_0.bin' 
-  could not be opened. No such file or directory.
-  Please ensure that the file exists with proper permissions.
+UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 863000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
 
-Error !!! can not open bin file
 
-Error-[STASKE_FRPIFD] Invalid file descriptor to $fread
-tb/rtl/program_memory.sv, 38
-  An invalid file descriptor '0' is passed to $fread. There is no file 
-  associated with this file descriptor.
-  Please pass a valid file descriptor as argument to $fread.
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
 
+UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 863000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  234
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    1
+** Report counts by id
+[RNTST]     1
+[TIMOUTSET]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[WB_MON]    25
+[scoreboard]    96
+[top_test_base]     3
+[uvm_test_top]     1
+[uvm_test_top.m_env]   104
+[uvm_test_top.m_env.m_top_sb]     2
+
+$finish called from file "/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh", line 135.
+$finish at simulation time               862500
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 0 ps
-CPU Time:      0.190 seconds;       Data structure size:   0.5Mb
-Wed Dec  3 12:20:52 2025
+Time: 862500 ps
+CPU Time:      0.240 seconds;       Data structure size:   0.5Mb
+Wed Dec  3 18:47:29 2025

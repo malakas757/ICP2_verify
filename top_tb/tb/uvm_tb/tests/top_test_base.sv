@@ -1,5 +1,6 @@
 import uvm_pkg::*;
 import common::*;
+import cosim_agent_pkg::*;
 import wb_agent_pkg::*;
 import mem_agent_pkg::*;
 import top_env_pkg::*;
@@ -36,14 +37,19 @@ function void build_phase(uvm_phase phase);
     uvm_config_db #(virtual wb_if)::get(this, "", "WB_IF", m_wb_agent_cfg.vif);
     uvm_config_db #(virtual mem_if)::get(this, "", "MEM_IF", m_mem_agent_cfg.vif);
     m_env_cfg.m_wb_agent_cfg = m_wb_agent_cfg;
-
-    uvm_config_db #(top_env_config)::set(this, "m_env", "top_env_config", m_env_cfg);
+    m_env_cfg.m_mem_agent_cfg = m_mem_agent_cfg;
+    uvm_config_db #(top_env_config)::set(this, "m_env*", "top_env_config", m_env_cfg);
     uvm_config_db #(top_cosim_config)::set(this, "*", "top_cosim_config", m_top_cosim_cfg); //Set global config
 endfunction
 
 virtual task run_phase(uvm_phase phase);
     phase.raise_objection(this);
-
+    `uvm_info(`gfn, "Initializing spike...",UVM_HIGH)
+    if ($value$plusargs("MEM_FILE=%s", BIN_PATH)) begin
+   	   $display("SPIKE MEM_File = %s", BIN_PATH);
+    end else begin
+           $display("No MEM_FILE argument");
+    end
     load_binary_to_mems();
     set_run_flag(0);
     fork
@@ -62,8 +68,8 @@ virtual function void configure_cosim_params();
     end
     
     m_top_cosim_cfg.isa_string          = "rv32ic";           
-    m_top_cosim_cfg.start_pc            = 32'h8000_0000;      
-    m_top_cosim_cfg.start_mtvec         = 32'hffff_0000;     
+    m_top_cosim_cfg.start_pc            = 32'h0000_0000;      
+    m_top_cosim_cfg.start_mtvec         = 32'hf000_0000;     
     
     m_top_cosim_cfg.log_file            = "sk_log";           
     m_top_cosim_cfg.probe_imem_for_errs = 1'b0;              
@@ -100,9 +106,10 @@ virtual task handle_reset();
         `uvm_info(`gfn, "Reset now inactive", UVM_LOW)
         // Build-up testbench components
 
+    	m_env.load_binary_to_mem(m_top_cosim_cfg.start_pc, BIN_PATH); // Backdoor-load, 0-time 
         // Cosim must be re-initialized before loading the memory
         m_env.reset();
-        m_env.load_binary_to_mem(m_top_cosim_cfg.start_pc, BIN_PATH); // Backdoor-load, 0-time 
+
     end
 endtask : handle_reset
 

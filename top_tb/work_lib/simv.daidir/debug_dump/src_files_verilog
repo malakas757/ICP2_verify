@@ -1,3 +1,4 @@
+/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/cosim/cosim_agent/cosim_agent_pkg.sv
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/cosim/cosim_agent/cosim_dpi.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/cosim/cosim_agent/spike_cosim_dpi.svh
 /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/agents/mem_agent/mem_agent.svh

@@ -27,7 +27,7 @@ endfunction
 
 task wb_monitor::run_phase(uvm_phase phase);
 
-    wb_seq_item cloned_item;
+    //wb_seq_item cloned_item;
 
     item = wb_seq_item::type_id::create("item");
     @(posedge vif.rstn);
@@ -42,9 +42,15 @@ task wb_monitor::run_phase(uvm_phase phase);
        item.control = vif.mon_cb.mem_wb_reg.control;
 
        if(vif.mon_cb.mem_wb_reg != '0) begin
-          $cast(cloned_item, item.clone());
-          debug_info();       
-          ap.write(cloned_item);
+//          $cast(cloned_item, item.clone());
+  	  `uvm_info("WB_MON",
+            $sformatf("pc=%0h rd_id=%0d data=%0h mem_read=%0b",
+                      item.pc,
+                      item.rd_id,
+                      item.data,
+                      item.control),
+            UVM_LOW)       
+          ap.write(item);
        end
     end
 

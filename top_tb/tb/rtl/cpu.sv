@@ -190,10 +190,11 @@ module cpu(
         end
     end
 
-
+// verification change run flag
     always_ff @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
-            run_flag <= 0;
+            //run_flag <= 0;
+            run_flag <= 1;
         end
         else begin
             run_flag <= run_flag_next;

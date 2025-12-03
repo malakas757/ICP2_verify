@@ -7,6 +7,8 @@ uvm_event reset_e;
 
 virtual wb_if vif;
 
+wb_seq_item req;
+
 `uvm_component_utils(top_scoreboard)
 
 
@@ -21,6 +23,7 @@ extern function string get_cosim_error_str();
 extern task handle_reset();
 extern function void init_cosim();
 extern function void cleanup_cosim();
+extern task debug_info();
 
 
 endclass
@@ -28,6 +31,7 @@ endclass
 function top_scoreboard::new(string name = "top_scoreboard", uvm_component parent = null);
     super.new(name, parent);
     wb_fifo = new("wb_fifo", this);
+    reset_e = new("reset_e");
 endfunction
 
 function void top_scoreboard::build_phase(uvm_phase phase);
@@ -57,16 +61,21 @@ function void top_scoreboard::report_phase(uvm_phase phase);
 endfunction
 
 task top_scoreboard::run_cosim_wb();
-    wb_seq_item req;
+
     forever begin
         wb_fifo.get(req);
         if (!riscv_cosim_step(m_cfg.cosim_handle, req.rd_id, req.data, req.pc,
                                 0, 0)) begin
-            if (m_cfg.relax_cosim_check) begin
-            `uvm_info(`gfn, get_cosim_error_str(), UVM_LOW)
+            if (m_cfg.relax_cosim_check) begin 
+            `uvm_info(`gfn, "Find ERROR(relax_check)", UVM_LOW)
+             `uvm_fatal(`gfn, get_cosim_error_str())
             end else begin
+            `uvm_info(`gfn, "Find ERROR", UVM_LOW)
             `uvm_fatal(`gfn, get_cosim_error_str())
             end
+        end
+	else begin  
+	   debug_info();
         end
     end
 endtask
@@ -100,5 +109,12 @@ endfunction
 
 task top_scoreboard::handle_reset();
     init_cosim();
+endtask
+
+task top_scoreboard::debug_info();
+  `uvm_info("scoreboard","complete an instruction",UVM_LOW);
+  `uvm_info("scoreboard",$sformatf("pc=%h",req.pc),UVM_LOW);
+  `uvm_info("scoreboard",$sformatf("rd_id=%d",req.rd_id),UVM_LOW);
+  `uvm_info("scoreboard",$sformatf("data=%b",req.data),UVM_LOW);
 endtask
 

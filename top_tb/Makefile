@@ -32,14 +32,14 @@ MEM_FILE     = fileset/mem.f
 COSIM_FILE   = fileset/cosim.f
 TEST_FILE    = fileset/uvm_tb.f
 TEST_NAME_FILE = fileset/testname.f
-TEST_NAME   ?=
+TEST_NAME   ?= top_test_base
 TEST_NAMES	 = `cat $(TEST_NAME_FILE)` 
 CM       = -cm line+cond+fsm+branch+tgl
 CM_NAME  = -cm_name $(TEST_NAME)
 CM_DIR   = -cm_dir cover/$(TEST_NAME).vdb
 ASS_ON   = +define+SVA+ASSERT_ON
 ASS_RUN  = +sva_success
-
+UVM_VERBOSITY =	UVM_HIGH
 # Coverage paths
 DESIGN_VDB := cover/simv.vdb
 REPORT_DIR := cover/html
@@ -211,8 +211,10 @@ vcs_compile:
 vcs_sim:
 	@echo "Running Tests"
 	@mkdir -p log
-	$(MAKE) gens
-	./work_lib/simv -l log/${TEST_NAME}.log +MEM_FILE=./dv_out/out_$(TEST_NAME)_seed$(SEED)/asm_test/riscv_rand_instr_test_0.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
+	ln -sf $(abspath $(DPI_SO)) ./libcosim_dpi.so
+	LD_LIBRARY_PATH=/opt/spike-cosim/lib:$$LD_LIBRARY_PATH \
+	./work_lib/simv -sv_lib libcosim_dpi \
+	-l log/${TEST_NAME}.log +UVM_VERBOSITY=$(UVM_VERBOSITY) +MEM_FILE=$(LATEST_OUT)/asm_test/riscv_rand_instr_test_0.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
 
 vcs_sim_all:
 	@echo "Running Tests"

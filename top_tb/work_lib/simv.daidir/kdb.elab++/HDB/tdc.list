@@ -1,3 +1,4 @@
+./cosim/cosim_agent/cosim_agent_pkg.sv
 ./cosim/cosim_agent/cosim_dpi.svh
 ./cosim/cosim_agent/spike_cosim_dpi.svh
 ./tb/agents/mem_agent/mem_agent.svh

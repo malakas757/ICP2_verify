@@ -181,26 +181,27 @@
       <fileinfo name="tb/rtl/stall_unit.sv"  id="176"  />
       <fileinfo name="tb/rtl/uart.sv"  id="177"  />
       <fileinfo name="tb/rtl/uart_wrapper.sv"  id="178"  />
-      <fileinfo name="./tb/agents/mem_agent/mem_if.sv"  id="179"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_if.sv"  id="180"  />
-      <fileinfo name="./tb/agents/mem_agent/mem_agent_pkg.sv"  id="181"  />
-      <fileinfo name="./tb/agents/mem_agent/mem_seq_item.svh"  id="182"  />
-      <fileinfo name="./tb/env/top_cosim_config.svh"  id="183"  />
-      <fileinfo name="./tb/agents/mem_agent/mem_agent_config.svh"  id="184"  />
-      <fileinfo name="./tb/agents/mem_agent/mem_monitor.svh"  id="185"  />
-      <fileinfo name="./cosim/cosim_agent/spike_cosim_dpi.svh"  id="186"  />
-      <fileinfo name="./cosim/cosim_agent/cosim_dpi.svh"  id="187"  />
-      <fileinfo name="./tb/agents/mem_agent/mem_agent.svh"  id="188"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_agent_pkg.sv"  id="189"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_seq_item.svh"  id="190"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_agent_config.svh"  id="191"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_monitor.svh"  id="192"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_agent.svh"  id="193"  />
-      <fileinfo name="./tb/env/top_env_pkg.sv"  id="194"  />
-      <fileinfo name="./tb/env/top_env_config.svh"  id="195"  />
-      <fileinfo name="./tb/env/top_scoreboard.svh"  id="196"  />
-      <fileinfo name="./tb/env/top_env.svh"  id="197"  />
-      <fileinfo name="./tb/uvm_tb/tests/top_test_base.sv"  id="198"  />
-      <fileinfo name="./tb/uvm_tb/top_tb.sv"  id="199"  />
-      <fileinfo name=""  id="200"  />
+      <fileinfo name="./cosim/cosim_agent/cosim_agent_pkg.sv"  id="179"  />
+      <fileinfo name="./cosim/cosim_agent/spike_cosim_dpi.svh"  id="180"  />
+      <fileinfo name="./cosim/cosim_agent/cosim_dpi.svh"  id="181"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_if.sv"  id="182"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_if.sv"  id="183"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_agent_pkg.sv"  id="184"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_seq_item.svh"  id="185"  />
+      <fileinfo name="./tb/env/top_cosim_config.svh"  id="186"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_agent_config.svh"  id="187"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_monitor.svh"  id="188"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_agent.svh"  id="189"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_agent_pkg.sv"  id="190"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_seq_item.svh"  id="191"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_agent_config.svh"  id="192"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_monitor.svh"  id="193"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_agent.svh"  id="194"  />
+      <fileinfo name="./tb/env/top_env_pkg.sv"  id="195"  />
+      <fileinfo name="./tb/env/top_env_config.svh"  id="196"  />
+      <fileinfo name="./tb/env/top_scoreboard.svh"  id="197"  />
+      <fileinfo name="./tb/env/top_env.svh"  id="198"  />
+      <fileinfo name="./tb/uvm_tb/tests/top_test_base.sv"  id="199"  />
+      <fileinfo name="./tb/uvm_tb/top_tb.sv"  id="200"  />
+      <fileinfo name=""  id="201"  />
     </srcinfo>

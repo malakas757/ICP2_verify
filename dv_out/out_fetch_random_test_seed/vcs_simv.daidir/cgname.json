@@ -11,23 +11,23 @@
         "module",
         2
     ],
-    "std": [
-        "std",
-        "reYIK",
-        "module",
-        3
-    ],
-    "riscv_instr_gen_tb_top": [
-        "riscv_instr_gen_tb_top",
-        "PLawZ",
-        "module",
-        8
-    ],
     "uvm_pkg": [
         "uvm_pkg",
         "zr7M1",
         "module",
         4
+    ],
+    "riscv_instr_test_pkg": [
+        "riscv_instr_test_pkg",
+        "ejhbY",
+        "module",
+        7
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module",
+        3
     ],
     "riscv_signature_pkg": [
         "riscv_signature_pkg",
@@ -41,11 +41,11 @@
         "module",
         6
     ],
-    "riscv_instr_test_pkg": [
-        "riscv_instr_test_pkg",
-        "ejhbY",
+    "riscv_instr_gen_tb_top": [
+        "riscv_instr_gen_tb_top",
+        "PLawZ",
         "module",
-        7
+        8
     ],
     "...MASTER...": [
         "SIM",

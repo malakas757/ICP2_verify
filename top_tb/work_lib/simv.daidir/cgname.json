@@ -5,35 +5,17 @@
         "module",
         1
     ],
-    "uvm_custom_install_verdi_recording": [
-        "uvm_custom_install_verdi_recording",
-        "EbjT3",
+    "stall_unit": [
+        "stall_unit",
+        "DUMYJ",
         "module",
-        8
+        22
     ],
-    "decode_stage": [
-        "decode_stage",
-        "NW59P",
+    "wb_agent_pkg": [
+        "wb_agent_pkg",
+        "UeBEd",
         "module",
-        17
-    ],
-    "gshare_predictor": [
-        "gshare_predictor",
-        "KDwkF",
-        "module",
-        20
-    ],
-    "mem_agent_pkg": [
-        "mem_agent_pkg",
-        "LxgQq",
-        "module",
-        26
-    ],
-    "_vcs_unit__2662124937": [
-        "_vcs_unit__2662124937",
-        "aUw4E",
-        "module",
-        12
+        24
     ],
     "vcs_paramclassrepository": [
         "vcs_paramclassrepository",
@@ -41,29 +23,29 @@
         "module",
         2
     ],
-    "std": [
-        "std",
-        "reYIK",
+    "_vcs_unit__2662124937": [
+        "_vcs_unit__2662124937",
+        "aUw4E",
         "module",
-        4
+        12
     ],
-    "common": [
-        "common",
-        "pz2HW",
+    "program_memory": [
+        "program_memory",
+        "WRzQQ",
         "module",
-        15
-    ],
-    "top_env_pkg": [
-        "top_env_pkg",
-        "FHvMB",
-        "module",
-        27
+        14
     ],
     "uvm_pkg": [
         "uvm_pkg",
         "zr7M1",
         "module",
         5
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module",
+        4
     ],
     "_vcs_msglog": [
         "_vcs_msglog",
@@ -83,23 +65,11 @@
         "module",
         7
     ],
-    "forwarding_unit": [
-        "forwarding_unit",
-        "T1CvT",
+    "uvm_custom_install_verdi_recording": [
+        "uvm_custom_install_verdi_recording",
+        "EbjT3",
         "module",
-        19
-    ],
-    "stall_unit": [
-        "stall_unit",
-        "DUMYJ",
-        "module",
-        22
-    ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module",
-        11
+        8
     ],
     "mem_if": [
         "mem_if",
@@ -107,17 +77,41 @@
         "module",
         25
     ],
+    "common": [
+        "common",
+        "pz2HW",
+        "module",
+        15
+    ],
     "mem_stage": [
         "mem_stage",
         "zFRI0",
         "module",
         21
     ],
-    "program_memory": [
-        "program_memory",
-        "WRzQQ",
+    "cosim_agent_pkg": [
+        "cosim_agent_pkg",
+        "D0SLM",
         "module",
-        14
+        16
+    ],
+    "decode_stage": [
+        "decode_stage",
+        "NW59P",
+        "module",
+        17
+    ],
+    "forwarding_unit": [
+        "forwarding_unit",
+        "T1CvT",
+        "module",
+        19
+    ],
+    "gshare_predictor": [
+        "gshare_predictor",
+        "KDwkF",
+        "module",
+        20
     ],
     "wb_if": [
         "wb_if",
@@ -125,16 +119,28 @@
         "module",
         23
     ],
-    "wb_agent_pkg": [
-        "wb_agent_pkg",
-        "UeBEd",
-        "module",
-        24
-    ],
     "top_tb": [
         "top_tb",
         "W0eJz",
         "module",
         10
+    ],
+    "mem_agent_pkg": [
+        "mem_agent_pkg",
+        "LxgQq",
+        "module",
+        26
+    ],
+    "top_env_pkg": [
+        "top_env_pkg",
+        "FHvMB",
+        "module",
+        27
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        11
     ]
 }

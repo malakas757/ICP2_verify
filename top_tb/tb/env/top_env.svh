@@ -24,12 +24,13 @@ function void build_phase(uvm_phase phase);
         `uvm_fatal(`gfn, "Cannot get cosim_config")
     end
     
-    m_wb_agent = wb_agent::type_id::create("wb_agent", this);
-    m_mem_agent = mem_agent::type_id::create("mem_agent", this);
-    top_sb = top_scoreboard::type_id::create("top_sb", this);
+    m_wb_agent = wb_agent::type_id::create("m_wb_agent", this);
+    m_mem_agent = mem_agent::type_id::create("m_mem_agent", this);
+    top_sb = top_scoreboard::type_id::create("m_top_sb", this);
+    
 
-    uvm_config_db #(wb_agent_config)::set(this, "m_wb_agent", "wb_agent_config", m_env_cfg.m_wb_agent_cfg);
-    uvm_config_db #(mem_agent_config)::set(this, "m_mem_agent", "mem_agent_config", m_env_cfg.m_mem_agent_cfg);
+    uvm_config_db #(wb_agent_config)::set(this, "m_wb_agent*", "wb_agent_config", m_env_cfg.m_wb_agent_cfg);
+    uvm_config_db #(mem_agent_config)::set(this, "m_mem_agent*", "mem_agent_config", m_env_cfg.m_mem_agent_cfg);
 endfunction
 
 function void connect_phase(uvm_phase phase);
@@ -60,7 +61,7 @@ function void load_binary_to_mem(bit[31:0] base_addr, string bin);
     if (!bin_fd)
         `uvm_fatal(get_full_name(), $sformatf("Cannot open file %0s", bin))
     while ($fread(r8,bin_fd)) begin
-        `uvm_info(`gfn, $sformatf("Init mem [0x%h] = 0x%0h", addr, r8), UVM_FULL)
+        `uvm_info(`gfn, $sformatf("Init spike mem [0x%h] = 0x%0h", addr, r8), UVM_LOW)
         write_mem_byte(addr, r8);
         addr++;
     end

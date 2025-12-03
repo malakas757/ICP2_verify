@@ -8,1249 +8,1244 @@ _start:
                   li x6, 0
                   beq x5, x6, 0f
 
-0: la x11, h0_start
-jalr x0, x11, 0
+0: la x14, h0_start
+jalr x0, x14, 0
 h0_start:
-                  li x23, 0x40000100
-                  csrw 0x301, x23
+                  li x16, 0x40000100
+                  csrw 0x301, x16
 kernel_sp:        
-                  la x9, kernel_stack_end
+                  la x25, kernel_stack_end
 
 trap_vec_init:    
-                  la x23, mtvec_handler
-                  ori x23, x23, 1
-                  csrw 0x305, x23 # MTVEC
+                  la x16, mtvec_handler
+                  ori x16, x16, 0
+                  csrw 0x305, x16 # MTVEC
 
 mepc_setup:       
-                  la x23, init
-                  csrw 0x341, x23
+                  la x16, init
+                  csrw 0x341, x16
 
 custom_csr_setup: 
                   nop
 
 init_machine_mode:
-                  li x23, 0x18b2
-                  csrw 0x300, x23 # MSTATUS
-                  li x23, 0xb0b
-                  csrw 0x304, x23 # MIE
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
+                  li x16, 0x18b2
+                  csrw 0x300, x16 # MSTATUS
+                  li x16, 0xb0b
+                  csrw 0x304, x16 # MIE
+                  li x11, 0x8ffffffc
+                  li x16, 0x300
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x300
+                  sw x16, 0(x11)
+                  li x11, 0x8ffffffc
+                  li x16, 0x304
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x304
+                  sw x16, 0(x11)
                   mret
 init:             
-                  li x0, 0x5
-                  li x1, 0xfc75a061
-                  li x2, 0x30cc0941
-                  li x3, 0xbf10327e
-                  li x4, 0xff257241
-                  li x5, 0xf0109fa3
-                  li x6, 0x20ee8d21
-                  li x7, 0xf8564ab4
-                  li x8, 0xe
-                  li x10, 0x80000000
-                  li x11, 0x50abc12d
-                  li x12, 0x48f73fd6
-                  li x13, 0x0
-                  li x14, 0x0
-                  li x15, 0xb97f25bc
+                  li x0, 0x0
+                  li x1, 0xc
+                  li x2, 0x80000000
+                  li x3, 0x0
+                  li x4, 0x80000000
+                  li x5, 0x0
+                  li x7, 0x1bc21ad4
+                  li x8, 0x80000000
+                  li x9, 0x7
+                  li x10, 0xfc5a9394
+                  li x11, 0xfdf82c55
+                  li x12, 0xfe3c0820
+                  li x13, 0x9
+                  li x14, 0x6cbc7638
+                  li x15, 0xfb85532c
+                  li x16, 0xf
                   li x17, 0x80000000
-                  li x18, 0x0
-                  li x19, 0xfdf5bb3c
-                  li x20, 0xf97c79a4
-                  li x21, 0x2152b9e7
-                  li x22, 0xf925017d
-                  li x23, 0x537da52c
-                  li x24, 0xf27a7848
-                  li x25, 0x0
-                  li x26, 0xf88cf908
-                  li x27, 0x0
-                  li x28, 0x2
-                  li x29, 0x80000000
-                  li x30, 0x0
-                  li x31, 0xacdf72c7
-                  la x16, user_stack_end
-                  li x10, 0x8ffffffc
+                  li x18, 0xf58cdf4d
+                  li x19, 0x0
+                  li x20, 0xe71ea2e3
+                  li x21, 0x80000000
+                  li x22, 0x80000000
                   li x23, 0x0
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-main:             addi         a4, t4, 1690
-                  ori          s4, s11, -1231
-                  slti         s7, s0, 1952
-                  srl          s4, s6, t4
-                  lui          s5, 373352
-                  sll          s0, s11, s6
-                  sltu         s7, t2, s5
-                  bgeu         s7, sp, 19f
-                  slt          a5, zero, t5
-                  sltiu        a7, s5, 2039
-                  ori          sp, t0, -792
-                  bge          s7, a0, 14f
-                  slli         s7, t2, 8
-                  slli         t1, a1, 30
-14:               blt          t5, zero, 24f
-                  sra          a0, s0, ra
-                  sltiu        s2, s5, 636
-                  auipc        a2, 714030
-                  addi         s2, sp, 36
-19:               slli         t0, s0, 1
-                  xori         tp, s0, -1780
-                  sub          a5, gp, a2
-                  lui          sp, 110305
-                  bge          t2, t2, 43f
-24:               bgeu         tp, t5, 35f
-                  sub          s6, a7, t4
-                  beq          s10, a4, 34f
-                  sub          t2, a0, s6
-                  slt          s9, t4, t2
-                  sll          s10, s2, t6
-                  fence.i
-                  srai         s5, a6, 3
-                  slt          s3, s5, a2
-                  la           s11, sub_2
-                  addi         s11, s11, -536
-                  srl          s6, zero, t2
-                  srli         s5, t5, 5
-                  bne          a2, s2, main_j2 #branch to jump instr
-                  sltu         t4, s2, a7
-main_j2:          jalr         gp, s11, 536 #jump main -> sub_2
-                  slt          s5, s9, a6
-                  or           sp, t6, t2
-                  or           t1, a7, s10
-                  sll          t2, tp, s1
-                  slli         s10, a7, 12
-                  xor          t1, t0, zero
-34:               sll          sp, t4, tp
-35:               blt          t6, a4, 55f
-                  andi         sp, t1, -1954
-                  sub          a0, sp, s8
-                  sub          t3, t2, a6
-                  bltu         s1, t2, 57f
-                  srl          s11, a2, t4
-                  lui          a3, 470982
-                  beq          t1, s6, 44f
-43:               or           tp, s3, t2
-44:               bne          a0, t0, 62f
-                  fence.i
-                  slli         s8, t2, 1
-                  srli         s3, t2, 25
-                  xori         s5, sp, 1696
-                  slt          s0, s3, s5
-                  bne          s11, s7, 57f
-                  srli         a4, a1, 15
-                  ori          s0, a2, -1048
-                  xor          gp, a0, a1
-                  ori          s0, s0, -494
-55:               bne          s8, tp, 56f
-56:               blt          s1, s5, 68f
-57:               sltiu        t4, ra, 1485
-                  srli         t0, s3, 8
+                  li x24, 0xc04c7118
+                  li x26, 0x0
+                  li x27, 0xf4e4f2d
+                  li x28, 0x80000000
+                  li x29, 0x7
+                  li x30, 0xe637751e
+                  li x31, 0x0
+                  la x6, user_stack_end
+                  li x11, 0x8ffffffc
+                  li x16, 0x0
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+main:             la           t6, sub_1
+                  and          zero, s5, s7
+                  addi         t3, t3, -534
+                  srli         s10, s8, 5
+                  sra          s2, t5, a0
+                  addi         t4, zero, -86
+                  xor          a0, s8, t2
+                  slt          sp, s2, s5
+                  ori          tp, s2, 931
+                  addi         t6, t6, 76
+                  sll          a1, sp, s1
+                  slli         s8, gp, 13
+main_j2:          jalr         ra, t6, -75 #jump main -> sub_1
+                  beq          a0, a4, 13f
+                  bltu         a2, s9, 12f
+                  xori         s4, t0, 1693
+                  addi         a3, s5, -1960
+                  sltiu        s6, s3, 1546
+                  sltiu        s4, a2, -1829
+                  slt          tp, a5, s0
+                  addi         t2, s8, -922
+                  bge          s5, sp, 15f
+                  bne          a3, s3, 22f
+                  addi         a6, a2, 67
                   nop
-                  bgeu         t6, a7, 61f
-61:               xor          sp, s1, s1
-62:               xor          s7, gp, s4
-                  bne          a0, a5, 74f
-                  lui          ra, 448231
-                  srai         a2, s11, 2
-                  ori          t2, s3, 1802
-                  xor          zero, a6, zero
-68:               or           a3, sp, t6
-                  bge          a6, s10, 82f
-                  andi         s8, s11, 337
-                  blt          s10, t5, 91f
-                  bge          tp, s10, 90f
-                  addi         s7, s6, 1951
-74:               bltu         t3, s5, 93f
-                  sltiu        s6, s7, -1956
-                  addi         t5, s10, -1788
-                  bne          t2, t3, 93f
-                  srli         gp, t4, 9
-                  srli         a0, t0, 24
-                  addi         t0, s7, -602
-                  auipc        s4, 801329
-82:               beq          s11, s5, 101f
-                  srli         a2, s9, 26
-                  or           s7, s1, s9
-                  beq          s11, sp, 102f
-                  sltiu        s4, s1, -186
-                  andi         gp, a2, 2017
-                  bgeu         t3, s10, 98f
-                  add          s3, s6, t1
-90:               sub          tp, s8, s10
-91:               blt          a4, a0, 103f
-                  bltu         a5, a3, 109f
-93:               srli         sp, a7, 26
-                  sra          gp, tp, s5
-                  bne          t2, s2, 99f
-                  srli         sp, t1, 0
-                  sll          gp, a3, s9
-98:               or           t6, tp, sp
-99:               bge          a0, gp, 101f
-                  bgeu         s11, t5, 110f
-101:              ori          s2, gp, 1340
-102:              andi         t5, a4, -1970
-103:              andi         a3, t3, 1756
-                  slli         t4, s2, 13
-                  srl          s8, a4, tp
-                  sltiu        a0, tp, 1649
-                  sra          a7, t6, a6
+12:               auipc        t0, 659822
+13:               bltu         a2, s8, 33f
+                  fence.i
+15:               auipc        s7, 7745
+                  blt          s7, s8, 19f
+                  ori          s2, t0, 510
+                  xor          sp, s0, a4
+19:               and          zero, a4, t2
+                  sltiu        zero, t6, 647
+                  blt          s8, a4, 27f
+22:               slti         a1, s7, -1743
+                  addi         s11, s11, -462
+                  addi         gp, gp, -698
+                  ori          s2, a6, -818
+                  bge          zero, a1, 29f
+27:               andi         s3, a5, 1387
+                  lui          a5, 111233
+29:               srai         s8, tp, 14
+                  auipc        zero, 639115
+                  blt          a1, tp, 43f
+                  add          a6, a1, s2
+33:               bge          zero, s0, 51f
+                  sra          s5, s8, s8
+                  or           a5, s5, a5
+                  blt          ra, s1, 48f
+                  xor          tp, s2, zero
+                  bne          sp, t1, 54f
+                  and          a7, gp, t3
+                  or           a0, s8, s0
+                  sra          s8, ra, a1
+                  fence.i
+43:               or           sp, t0, s0
+                  srl          a6, t4, t6
+                  fence.i
+                  andi         s3, t3, -1300
+                  srli         a7, s5, 25
+48:               srl          s3, a4, a1
+                  bge          a5, a5, 51f
+                  sub          s1, a0, a2
+51:               blt          s5, s0, 54f
+                  slti         s7, s1, 642
+                  bgeu         t4, s7, 62f
+54:               xor          s1, a1, a2
+                  blt          t4, a3, 67f
+                  and          a0, a7, sp
+                  sra          t4, s4, s5
+                  lui          s11, 58027
+                  andi         t2, s4, 1901
+                  bltu         s8, a2, 80f
+                  slti         a5, s7, -1533
+62:               xori         s11, a4, -1439
+                  andi         a7, tp, 1874
+                  addi         s10, s7, 1727
+                  and          s4, a1, sp
+                  beq          s10, a6, 70f
+67:               bne          a5, t2, 73f
+                  slt          t4, t1, a7
+                  andi         t6, t4, 1989
+70:               srai         s1, a4, 6
+                  srai         s4, t5, 13
+                  and          s7, s7, a4
+73:               blt          a0, s3, 88f
                   nop
-109:              slti         s10, a4, 1739
-110:              bgeu         a2, a0, 118f
-                  slti         t6, s5, -1535
-                  xor          tp, t4, a3
                   nop
-                  fence.i
-                  sub          t4, s2, t6
-                  sltiu        s2, t2, -1758
-                  slt          t6, tp, a3
-118:              nop
-                  sra          s10, a6, s2
-                  andi         a5, zero, 501
-                  sub          a0, a3, s7
-                  bne          a7, tp, 133f
-                  sll          gp, a6, tp
-                  auipc        s10, 1040185
-                  srl          sp, a6, a4
-                  slti         sp, s4, -1289
-                  lui          t2, 620554
-                  andi         s2, t6, 61
-                  slti         s3, tp, 849
-                  sll          a2, a7, a1
-                  add          a3, ra, t2
-                  xor          a3, s7, a3
-133:              sltiu        s4, a3, -490
-                  fence.i
-                  bne          a1, s8, 152f
-                  bge          t2, a4, 140f
-                  slt          s10, t0, s5
-                  srai         a7, gp, 22
-                  xor          a4, a2, t6
-140:              fence.i
-                  blt          s8, tp, 157f
-                  sub          s0, gp, t5
-                  sub          a4, a6, a2
-                  ori          t6, t0, -1930
-                  sra          sp, s4, s1
-                  sra          a4, s9, a2
+                  sub          s6, a0, s3
+                  slt          t2, s9, s3
+                  slli         ra, a3, 22
+                  srl          a2, a0, t3
+80:               sub          a3, a6, tp
+                  bge          s5, s9, 100f
+                  srli         zero, s10, 3
+                  andi         ra, a3, -1363
+                  bltu         t0, t6, 90f
+                  blt          s0, t2, 86f
+86:               bne          gp, s0, 92f
                   nop
-                  fence.i
-                  blt          s4, a4, 161f
-                  bltu         s11, t2, 151f
-151:              and          t1, t3, t6
-152:              nop
-                  sub          a5, s2, a5
-                  xor          s5, t4, sp
-                  bge          t1, t3, 173f
-                  bltu         tp, a2, 173f
-157:              slti         s10, a4, -918
-                  bge          sp, s9, 165f
-                  andi         t3, s2, 322
-                  or           s8, s7, s9
-161:              slti         a0, s9, 1947
-                  xor          a7, a6, sp
-                  slt          s5, a1, s5
-                  blt          ra, s5, 172f
-165:              nop
-                  bge          s11, a2, 169f
-                  srli         t2, zero, 23
-                  beq          t4, s2, 187f
-169:              slli         s2, gp, 12
-                  beq          s8, t2, 190f
-                  bltu         t0, a2, 183f
-172:              fence.i
-173:              sltu         a2, t2, tp
-                  ori          s5, sp, 786
-                  auipc        ra, 899279
-                  slli         s10, a2, 18
-                  addi         zero, s9, 1011
-                  sll          s7, s11, s6
-                  auipc        tp, 435512
-                  srl          zero, s4, zero
-                  sltu         gp, a6, a2
-                  bltu         sp, a3, 200f
-183:              beq          s7, t0, 184f
-184:              sltu         s11, s8, a2
-                  sll          s10, s0, t5
-                  bne          t6, s11, 204f
-187:              srli         tp, tp, 10
-                  bne          t3, s0, 207f
-                  xor          a0, t4, a2
-190:              bltu         a6, s10, 203f
-                  fence.i
-                  bgeu         sp, s7, 203f
-                  xor          s4, tp, a3
-                  lui          zero, 23304
-                  addi         t3, ra, -1167
-                  or           gp, s2, t4
-                  bge          t5, t0, 199f
-                  fence.i
-199:              lui          a7, 554605
-200:              fence.i
-                  addi         s2, t2, -1209
-                  slt          sp, gp, a3
-203:              xori         a4, s0, 1083
-204:              slt          s6, ra, a2
-                  and          tp, s2, s8
-                  lui          s3, 619264
-207:              slli         t0, a2, 29
-                  and          s7, t1, s11
-                  sll          s2, a4, t3
-                  la           a5, sub_1
-                  sltu         a7, a0, gp
-                  xor          sp, s9, t3
+88:               nop
+                  slli         t0, s8, 15
+90:               fence.i
+                  srl          t4, s2, t1
+92:               srli         a5, a6, 6
+                  xor          s8, s8, t6
+                  xori         s8, a4, -801
+                  sll          a5, a4, a2
+                  bne          s6, t5, 105f
+                  or           a6, a5, s2
+                  xori         s4, t4, 1910
+                  lui          t0, 308583
+100:              and          zero, s8, t1
                   nop
-                  srl          t1, t3, t4
-                  add          a4, a7, s11
-                  sltiu        gp, s5, -1650
-                  addi         a5, a5, -674
-                  sra          t0, s5, t5
-                  addi         a2, ra, 160
-                  sltiu        s9, s1, -800
-main_j1:          jalr         gp, a5, 675 #jump main -> sub_1
-                  xor          a0, s1, gp
-                  andi         s5, t4, -806
-                  sub          s6, t1, t1
-                  lui          s6, 964455
-                  andi         s11, s8, 1873
-                  sltiu        s0, s5, -1140
-                  slti         t1, gp, 1796
-                  beq          t4, a1, 227f
-                  or           zero, a0, s5
-                  bne          a4, s7, 227f
-                  sub          s8, a7, a0
+                  blt          s8, tp, 106f
+                  blt          t3, t5, 113f
                   fence.i
-                  slti         s10, a6, 802
-                  bge          a7, a2, 233f
-                  slt          t1, gp, a0
-                  add          t2, s3, s2
-                  lui          s0, 122893
-227:              bne          a2, a2, 229f
-                  beq          s4, s1, 240f
-229:              srl          s10, t6, a6
-                  sltiu        sp, s9, -1404
-                  beq          s9, a1, 242f
-                  and          s5, ra, s9
-233:              sub          sp, s4, a1
-                  sub          a7, a6, a5
-                  sltu         a2, s8, s4
-                  bne          t0, s1, 246f
-                  sll          a2, s6, t4
-                  srli         t6, s2, 26
-                  add          a3, t3, s3
-240:              and          t3, s11, s4
-                  bne          s7, s3, 261f
-242:              ori          tp, sp, -557
-                  sltiu        t2, t0, -291
-                  and          t0, ra, a3
-                  srai         s4, s3, 1
-246:              auipc        zero, 101355
-                  bltu         s0, a5, 258f
-                  srli         s10, s6, 9
-                  sra          t0, zero, t0
+105:              sra          s2, s2, s1
+106:              bne          gp, gp, 120f
+                  sltu         s10, s1, t4
+                  slti         sp, s6, 1636
+                  nop
+                  bgeu         s11, zero, 120f
+                  sra          a0, t6, a1
+                  beq          s5, s4, 115f
+113:              add          a1, t1, t0
+                  sltu         s8, gp, ra
+115:              xor          t3, a1, s9
+                  slli         t4, tp, 0
+                  nop
+                  bne          a4, s9, 131f
+                  bgeu         s9, s8, 125f
+120:              sra          ra, s9, s0
+                  srai         sp, s2, 30
+                  blt          t6, a3, 125f
+                  beq          t2, a3, 130f
+                  srai         s6, s7, 3
+125:              slli         s10, s6, 24
+                  sub          t3, s11, s6
+                  add          s5, s0, a5
+                  slli         tp, gp, 3
+                  srl          sp, a6, a1
+130:              slti         a6, s5, -173
+131:              blt          zero, s4, 149f
+                  slti         a7, s1, -1768
+                  or           t4, a2, a7
+                  bgeu         t2, t3, 137f
                   fence.i
-                  and          tp, t1, gp
-                  xori         s7, a4, 216
-                  slti         s6, a2, 1934
-                  beq          s4, sp, 274f
-                  xori         t1, zero, -1779
-                  slti         s10, ra, 1398
-                  slli         s4, a0, 21
-258:              beq          a1, a4, 270f
-                  bne          zero, zero, 261f
-                  srl          t0, gp, t2
-261:              slli         s9, a5, 19
-                  bge          t3, a7, 279f
-                  slt          a4, t1, t0
-                  slli         t6, t3, 23
-                  sra          a4, zero, s9
-                  sub          gp, ra, t5
-                  sltu         t0, s10, t6
+                  slt          s0, a5, a1
+137:              sra          a1, s8, a2
                   fence.i
-                  bgeu         s7, a4, 279f
-270:              and          s8, a2, s7
-                  srl          s10, a7, ra
-                  slti         s0, a1, 329
-                  lui          a0, 560836
-274:              bne          a3, a6, 279f
-                  bgeu         a2, ra, 279f
-                  addi         t4, s3, -1294
-                  slli         t4, s4, 6
-                  slli         a4, s1, 8
-279:              and          t4, s9, ra
-                  la x11, test_done
-                  jalr x0, x11, 0
+                  add          ra, t1, gp
+                  sll          s5, sp, s1
+                  xor          t5, s11, a1
+                  sra          t3, t1, t6
+                  bltu         ra, a0, 149f
+                  slt          a2, a2, s3
+                  ori          t4, a0, -1561
+                  beq          t4, a4, 152f
+                  sltiu        t3, a4, -271
+                  addi         s1, s4, 2035
+149:              sll          t4, s5, s1
+                  bltu         a1, a2, 159f
+                  and          t3, s7, t0
+152:              slt          t4, a4, sp
+                  sra          t3, gp, a5
+                  srli         a5, a3, 30
+                  slti         s7, s10, -1738
+                  bgeu         t5, s2, 171f
+                  beq          tp, t5, 163f
+                  ori          a5, s2, 1383
+159:              or           s8, sp, t0
+                  srl          s6, sp, t1
+                  sltiu        s5, a2, 1256
+                  lui          t0, 143861
+163:              add          a7, t6, t1
+                  lui          t5, 613278
+                  bge          s1, tp, 184f
+                  blt          t6, a6, 178f
+                  add          a3, a2, a6
+                  xor          a3, t0, zero
+                  slti         t5, a6, -285
+                  la           a2, sub_1
+                  srai         t3, s1, 18
+                  and          s10, s0, a5
+                  sub          s8, a6, t1
+                  addi         a2, a2, 428
+                  slli         s5, t1, 22
+                  auipc        s4, 268176
+                  or           tp, t5, s2
+                  nop
+main_j1:          jalr         ra, a2, -427 #jump main -> sub_1
+                  beq          s4, a5, 189f
+                  slti         zero, sp, -393
+171:              auipc        s5, 111251
+                  fence.i
+                  srl          s0, a0, s8
+                  and          t4, a1, ra
+                  srli         s6, s2, 27
+                  and          t2, s4, s0
+                  srl          s11, ra, s8
+178:              slli         s4, s8, 22
+                  xori         sp, a2, 63
+                  addi         s11, s7, 1072
+                  srli         s7, s3, 11
+                  sub          a5, s0, a2
+                  slli         zero, s9, 5
+184:              srli         zero, t3, 13
+                  bge          a5, a7, 195f
+                  slti         s5, s4, -1752
+                  bltu         t4, s11, 199f
+                  bgeu         s2, s6, 192f
+189:              slti         s10, zero, -699
+                  xor          a3, a1, s6
+                  ori          a3, a7, 64
+192:              xor          gp, s2, a3
+                  fence.i
+                  xor          s8, s0, gp
+195:              auipc        s4, 128614
+                  srl          tp, s9, a6
+                  addi         s10, a0, -1415
+                  sub          s0, tp, zero
+199:              sltu         s1, sp, s11
+                  bltu         a3, a0, 204f
+                  bltu         a6, s4, 214f
+                  bge          a0, s5, 212f
+                  auipc        a6, 492763
+204:              add          a3, s10, t5
+                  slt          s10, s7, zero
+                  bltu         s0, s6, 215f
+                  bltu         a0, ra, 219f
+                  sll          t0, t4, t5
+                  sub          t4, s7, t6
+                  add          t4, s7, a1
+                  or           s11, s6, s9
+212:              sra          s3, s7, s2
+                  srai         zero, t5, 5
+214:              xor          tp, s2, s9
+215:              sltu         a2, sp, tp
+                  and          t6, a4, ra
+                  xori         t6, s1, 1882
+                  srli         s3, sp, 4
+219:              ori          t5, t5, 270
+                  xor          a7, a6, t4
+                  slli         s1, s3, 0
+                  lui          sp, 521757
+                  or           a1, t0, t4
+                  sra          s1, t4, s0
+                  sub          s11, gp, s11
+                  sub          s8, a7, ra
+                  lui          gp, 158788
+                  sub          ra, s2, s4
+                  fence.i
+                  xor          s6, s11, t4
+                  la x14, test_done
+                  jalr x0, x14, 0
 test_done:        
                   li gp, 1
                   ecall
-sub_1:            andi         a7, t1, -1117
-                  srai         t3, a4, 4
-                  nop
-                  andi         s3, t4, -729
-                  addi         a6, a6, -48
-                  sub          t0, s9, gp
-                  sll          s10, s2, a1
-                  sltiu        s6, a6, 1371
-                  sw           gp, 4(a6)
-                  and          a7, s1, t6
-                  xor          s0, s1, a5
-                  srl          s7, s6, a0
-                  add          tp, a6, tp
-                  sra          a2, a6, a4
+sub_5:            addi         t1, t1, -48
+                  sw           ra, 4(t1)
+                  andi         t3, a7, -1424
                   fence.i
-                  xori         a7, s8, 447
-                  xori         t0, s11, -274
-                  sll          a2, s2, s11
-                  auipc        sp, 782796
-                  la           t6, sub_4
-                  slli         ra, t6, 14
+                  sra          s4, zero, ra
+                  srai         zero, t2, 7
+                  srli         s4, s8, 30
+                  and          sp, a4, s2
+                  addi         a3, a4, 713
+                  bne          zero, a0, 15f
+                  bltu         tp, a3, 8f
+                  srli         t5, sp, 28
+                  andi         t0, s10, -1703
+8:                srl          s1, a4, s10
                   fence.i
-                  addi         t6, t6, 127
-                  slli         s0, s4, 26
-sub_1_j3:         jalr         gp, t6, -127 #jump sub_1 -> sub_4
-                  slti         s4, t3, -1448
-                  andi         s3, tp, 1026
-                  sub          a0, ra, a1
-                  la           t1, sub_4
-                  addi         t1, t1, -464
-                  ori          sp, s11, -1010
-                  sub          a5, a6, s4
-                  xor          s5, a6, tp
-sub_1_j4:         jalr         gp, t1, 464 #jump sub_1 -> sub_4
-                  beq          a0, t6, 4f
-                  or           s11, s2, a4
-                  xor          a2, t0, s4
-                  xor          gp, gp, s9
-4:                add          s2, t6, a3
-                  auipc        t3, 361356
-                  srli         sp, t5, 1
-                  slti         a3, s11, -2043
-                  bgeu         s9, s2, 9f
-9:                slti         sp, a4, -1989
-                  bltu         sp, t5, 12f
-                  andi         s7, sp, 649
-12:               fence.i
-                  ori          a0, t3, 1719
+                  sra          a6, t3, t4
+                  blt          t2, ra, 31f
+                  blt          zero, s7, 31f
+                  sra          a2, s10, a1
+                  or           a0, s3, a5
+15:               xor          s4, a5, a4
+                  srai         a0, t2, 9
+                  srl          t4, a5, a1
                   nop
-                  srli         a5, s9, 27
-                  slti         s0, t3, 1579
-                  bne          gp, s1, 20f
-                  srl          ra, a2, s8
-                  lui          s3, 3016
-20:               srl          s0, s1, a6
-                  addi         t2, a4, 1027
-                  addi         tp, s0, -1634
-                  srli         t3, ra, 7
-                  auipc        s9, 597372
-                  auipc        a2, 658805
-                  bltu         s0, t0, 33f
-                  addi         t6, t5, 1648
-                  beq          s10, s7, 30f
-                  bgeu         t6, a4, 47f
-30:               sra          ra, a7, s9
-                  bge          a1, t1, 41f
-                  add          s8, a1, a4
-33:               sra          t1, s8, t1
-                  sub          s9, a3, t3
-                  and          s11, s5, s0
-                  srli         tp, s3, 0
-                  xor          t2, a6, t1
-                  sltiu        s11, t1, 1544
-                  slti         s8, a4, -1253
-                  beq          s0, s10, 55f
-41:               andi         s7, s11, -1202
-                  ori          sp, a7, -1565
-                  bne          s3, gp, 45f
+                  bge          t6, t3, 20f
+20:               srai         s3, t4, 14
+                  lui          a7, 492874
+                  slt          s1, s10, gp
+                  nop
+                  nop
+                  addi         t5, s10, 453
+                  xori         a3, a4, -1834
+                  or           zero, t1, t2
+                  sra          a6, s7, s9
+                  lui          t4, 2054
+                  ori          a5, s6, 1453
+31:               sra          zero, sp, t1
+                  bne          t1, s11, 41f
+                  sra          zero, t0, s2
+                  addi         zero, s10, -649
+                  srli         ra, gp, 15
+                  addi         t0, s6, -1914
+                  sll          s5, s1, t0
+                  lui          a7, 82171
+                  sll          t6, s8, a7
+                  sltu         a6, gp, t2
+41:               sltiu        s8, s10, -971
+                  add          a6, s5, zero
+                  sra          t4, t6, ra
+                  srli         a3, s11, 19
+                  xor          a6, s9, s7
+                  bltu         s0, s6, 59f
+                  or           t0, t4, s11
+                  and          zero, sp, t2
+                  bltu         sp, ra, 59f
+                  addi         ra, a0, 497
+                  andi         t0, s3, -794
+                  slt          gp, s3, s7
+                  slli         a1, t0, 8
+                  bgeu         a7, s11, 61f
                   fence.i
-45:               lui          s6, 177897
-                  sltiu        s6, s2, -730
-47:               nop
-                  sltiu        s7, t2, 1514
-                  xor          a3, gp, t2
-                  lui          s7, 710314
-                  beq          t2, s6, 65f
-                  sra          a0, t1, s10
-                  sltiu        zero, s3, 1787
-                  sra          a2, s7, s6
-55:               slt          t4, s6, a5
-                  blt          s5, zero, 64f
-                  srai         gp, t4, 11
-                  slti         t2, t4, 1969
-                  sltiu        s9, s9, 1922
-                  slli         a0, a1, 22
-                  slti         zero, s4, 1023
-                  addi         t1, t1, 392
-                  and          zero, t1, t2
-64:               slt          s7, a3, t3
-65:               sltu         s7, s6, t3
-                  lw           gp, 4(a6)
-                  xori         a0, tp, -174
-                  ori          s0, ra, 486
-                  addi         a6, a6, 48
-                  sub          s10, t3, s6
-                  andi         s4, a1, 1441
-106:              addi x12, x3, 1
-106:              jalr x12, x12, 0
-sub_4:            slti         tp, s2, -510
-                  lui          s0, 641546
-                  bgeu         s7, t0, sub_4_stack_p
-                  slti         s9, ra, 900
-sub_4_stack_p:    addi         a6, a6, -64
-                  sw           gp, 4(a6)
-                  sll          sp, ra, s1
-                  sltiu        s4, a6, 1833
-                  bge          tp, t2, 16f
-                  lui          t1, 646382
-                  auipc        ra, 628814
-                  xor          s7, t4, s2
-                  or           s3, a4, s2
-                  auipc        s3, 977686
-                  sra          a0, t0, s0
-                  xor          a0, gp, s2
-                  slt          gp, tp, a0
-                  xori         s7, a5, 1792
-                  bne          s10, a5, 27f
-                  and          a4, a6, a6
+                  slt          gp, t1, s5
+                  sltu         s2, t2, zero
+                  xor          sp, gp, s8
+59:               slli         a5, tp, 29
+                  bltu         s0, a2, 65f
+61:               andi         t6, s5, -905
+                  sltiu        a7, t4, -1866
+                  sll          a7, t1, a5
+                  slli         tp, t5, 21
+65:               sltu         s7, s10, a7
+                  add          t5, ra, a5
                   nop
-                  blt          gp, tp, 18f
-                  andi         t4, a7, -1208
-16:               addi         t2, s10, -224
-                  sra          t0, tp, s6
-18:               lui          gp, 261323
-                  ori          s9, s11, -1064
-                  slti         t6, a5, -1180
-                  andi         t3, zero, -186
-                  xor          s0, s0, s0
-                  slli         sp, t4, 26
-                  ori          t5, t5, -247
-                  sll          a4, s6, s3
-                  bltu         a0, s1, 28f
-27:               or           s4, sp, zero
-28:               bne          s7, s11, 39f
-                  lui          s7, 627541
-                  bge          s10, s5, 33f
-                  srli         gp, t0, 26
-                  addi         a0, s9, 733
-33:               bgeu         s3, t5, 40f
-                  ori          s5, gp, 344
-                  slt          a5, s4, zero
-                  xor          a5, t5, t6
-                  bne          a3, s0, 40f
-                  addi         s8, t1, 1394
-39:               lui          t4, 958539
-40:               srl          a7, t6, s1
-                  lui          s11, 325582
-                  or           s4, t1, sp
-                  nop
-                  srl          s7, gp, s3
-                  sltiu        t1, a5, -1631
-                  auipc        t2, 275680
-                  sll          a5, a1, s9
-                  bgeu         t0, s1, 50f
-                  srl          t0, zero, a5
-50:               slt          zero, zero, t3
-                  and          tp, s2, t2
-                  bltu         zero, t5, 67f
-                  bge          s7, tp, 55f
-                  srli         a3, s9, 27
-55:               srl          s5, s2, s1
-                  slti         a7, t3, -418
-                  xor          gp, tp, a6
-                  lui          sp, 884040
-                  addi         a7, sp, 516
-                  nop
-                  nop
-                  slli         t1, a1, 31
-                  srl          s0, t1, s10
-                  slli         a5, a5, 18
-                  andi         s3, s9, -214
-                  lui          a5, 808985
-67:               srai         tp, t0, 12
-                  bge          s1, t1, 78f
-                  lui          s10, 172770
-                  or           s4, t0, t2
-                  and          s8, s11, s2
-                  sltiu        s10, t2, 5
-                  blt          s4, a2, 90f
-                  sub          gp, s4, s7
-                  auipc        t1, 171608
-                  xori         s4, t4, 1436
-                  bge          s4, s11, 94f
-78:               srli         a3, s1, 13
-                  beq          a1, s9, 99f
-                  srl          s6, gp, zero
-                  bltu         a2, t0, 85f
-                  bge          s5, a5, 90f
-                  nop
-                  ori          a0, s11, -744
-85:               slti         a0, t0, -362
-                  srl          t1, s3, a7
-                  auipc        t2, 183824
-                  slt          sp, s11, a1
-                  srai         s9, a3, 5
-90:               slt          a2, a0, s6
-                  srl          zero, s7, s9
-                  sll          a4, s7, s9
-                  beq          s2, sp, 103f
-94:               sub          a4, t1, s11
-                  lui          a0, 562972
-                  blt          s9, ra, 116f
-                  lui          s11, 390395
-                  slti         t1, t3, -668
-99:               sra          s8, zero, s0
-                  srli         gp, a1, 30
-                  xori         t6, a7, 1649
-                  nop
-103:              beq          a2, s4, 110f
-                  slli         s3, a7, 8
+                  bltu         tp, a2, 83f
+                  blt          s4, s3, 87f
+                  bltu         a7, a4, 86f
+                  sltu         tp, ra, t4
+                  sub          t4, gp, s11
+                  srl          a7, sp, a6
+                  xori         t2, s2, 1632
+                  bge          tp, s11, 78f
+                  slli         a6, s3, 8
+                  bgeu         a5, a5, 83f
+78:               bge          tp, t3, 79f
+79:               andi         s5, a0, 1569
+                  or           s4, s6, t6
+                  slti         t6, a7, 1325
+                  sll          s0, s11, t4
+83:               bne          t1, s0, 87f
+                  srli         t2, a5, 6
+                  lui          s1, 244101
+86:               bgeu         sp, s4, 96f
+87:               or           a6, a0, s4
                   fence.i
-                  xori         zero, a1, -1316
-                  and          ra, s10, a0
-                  srai         zero, s11, 3
-                  ori          t6, s4, 331
-110:              ori          s4, a1, 915
-                  sltiu        a5, a5, 46
-                  slti         s6, sp, -870
-                  ori          t3, s9, 4
-                  addi         t2, t4, -211
-                  bgeu         s6, s4, 134f
-116:              xori         s3, s3, 1682
-                  xor          a3, a6, a3
-                  sltiu        t3, s0, -496
-                  or           t4, t0, t2
-                  bne          t4, t6, 140f
-                  srai         t5, t0, 2
-                  sub          a0, s11, a4
-                  sra          s6, s0, s9
-                  srli         s7, t6, 12
-                  xori         t1, t2, -239
-                  slti         s11, t2, -1786
-                  sltu         tp, s0, s11
-                  lui          a3, 350707
-                  or           s5, s1, s1
-                  and          t3, s6, s5
+                  auipc        a7, 182747
+                  sltu         s5, t5, t1
+                  slli         ra, t1, 17
+                  slli         a3, s11, 17
+                  slti         t6, s11, -1491
+                  sub          gp, ra, sp
+                  sra          s5, s4, t1
+96:               add          a6, t6, a1
+                  slli         a0, s7, 3
+                  lui          s8, 431504
+                  srai         s6, a5, 22
+                  add          ra, a5, s3
+                  sub          s7, t3, sp
+                  lui          t2, 324258
+                  xor          zero, s2, s8
+                  sub          a1, a0, t6
+                  ori          s3, s10, 1494
+                  addi         a3, a5, 577
+                  srai         a3, s6, 21
+                  slti         a5, s1, 355
+                  bltu         a2, t0, 113f
+                  slli         s5, a5, 6
+                  sltu         a0, s10, a6
+                  sra          ra, a6, gp
+113:              ori          a6, s7, 286
+                  bltu         a5, s0, 121f
+                  andi         a2, sp, 795
+                  beq          a2, t6, 117f
+117:              srai         t2, zero, 15
+                  xor          a3, s0, s3
+                  addi         s2, s7, 280
+                  xori         s7, t2, -942
+121:              srai         tp, s7, 26
+                  or           a1, a2, t6
+                  bltu         zero, s0, 132f
+                  sra          s2, s11, s8
+                  blt          s5, ra, 135f
+                  bge          t3, tp, 132f
+                  auipc        a2, 251918
                   nop
-                  slti         zero, s8, -1298
-                  addi         t5, a6, -1565
-134:              sll          ra, a7, s0
-                  beq          ra, t3, 155f
-                  slli         s11, s11, 17
                   nop
-                  srli         gp, s8, 11
-                  bne          s3, s11, 149f
-140:              addi         s10, tp, 354
-                  sll          a5, t4, a0
-                  blt          t5, s1, 146f
-                  or           t0, t5, tp
-                  addi         s8, sp, -1201
-                  andi         s6, gp, -1887
-146:              sltiu        t1, ra, -1806
-                  lui          a2, 781292
-                  bgeu         sp, zero, 154f
-149:              sll          gp, ra, s10
-                  auipc        s9, 407292
-                  auipc        s6, 734151
-                  bltu         sp, a3, 153f
-153:              srli         t0, t6, 14
-154:              slti         s0, s3, -1823
-155:              slli         gp, a7, 9
+                  srli         sp, zero, 31
+                  auipc        s11, 773735
+132:              sltiu        s7, s7, 375
+                  sll          t6, s3, a6
+                  srai         s2, a2, 7
+135:              sub          s10, a3, a7
+                  sub          ra, t0, a2
+                  add          a2, zero, t0
+                  slti         s5, ra, 404
+                  slli         s0, s7, 7
+                  slli         a0, s5, 0
+                  sub          s7, t2, ra
+                  srli         t4, t5, 21
+                  bltu         s3, a5, 160f
+                  sub          a0, t2, s10
+                  andi         a1, t3, -599
+                  slt          tp, s8, t2
+                  sub          t6, t5, a6
+                  auipc        s5, 153299
+                  sub          t4, sp, t0
+                  xor          t0, t4, s9
+                  srai         t5, a3, 22
+                  ori          gp, a0, -21
+                  sub          s1, s4, s2
+                  or           s5, t2, s0
+                  bne          s2, zero, 162f
+                  fence.i
                   nop
-                  sra          s7, tp, a5
-                  srai         sp, t6, 0
-                  bge          zero, s9, 162f
-                  sll          s8, t6, s6
-                  and          s3, s0, s11
-162:              srl          t4, a3, s10
-                  lw           gp, 4(a6)
-                  srli         a7, s4, 20
-                  addi         a6, a6, 64
-                  srli         s9, s7, 8
-                  or           zero, t6, gp
-                  sltiu        t3, t5, -954
-                  sltiu        s10, a7, -406
-                  auipc        s4, 94915
-178:              addi x1, x3, 0
-178:              jalr x1, x1, 0
-sub_3:            xor          s3, a1, a3
-                  sltu         t4, t3, s11
-                  lui          t3, 812883
-                  addi         a6, a6, -16
-                  add          a7, a0, t5
-                  sw           gp, 4(a6)
+                  blt          s9, s7, 165f
+                  and          sp, sp, s11
+160:              lui          a7, 1019316
+                  bltu         s8, a1, 166f
+162:              bge          s8, ra, 169f
+                  bgeu         s1, t2, 180f
+                  srli         ra, s3, 6
+165:              add          t2, t6, s7
+166:              lui          ra, 77545
+                  slti         t5, a6, -1877
+                  addi         t5, zero, 1121
+169:              srl          s7, a5, a7
+                  and          a3, s10, a0
+                  blt          t1, gp, 182f
+                  addi         s2, s6, 1360
+                  bge          s7, zero, 192f
+                  bgeu         sp, a3, 184f
+                  slt          s8, s4, t4
+                  xor          tp, sp, t2
+                  and          t2, s8, a4
+                  sltu         s4, s3, s1
+                  slti         a1, zero, 361
+180:              sll          s11, a0, a0
+                  bge          tp, s10, 199f
+182:              bltu         a3, s4, 189f
+                  add          s2, t6, s3
+184:              or           tp, t1, s2
+                  add          a1, s11, s10
+                  bltu         s11, t2, 202f
+                  slli         s6, t4, 16
+                  srai         a5, a6, 23
+189:              bltu         s10, s5, 195f
+                  srli         s3, t0, 16
+                  xori         a5, t3, 1015
+192:              addi         s0, a3, -725
+                  bltu         t6, s1, 200f
+                  srl          s3, s0, sp
+195:              slt          gp, gp, a5
+                  bgeu         s3, sp, 206f
+                  andi         t5, s4, 926
+                  slli         s3, a6, 17
+199:              srl          a1, a1, tp
+200:              ori          sp, t4, -316
+                  srai         a0, s1, 29
+202:              slt          tp, t6, t4
+                  sll          t4, a1, s0
+                  bltu         t6, s7, 219f
+                  bgeu         t6, t6, 210f
+206:              sub          t5, t6, s5
+                  xor          sp, s2, tp
+                  sra          s11, zero, s8
                   fence.i
-                  ori          t4, a5, -67
-                  nop
-                  blt          s3, s8, 17f
-                  srli         s7, sp, 22
-                  bgeu         t4, s3, 5f
-                  lui          t5, 19430
-5:                slti         s2, s5, 380
-                  sll          t5, a7, s3
-                  sltu         s9, ra, s11
-                  xor          s6, s7, sp
-                  xor          a7, s6, s4
-                  or           s0, s2, s1
-                  sra          ra, ra, s4
-                  srai         t6, s0, 0
-                  beq          t5, s8, 14f
-14:               blt          t6, t2, 17f
-                  and          gp, s8, tp
-                  slti         zero, t4, -972
-17:               sltiu        s6, t0, -19
-                  lw           gp, 4(a6)
-                  fence.i
-                  slti         a2, s2, -1216
-                  sltu         s7, zero, s11
-                  slti         ra, s1, 1888
-                  sltu         a0, s2, t6
-                  sltu         s8, a1, s4
-                  addi         a6, a6, 16
-                  nop
-35:               addi x18, x3, 1
-35:               jalr x18, x18, 0
-sub_5:            auipc        s3, 19470
-                  bgeu         a4, gp, sub_5_stack_p
-sub_5_stack_p:    addi         a6, a6, -56
-                  srl          a2, a0, a5
-                  xori         a3, s7, -359
-                  xor          tp, t3, s3
-                  auipc        s7, 999619
-                  sw           gp, 4(a6)
-                  sltiu        t2, t5, 1623
-                  slti         t1, tp, 328
-                  slt          t4, zero, s4
-                  sll          ra, t1, s10
-                  sll          zero, s7, t3
-                  ori          t0, s5, 636
-                  srai         s0, s8, 22
-                  and          s2, s3, s5
-                  slti         a2, ra, 1985
-                  slti         s2, a7, -286
-                  fence.i
-                  srl          zero, t5, a3
-                  andi         t3, t4, -667
-                  beq          t6, t0, 21f
-                  sltu         t1, s2, a3
-                  or           s11, ra, a1
-                  auipc        a3, 870507
-                  xori         sp, s3, -2011
-                  blt          s8, t2, 21f
-                  sltiu        s5, s4, 1088
-                  slli         ra, a1, 3
-                  srli         s0, s11, 10
-                  slli         s6, t2, 12
-21:               xori         t5, s8, -1931
-                  slti         t2, t6, -1599
-                  andi         a0, a2, -332
-                  bltu         gp, s11, 37f
-                  bne          s7, a6, 43f
-                  sub          tp, s1, t3
-                  sltiu        t0, a5, -87
-                  fence.i
-                  xor          s3, zero, a7
-                  add          a2, gp, a1
-                  lui          s0, 1021968
-                  add          a3, gp, t2
-                  add          t3, t0, zero
-                  sra          s0, s9, sp
-                  bne          a5, s9, 51f
-                  srl          s9, s9, s6
-37:               add          a7, ra, s7
-                  xor          s5, s3, s11
-                  slli         s9, s8, 11
-                  sltiu        t1, t2, -948
-                  bge          a6, s6, 47f
-                  srai         s9, s7, 25
-43:               andi         sp, s1, 964
-                  srli         a5, t0, 6
-                  bge          s4, s3, 50f
-                  srli         tp, s1, 24
-47:               blt          a4, t5, 48f
-48:               ori          a7, t5, 1191
-                  bge          a5, s5, 51f
-50:               xor          tp, a2, t1
-51:               bge          a6, a1, 65f
-                  srl          a3, t3, a6
-                  fence.i
-                  bgeu         t3, gp, 65f
-                  sltiu        a7, s7, 1756
-                  ori          a3, t4, 600
-                  auipc        t6, 368925
-                  xori         s4, s5, -1459
-                  bgeu         t1, s6, 65f
-                  xor          s11, gp, a7
-                  bne          s1, t1, 64f
-                  xor          sp, s8, t0
-                  bne          t1, t4, 65f
-64:               lui          s5, 844065
-65:               sra          s6, a6, tp
-                  lw           gp, 4(a6)
-                  nop
-                  addi         a6, a6, 56
-                  auipc        a2, 87145
-                  auipc        s7, 53727
-81:               addi x26, x3, 0
-81:               jalr x26, x26, 0
-sub_2:            ori          sp, s0, -1449
-                  and          a0, s0, s1
-                  slli         a3, s11, 31
-                  and          s6, t1, s2
-                  addi         a6, a6, -56
-                  sltu         a3, sp, a4
-                  xori         t6, s0, -313
-                  sw           gp, 4(a6)
-                  sll          t4, s2, s2
-                  sub          zero, s7, gp
-                  lui          s11, 48060
-                  fence.i
-                  slti         a2, t4, -835
-                  auipc        a3, 748883
-                  beq          s10, t1, 20f
-                  add          s6, s5, a4
-                  slt          s0, s2, t1
-                  bltu         s10, s10, 25f
-                  srl          s3, a3, s7
-                  beq          s7, t3, 25f
-                  slli         s0, a0, 17
-                  slti         a3, t4, 1619
-                  or           ra, s3, s8
-                  sltu         s6, t5, gp
-                  slli         s8, a0, 17
-                  sub          t1, s6, a4
-                  fence.i
-                  sltiu        s0, s9, -425
-                  slt          a2, s0, t5
-                  bltu         t3, t1, 22f
-                  add          a3, ra, s11
-                  sltu         s5, s11, s10
-20:               bltu         t0, tp, 31f
-                  xor          sp, s7, a7
-22:               addi         zero, a2, 899
-                  fence.i
-                  bltu         t5, s2, 42f
-25:               sub          sp, t6, a0
-                  blt          a7, a5, 34f
-                  xori         t4, s4, -965
-                  blt          a6, s2, 36f
-                  ori          a2, gp, 1340
-                  xori         s7, a6, 984
-31:               add          a3, a2, t1
-                  andi         s5, a3, -1161
-                  fence.i
-34:               xori         t1, s7, -1725
-                  sra          tp, s8, a2
-36:               blt          t1, s0, 40f
-                  blt          a6, tp, 55f
-                  slt          zero, s6, a3
-                  ori          zero, t3, -452
-40:               sra          s10, s1, a0
-                  or           s3, t1, s8
-42:               xor          a5, t3, t5
-                  slt          a2, t3, gp
-                  lui          a3, 520410
-                  ori          s3, t3, -1968
-                  sltiu        zero, s6, -127
-                  or           tp, s3, a4
-                  srai         a0, gp, 27
-                  sub          s0, a7, t5
-                  srli         s5, s1, 2
-                  lui          s4, 158222
-                  sltiu        a4, t3, -38
-                  slt          s8, tp, a6
-                  lui          t3, 50825
-55:               sra          s4, s1, t3
-                  sub          a5, zero, a2
-                  addi         tp, t3, -1198
-                  srai         t2, s6, 2
-                  sltu         gp, sp, t0
-                  sltu         t2, s6, s10
-                  srl          s5, t3, gp
-                  blt          t6, t2, 74f
-                  nop
-                  add          a7, t0, zero
-                  and          s6, a7, s2
-                  beq          t6, t6, 71f
-                  ori          t1, s2, 1387
-                  srli         s4, s4, 26
-                  or           a3, a7, t0
-                  ori          s10, s3, 811
-71:               or           s3, t2, s0
-                  sll          s8, s5, s4
-                  srli         ra, s8, 15
-74:               lui          t5, 679039
-                  slt          s4, tp, a3
-                  srl          s8, t4, a2
-                  sub          t2, a3, a1
-                  bgeu         t3, s5, 83f
-                  slt          tp, a1, a1
-                  andi         s10, t2, 954
-                  sll          t3, s11, t1
-                  bne          sp, s6, 98f
-83:               bltu         a6, t0, 93f
-                  or           t3, t6, s3
-                  bltu         t4, zero, 86f
-86:               lui          a0, 839915
-                  srai         a7, t2, 6
-                  bltu         s0, t6, 93f
-                  srai         t2, a5, 15
-                  beq          a7, s1, 106f
-                  andi         zero, s7, 1576
-                  xori         t5, t2, -873
-93:               bge          t3, sp, 95f
-                  bgeu         s7, a2, 103f
-95:               or           s9, gp, a4
-                  ori          s8, a5, 1378
-                  and          s8, ra, s6
-98:               xor          s9, s9, a4
-                  lui          s6, 674887
-                  slli         s6, s0, 10
-                  bltu         s11, a7, 108f
-                  nop
-103:              srl          s7, s8, a3
-                  lui          s8, 1013591
-                  sll          zero, t0, s9
-106:              sra          s5, zero, s8
-                  slti         s3, s3, -190
-108:              auipc        s2, 234437
-                  srl          a3, t1, t5
-                  ori          s0, tp, 2037
-                  srl          s8, zero, t4
-                  and          a0, s7, sp
-                  add          ra, t5, t4
-                  sra          s2, s7, s7
-                  sra          s4, a3, t1
-                  srai         a5, a1, 3
-                  srai         t0, gp, 27
-                  slli         tp, a0, 13
-                  srli         a2, a4, 20
-                  auipc        zero, 16591
-                  sltu         t3, a6, s1
-                  andi         s0, a3, -1366
-                  lui          tp, 773629
-                  ori          s2, t4, -1577
-                  bgeu         a2, s7, 127f
-                  sltu         t3, a6, a7
-127:              nop
-                  sra          zero, zero, s11
-                  srai         s7, tp, 0
-                  bgeu         s3, a1, 148f
-                  sub          a4, s8, t1
-                  sll          s7, s10, t5
-                  beq          s11, a0, 138f
-                  blt          t6, s3, 141f
-                  bgeu         s10, t2, 152f
-                  sltu         ra, t6, s6
-                  sll          zero, s2, t2
-138:              lui          s10, 650183
-                  ori          s3, t1, 579
-                  xor          s8, t5, s2
-141:              and          s5, t1, s9
-                  srai         s10, t0, 23
-                  slli         s10, t0, 27
-                  blt          s10, a7, 148f
-                  lui          a3, 522878
-                  bltu         t1, a1, 163f
-                  srli         s3, t4, 15
-148:              srai         tp, a1, 28
-                  slti         t2, tp, 207
-                  bgeu         t5, a5, 165f
-                  slti         a4, t2, -1513
-152:              add          a7, t1, zero
-                  sltu         gp, a0, a6
-                  srai         t3, s6, 25
-                  slti         s0, t6, -1307
-                  and          zero, t2, s9
-                  add          a0, t3, s9
-                  slt          ra, a5, a5
-                  bgeu         t5, s9, 162f
-                  sltiu        a4, s6, 1813
-                  bge          s4, a4, 166f
-162:              xor          t3, s4, s7
-163:              lui          a0, 516870
-                  sltiu        s2, a2, -1326
-165:              sltiu        t1, a7, -294
-166:              sltu         gp, s5, s8
-                  and          tp, t1, t3
-                  nop
-                  srli         ra, s4, 9
-                  bne          a5, s10, 175f
-                  fence.i
-                  auipc        sp, 165738
-                  beq          a5, a7, 191f
-                  xor          tp, s7, s1
-175:              andi         a0, tp, 224
-                  sub          s7, s2, t6
-                  and          t1, s2, a0
-                  sltu         s2, sp, t3
-                  nop
-                  xor          zero, t0, s3
-                  and          a0, t2, ra
-                  srai         a2, a0, 0
-                  and          s7, t2, s6
-                  blt          s0, s5, 188f
-                  addi         s7, s0, -778
-                  xori         s9, t3, 1640
-                  xori         a7, a7, 859
-188:              ori          s3, t3, 317
-                  bne          s3, a6, 207f
-                  slt          t5, sp, s11
-191:              and          gp, a7, t0
-                  slli         tp, t4, 21
-                  beq          a2, s1, 196f
-                  bne          tp, t1, 210f
-                  slt          zero, t0, a1
-196:              lui          s5, 227081
-                  add          t0, t3, ra
-                  add          t3, t2, s7
-                  srli         a0, s4, 11
-                  add          s11, s6, gp
-                  sub          s8, s11, s10
-                  sra          t2, t5, s11
-                  add          gp, a7, s10
-                  fence.i
-                  sra          a2, s7, s2
-                  srai         a4, t5, 18
-207:              sub          s5, a2, s11
-                  nop
-                  sll          s11, t4, a0
 210:              nop
+                  xor          s2, a1, a0
+                  sll          t6, s0, t2
+                  bne          s5, t3, 216f
+                  srai         s7, a4, 5
+                  srai         s10, t6, 1
+216:              bltu         s7, t5, 226f
+                  xori         s10, a2, -1860
+                  sll          a1, s9, s0
+219:              sub          a2, s4, tp
+                  auipc        s4, 604425
+                  nop
+                  ori          s0, s1, 1135
+                  sll          s1, a4, zero
+                  bgeu         s4, a1, 241f
                   fence.i
-                  xori         t6, s3, 1168
-                  slli         zero, t0, 25
+226:              sub          s10, a5, t4
+                  or           a7, s0, s7
+                  sub          ra, ra, s11
+                  xor          gp, s11, s5
+                  and          a0, gp, s0
+                  slti         a3, t1, -769
+                  slli         a1, t3, 0
+                  beq          s3, t6, 239f
+                  add          s8, t2, a5
+                  slli         tp, a0, 8
                   nop
-                  or           s2, s4, gp
-                  sltu         t5, t2, s3
-                  srai         s3, s8, 24
-                  slt          s2, a4, s3
+                  addi         gp, s8, 780
+                  addi         a5, a2, 890
+239:              auipc        t5, 453613
+                  srli         t4, zero, 12
+241:              and          ra, t1, s0
                   nop
-                  srai         s5, s10, 26
+                  slti         a2, t4, 1637
+                  ori          a7, s3, -717
+                  sltu         s3, tp, gp
+                  or           a7, a1, tp
+                  slti         t6, s5, -1260
+                  bge          a7, a3, 252f
+                  addi         s2, a3, -1466
+                  bge          s3, sp, 257f
+                  slli         a6, gp, 20
+252:              xori         sp, s10, -1428
+                  andi         a6, t2, 134
+                  sll          ra, s8, t4
+                  lui          a2, 634433
+                  srai         a0, ra, 31
+257:              auipc        s10, 770527
+                  slti         t0, gp, 2000
+                  sll          s3, s9, s11
+                  lw           ra, 4(t1)
+                  srai         a1, s6, 22
+                  sltiu        s3, t6, 911
+                  or           s2, t6, s6
+                  srl          s5, tp, t4
+                  lui          t4, 21831
+                  lui          a2, 313085
+                  ori          s4, s3, -868
+                  addi         t1, t1, 48
+                  addi         tp, t3, 436
+                  andi         s10, t4, -1776
+276:              addi x12, x1, 1
+276:              jalr x12, x12, 0
+sub_1:            slti         s8, s8, -780
+                  bgeu         s0, sp, sub_1_stack_p
+                  slli         s7, s2, 29
+                  srli         s3, zero, 30
+                  xor          s8, zero, s1
+                  or           t3, a5, zero
+sub_1_stack_p:    addi         t1, t1, -16
+                  sw           ra, 4(t1)
+                  slli         t4, a3, 4
+                  add          s7, sp, a3
+                  add          a0, a3, t6
+                  srai         s6, s7, 11
+                  add          t5, a4, s6
+                  slti         s7, tp, 446
+                  slt          s0, s8, t0
+                  slt          zero, tp, s10
+                  sltiu        gp, a0, -1921
+                  addi         s1, zero, 413
+                  bge          a5, sp, 14f
+                  addi         t3, a4, -1397
+                  ori          t2, s6, 688
+                  and          s4, s9, tp
+                  xor          s1, s0, t4
+                  slt          s11, a3, a7
+14:               and          t2, s11, s6
+                  ori          s10, a1, 1092
+                  xori         s11, s3, -1813
+                  xor          sp, s10, t3
+                  bgeu         a7, a1, 28f
+                  slti         zero, t5, 1368
+                  bgeu         s2, s9, 31f
+                  xori         a3, tp, 937
+                  sra          s11, a4, t0
+                  or           tp, zero, a6
+                  ori          s2, s7, -765
+                  slti         t2, t3, 147
+                  bne          t3, a2, 37f
+                  slti         s7, s6, 1252
+28:               bltu         t1, s7, 31f
+                  sub          s8, s7, a2
+                  sra          a5, a5, a7
+31:               bltu         tp, t5, 40f
+                  slli         a7, t0, 29
+                  slti         t6, s6, -1131
+                  sll          s0, a6, s7
+                  bge          s0, ra, 42f
+                  beq          s8, s1, 51f
+37:               beq          t2, s0, 47f
+                  sub          s0, s9, a3
+                  addi         s0, tp, -619
+40:               slli         s1, t3, 19
+                  srai         a5, t5, 18
+42:               bltu         a2, tp, 47f
+                  bne          ra, t0, 57f
+                  addi         a5, sp, -1951
+                  bne          s8, s11, 55f
+                  slti         a6, t0, -1599
+47:               nop
+                  addi         t4, a2, -1172
+                  slti         s7, t3, -2005
+                  sra          a1, s6, tp
+51:               beq          s3, a2, 60f
+                  xor          s4, a6, t4
+                  blt          t2, t0, 66f
+                  sub          a3, s1, a6
+55:               bgeu         tp, sp, 61f
+                  beq          sp, s11, 75f
+57:               sltiu        tp, a4, 1501
+                  and          s4, s2, t4
+                  xor          s8, a7, gp
+60:               bne          s11, sp, 67f
+61:               sltu         s11, s6, tp
+                  bne          t4, t3, 71f
+                  sltu         s5, t0, a6
+                  sltiu        gp, s7, 445
                   nop
-                  ori          ra, s1, 684
-                  slli         t4, a4, 24
-                  lui          s3, 495560
-                  auipc        t0, 198580
-                  slti         s7, a6, 306
-                  beq          sp, a5, 231f
-                  sub          zero, a6, zero
-                  lui          s6, 173781
-                  bne          a1, t1, 250f
+66:               sltu         t6, sp, t0
+67:               xor          t0, s4, a1
+                  srl          t5, t4, t5
+                  srli         t0, t1, 7
+                  bne          tp, s11, 76f
+71:               beq          s3, sp, 78f
+                  auipc        s1, 60074
+                  slti         a6, t3, 1011
+                  and          s4, s0, zero
+75:               bne          tp, s2, 88f
+76:               and          t0, s10, a2
+                  beq          a6, s4, 81f
+78:               beq          s2, a3, 79f
+79:               blt          t5, t5, 87f
+                  auipc        tp, 279658
+81:               andi         sp, t3, 211
+                  addi         a7, s6, 544
+                  sltiu        s7, s7, -960
+                  bgeu         a2, t6, 89f
+                  xori         t2, t1, 1841
+                  xori         t5, s5, -1727
+87:               srl          t2, s9, a4
+88:               xori         t4, a5, 1365
+89:               and          s7, sp, s2
+                  xori         zero, s5, 47
+                  slt          sp, a6, s9
+                  andi         sp, s5, 1189
+                  beq          tp, ra, 110f
+                  or           ra, a1, tp
+                  nop
+                  sra          tp, s8, t0
+                  beq          s11, zero, 103f
+                  srli         s10, t3, 12
                   fence.i
-                  la           s3, sub_5
-                  sra          s9, s8, sp
-                  addi         s3, s3, 1015
-                  slti         t4, s4, -1904
-                  bne          sp, t5, sub_2_j6 #branch to jump instr
-                  and          s4, a4, s10
-                  slti         t6, t1, 1873
-                  slti         s9, t1, -209
-sub_2_j6:         jalr         gp, s3, -1014 #jump sub_2 -> sub_5
-231:              blt          t6, tp, 233f
-                  sub          s7, a2, sp
-233:              sra          t1, t2, a6
-                  beq          s1, a5, 246f
-                  sll          t6, s1, s9
-                  blt          s1, a3, 243f
-                  auipc        t2, 926314
-                  ori          s0, s8, 1779
-                  sltiu        s6, t6, -1076
+                  auipc        s6, 77110
+                  bge          t4, s2, 120f
+                  auipc        s10, 736909
+103:              sll          t5, a0, t6
+                  sltu         a1, t0, tp
+                  beq          t1, t2, 110f
+                  sra          s10, a2, s9
+                  srai         t0, a1, 23
+                  add          t3, a7, t4
                   nop
-                  sll          t0, s7, t4
-                  ori          a4, s10, -1172
-243:              bltu         s6, t6, 260f
-                  bgeu         a4, t3, 261f
-                  blt          a6, a5, 247f
-246:              ori          gp, a1, -1127
-247:              nop
-                  sub          a2, t1, a0
-                  xori         s3, s2, 2006
-250:              xori         s6, ra, -966
-                  bne          t6, s11, 266f
+110:              bge          tp, s1, 119f
+                  or           s4, ra, t5
+                  srl          s0, a3, a7
+                  or           t0, t0, a5
+                  andi         a6, t1, -630
+                  sltiu        s2, t3, 1774
+                  sll          s10, s6, ra
+                  srai         ra, zero, 28
+                  fence.i
+119:              bge          a0, s2, 125f
+120:              or           t3, s2, s0
+                  beq          s4, t4, 126f
+                  bgeu         t4, s6, 131f
+                  sltiu        s11, ra, -2047
+                  sra          s6, a4, t6
+125:              andi         t2, t2, -466
+126:              nop
+                  slti         a6, s4, -486
+                  slt          t0, s11, a6
+                  or           t3, a4, a4
+                  and          a1, s2, s6
+131:              sll          a7, t0, ra
+                  ori          t0, a1, -60
+                  sltiu        a1, s3, 119
+                  slt          s8, s6, s5
+                  andi         zero, s0, -425
+                  sra          s4, tp, a2
+                  andi         s5, t0, -1974
+                  lui          sp, 31719
+                  and          tp, t0, s5
+                  blt          s8, s7, 159f
+                  andi         s5, s3, -583
+                  andi         s1, a6, -607
                   nop
-                  and          t2, s7, s0
-                  lui          gp, 149747
+                  slti         s1, ra, 180
+                  auipc        s3, 850705
+                  ori          s7, a7, -365
+                  addi         s7, a2, -1025
+                  ori          a1, a7, 1011
+                  ori          s2, s1, 1802
+                  srli         s11, zero, 9
+                  slti         s7, s1, 2010
+                  lui          s0, 979335
+                  ori          a0, gp, 670
+                  slt          s11, a7, s5
+                  bge          tp, s3, 170f
+                  srli         t2, s1, 8
+                  addi         tp, s6, 1865
+                  sltiu        s2, t6, -1720
+159:              srl          t2, a1, a1
+                  beq          a5, a2, 166f
+                  fence.i
+                  bge          a5, tp, 172f
+                  or           s6, s0, a4
+                  bgeu         a4, t0, 172f
+                  srl          tp, t1, a1
+166:              sltu         s5, s9, a2
+                  xor          s2, a2, a3
+                  slti         a5, s10, -709
+                  sra          s1, t1, a5
+170:              srl          t4, s6, s10
+                  sll          a0, t1, a4
+172:              nop
+                  sra          t6, s1, s10
+                  srli         a2, a3, 25
+                  bltu         s10, t3, 188f
+                  sll          a7, t3, s5
+                  xor          s1, s7, s3
+                  add          a1, s9, a6
+                  sltiu        s11, t5, 1052
+                  sltiu        ra, t3, -517
+                  sub          t3, a5, zero
+                  slli         s10, ra, 23
+                  slt          s8, s2, t1
+                  add          a6, ra, s0
+                  blt          s11, t3, 195f
+                  srai         t0, s5, 0
+                  srl          s3, a6, zero
+188:              lui          sp, 825214
+                  beq          a7, t6, 208f
+                  sltu         a1, t5, s6
+                  bgeu         t5, zero, 202f
+                  andi         gp, a2, -377
+                  add          gp, a4, s10
+                  bgeu         t5, gp, 203f
+195:              bne          t6, a5, 199f
+                  slli         t6, tp, 6
+                  addi         t2, s1, 1703
+                  fence.i
+199:              slti         s6, gp, -1396
+                  or           a7, tp, tp
+                  auipc        zero, 503807
+202:              bgeu         s8, a7, 208f
+203:              bge          a3, s3, 206f
+                  bne          s7, s2, 205f
+205:              and          a6, t3, a7
+206:              xor          zero, s7, t6
+                  xor          a2, a6, s10
+208:              lui          s8, 1007317
+                  sub          a2, t6, s10
+                  sll          s0, gp, t0
+                  sltu         s4, s4, sp
+                  bgeu         t4, t3, 218f
+                  bne          s0, s11, 227f
+                  auipc        a7, 390026
+                  slli         s10, s3, 26
+                  xori         t3, t5, -1600
+                  addi         a1, t1, 1418
+218:              lui          t5, 465711
+                  slt          a6, ra, s5
+                  bne          s11, t6, 225f
+                  or           zero, s11, s0
+                  bltu         a1, s7, 231f
+                  bgeu         t1, t1, 230f
+                  slt          zero, s1, a4
+225:              slt          ra, tp, s7
+                  bne          s1, s0, 235f
+227:              slti         sp, s3, -1817
+                  bgeu         s8, s5, 245f
+                  slli         s2, t2, 0
+230:              sra          tp, zero, s6
+231:              sltu         a6, t3, s11
+                  or           ra, a0, s9
+                  ori          a2, t1, 343
+                  fence.i
+235:              add          a1, s3, s1
+                  sltiu        s6, t1, 1
+                  xor          t0, s9, s0
+                  sll          s7, a3, t5
+                  slli         s2, s3, 1
+                  slti         gp, t0, 361
+                  auipc        gp, 871243
+                  srai         s4, s4, 27
+                  xori         s10, a0, -1400
+                  fence.i
+245:              addi         t0, a7, -1680
+                  sltu         a5, s7, s6
+                  slt          a0, gp, zero
+                  sll          t5, tp, zero
+                  and          s1, t5, s3
+                  bge          t5, a4, 257f
+                  slt          a7, t3, s10
+                  sub          t2, a5, t6
+                  add          a1, s4, t0
+                  sltiu        ra, s7, 1135
+                  bge          a0, a5, 262f
+                  slt          a5, s2, s2
+257:              lui          a7, 16948
+                  sltiu        s3, s5, -944
+                  blt          s0, a6, 264f
+                  bne          zero, a0, 270f
+                  bltu         ra, s9, 274f
+262:              bltu         s9, s2, 273f
+                  slt          a1, s9, s9
+264:              srai         a7, gp, 24
+                  sll          sp, t1, s1
+                  srl          s8, t6, s0
+                  fence.i
+                  slt          t3, a6, s7
+                  sltiu        a5, s6, -1708
+270:              lui          s10, 347782
+                  slli         a6, a4, 6
+                  add          a2, t5, t5
+273:              sltiu        t2, s4, -994
+274:              bne          a7, s0, 280f
+                  slli         s3, s10, 20
+                  or           s0, s1, s5
+                  fence.i
+                  ori          gp, s4, 1696
+                  srai         t2, a4, 30
+280:              sltiu        ra, ra, 1883
+                  auipc        s4, 617167
+                  srl          zero, s5, a4
+                  beq          a3, s7, 290f
+                  bne          s6, t2, 291f
+                  sra          gp, ra, a3
+                  and          s5, t5, s4
+                  sra          a1, s3, t0
+                  sltu         a3, t4, sp
+                  slli         tp, s8, 14
+                  sll          a5, s7, tp
+                  lui          t0, 1011993
+                  sll          tp, s3, zero
+                  slti         s1, a5, 1898
+                  slti         zero, t4, 544
+sub_1_j3:         jal          ra, sub_2 #jump sub_1 -> sub_2
+                  andi         s3, s1, -630
+290:              lui          s6, 719697
+291:              sltu         s0, t2, t3
+                  lw           ra, 4(t1)
                   nop
-                  xori         t2, s8, 1839
-                  bge          s6, a5, 262f
-                  lui          s3, 135525
-                  sll          s11, t4, a1
-260:              nop
-261:              bne          a1, s6, 270f
-262:              andi         s6, a0, 1893
-                  srli         t1, t1, 19
-                  ori          t1, t3, 1451
-                  slli         a2, s6, 23
-266:              beq          gp, s6, 271f
-                  xori         s2, a3, 223
-                  lui          t5, 70065
-                  bge          tp, a7, 274f
-270:              sll          s9, t6, s5
-271:              xor          s0, t0, a3
-                  bge          ra, t6, 280f
-                  srai         tp, a2, 11
-274:              xor          a7, s2, gp
-                  slt          a5, zero, t3
-                  andi         a5, t3, 547
-                  add          t4, tp, s10
-                  xori         gp, t1, 1899
-                  sub          s4, s1, s9
-280:              beq          gp, a3, 290f
-                  sltu         t4, t2, t1
-                  or           sp, ra, t4
-                  beq          s7, a1, 299f
-                  beq          t2, t5, 285f
-285:              blt          gp, t4, 293f
-                  andi         a4, a6, -1711
-                  addi         t6, t1, -1538
-                  xori         t2, sp, -200
-                  auipc        s6, 88096
-                  la           gp, sub_3
-                  slt          zero, s11, s10
-                  slt          s11, tp, a6
-                  addi         gp, gp, -116
-                  bne          sp, s9, sub_2_j5 #branch to jump instr
-                  srl          s4, a2, s0
-                  sll          s3, gp, s7
-                  add          t5, a5, s3
-                  sub          a7, s11, s3
+                  addi         t1, t1, 16
+                  and          zero, a0, a1
+                  sltiu        s0, a0, 92
+                  slt          tp, s10, s7
+315:              addi x18, x1, 1
+315:              jalr x18, x18, 0
+sub_4:            bne          s11, s11, sub_4_stack_p
+sub_4_stack_p:    addi         t1, t1, -64
+                  srli         s3, t3, 28
+                  sw           ra, 4(t1)
+                  xori         t5, a2, 1660
+                  sltu         sp, s11, s8
+                  bge          gp, gp, 20f
+                  srl          s10, t3, a5
+                  srai         tp, a3, 23
+                  xor          a7, s8, s10
+                  bgeu         t0, s10, 20f
+                  sra          s11, s0, sp
+                  slli         sp, tp, 31
+                  andi         s1, a1, -317
+                  andi         a5, a4, -942
+                  fence.i
+                  srli         s3, t2, 4
+                  srai         sp, s9, 23
+                  ori          s10, s7, 79
+                  srl          sp, a7, a2
+                  add          a0, s11, s7
+                  bge          s1, a4, 19f
+                  bne          zero, s10, 31f
+                  bge          s8, a4, 26f
+                  andi         a2, a3, 1919
+19:               slli         a1, s10, 29
+20:               fence.i
+                  andi         s6, sp, -821
                   nop
-                  nop
-sub_2_j5:         jalr         gp, gp, 117 #jump sub_2 -> sub_3
-                  srl          t3, a3, a4
-290:              blt          s9, s9, 301f
+                  beq          s6, a2, 36f
+                  beq          a5, a1, 35f
+                  lui          gp, 155311
+26:               auipc        s8, 444932
+                  beq          t2, a1, 36f
+                  sltu         a7, sp, s4
+                  slt          s7, tp, t2
+                  sltiu        t2, s11, 1599
+31:               blt          s2, s7, 40f
+                  slt          ra, s0, a2
+                  auipc        s4, 936937
+                  sub          a2, s7, sp
+35:               srl          t2, s11, a1
+36:               sll          t2, a7, t3
+                  bgeu         a6, sp, 54f
+                  sll          s11, s10, t4
+                  auipc        t4, 773217
+40:               lui          t3, 89696
+                  slt          a2, s3, t4
+                  lui          s7, 772409
+                  bne          s4, ra, 52f
+                  slli         a5, s4, 5
+                  sub          a3, s1, a7
+                  srl          a2, s5, s6
+                  bltu         t3, t3, 50f
+                  bge          t5, ra, 62f
+                  bltu         t0, s0, 57f
+50:               slli         tp, s10, 25
+                  andi         s8, sp, 1102
+52:               bltu         a7, tp, 54f
+                  bge          a5, s6, 55f
+54:               sra          s1, t1, sp
+55:               blt          t0, a1, 66f
+                  xor          t5, t4, t6
+57:               and          s7, s10, s3
+                  bltu         t5, s0, 60f
+                  auipc        s11, 553514
+60:               slli         a1, s11, 24
+                  and          t2, t4, s11
+62:               bge          t5, zero, 73f
+                  blt          s9, s1, 73f
+                  or           t3, s9, s11
+                  slti         s8, t3, 116
+66:               andi         s10, s9, -1850
+                  srli         t5, t3, 20
+                  sltiu        s6, sp, -583
+                  sub          a5, a6, a5
+                  slli         a3, s4, 16
+                  auipc        s3, 942922
+                  beq          s11, s11, 73f
+73:               slli         s11, tp, 11
+                  sltu         s10, s11, t1
+                  sra          s4, s1, sp
+                  lw           ra, 4(t1)
+                  ori          s1, s5, 469
+                  sub          s6, t1, s3
+                  fence.i
+                  lui          a3, 277135
+                  srli         s6, s1, 1
+                  addi         t1, t1, 64
+                  srai         t2, a4, 5
+90:               addi x29, x1, 0
+90:               jalr x29, x29, 0
+sub_2:            xori         s0, tp, -1576
+                  blt          a1, s11, sub_2_stack_p
+sub_2_stack_p:    addi         t1, t1, -40
+                  and          tp, t1, s8
+                  andi         s6, s0, -358
+                  ori          t3, a7, -1894
+                  addi         s4, tp, -1347
+                  sw           ra, 4(t1)
+                  slti         s8, s4, 1625
+                  andi         t5, zero, 598
+                  bgeu         sp, gp, sub_2_j5 #branch to jump instr
+                  sltiu        a1, zero, -1975
+                  xori         a1, a4, -1786
+                  xor          a1, t5, t6
+                  sll          s1, s1, a2
+sub_2_j5:         jal          ra, sub_3 #jump sub_2 -> sub_3
+                  lui          s10, 1401
+                  sltu         s4, gp, s8
+                  xor          a2, s8, s9
+                  fence.i
+                  xori         a5, s5, -357
+                  and          s11, s7, a6
+                  slli         a7, s0, 19
+                  and          s3, a0, s2
+                  sub          a5, gp, s7
+                  srl          tp, s0, a2
+sub_2_j6:         jal          ra, sub_4 #jump sub_2 -> sub_4
+                  bltu         t6, t0, 20f
+                  andi         s6, s9, -1004
+                  or           a6, a7, s5
+                  sltu         s1, t5, sp
+                  slti         t3, t5, -1623
+                  bltu         s3, a3, 22f
+                  addi         s10, sp, -681
+                  blt          s1, t0, 18f
+                  bltu         s7, a2, 13f
+                  fence.i
+                  andi         s11, s2, 58
+                  sub          s6, s3, t2
+                  bgeu         zero, a1, 17f
+                  bge          a7, ra, sub_2_j4 #branch to jump instr
+                  ori          s8, s1, -1746
+                  auipc        a6, 171180
+                  slt          t4, a6, t4
+                  ori          s4, a0, -841
+                  srl          tp, s6, s4
+                  slti         a2, s4, -1694
+sub_2_j4:         jal          ra, sub_5 #jump sub_2 -> sub_5
+13:               xor          a5, ra, a3
+                  bgeu         s7, s4, 18f
+                  addi         s10, s5, 443
+                  srl          s3, t5, a6
+17:               lui          s1, 143388
+18:               add          t3, sp, s4
+                  sub          t2, s5, s0
+20:               slt          ra, s3, s11
+                  fence.i
+22:               lui          s8, 857763
+                  andi         ra, s6, 784
+                  srai         s8, s5, 0
+                  srai         s7, tp, 25
+                  bgeu         a1, ra, 27f
+27:               add          t2, t1, t5
+                  fence.i
+                  sltiu        t5, s4, 1081
+                  addi         zero, s10, 634
+                  slti         t3, s2, -1819
+                  srl          a1, s11, ra
+                  xori         s11, a3, 911
+                  andi         s1, s8, -1072
+                  and          s6, a2, s0
+                  beq          s0, s6, 50f
+                  bne          t5, gp, 39f
+                  blt          sp, a7, 58f
+39:               srai         s10, s7, 2
+                  xori         zero, s4, -707
+                  srli         a6, a2, 7
+                  srl          sp, a4, s4
+                  srli         s4, s8, 25
+                  slli         s7, a4, 7
+                  ori          a3, t0, 1927
+                  sll          s4, s2, t3
+                  andi         s10, s1, 512
+                  bgeu         a4, tp, 58f
+                  sub          a5, t4, s7
+50:               srli         t5, s8, 25
+                  srli         a7, s6, 1
+                  ori          t0, s1, 1028
+                  srli         s4, zero, 19
+                  sltiu        a7, a2, 1528
                   nop
                   fence.i
-293:              sltiu        gp, s0, 1657
-                  slti         a7, t2, 1733
-                  slti         a2, t6, 1214
-                  lui          t2, 948768
-                  sltiu        s0, a1, 1532
-                  addi         t3, t6, 1309
-299:              srai         zero, t6, 20
-                  or           t2, ra, s2
-301:              or           t0, s0, t4
-                  andi         t3, s2, 1625
-                  sra          t0, s7, s4
-                  sra          a2, s0, ra
-                  sra          s7, t4, s6
-                  sra          s2, a3, s2
-                  srli         s3, a4, 0
-                  sra          s4, s10, s8
-                  srl          a4, gp, s2
-                  ori          s4, s4, 656
-                  bltu         t1, t4, 329f
-                  sub          s5, t6, s2
-                  bge          s6, t4, 331f
-                  sll          t6, a7, a3
-                  srli         t3, s9, 3
-                  bltu         s0, s7, 334f
-                  sltu         a5, t1, a1
-                  sub          s7, gp, t2
-                  sra          t2, s0, s2
-                  slli         t6, s10, 1
+                  or           t4, a5, a7
+58:               and          ra, t1, t2
+                  xor          a6, a7, s5
+                  srl          s10, s9, a6
+                  sltiu        a0, s5, 1302
+                  srl          sp, s6, s5
+                  srli         a6, a4, 23
                   fence.i
-                  bge          s4, s4, 329f
-                  srai         t3, s10, 13
-                  sltu         gp, a0, zero
-                  and          t4, a5, a5
-                  andi         s5, s6, 621
-                  or           s7, s9, s0
-                  andi         a5, a5, 1561
-329:              slti         gp, s7, 949
-                  lui          s6, 817818
-331:              sub          t3, s8, ra
-                  blt          ra, zero, 341f
-                  bltu         s6, t2, 351f
-334:              slt          s7, s3, s8
-                  sra          s9, a0, s1
-                  srai         s3, a7, 28
-                  lui          a3, 492740
-                  xori         t5, t3, 618
-                  xor          s6, s0, sp
-                  ori          t6, s9, 22
-341:              bne          s7, t0, 359f
-                  slli         t1, s11, 2
-                  bltu         zero, a5, 359f
-                  srl          s5, s2, a7
-                  auipc        a0, 107187
-                  slti         gp, t1, -1532
-                  bge          t2, a5, 352f
-                  slti         gp, s2, 1956
-                  bne          zero, a2, 366f
-                  xor          tp, t3, s8
-351:              sub          t5, zero, s8
-352:              sltiu        tp, s3, 942
-                  slt          s0, s4, zero
-                  auipc        s7, 939772
-                  beq          t4, s5, 363f
-                  bgeu         tp, s5, 358f
-                  slti         t6, s1, 1530
-358:              srl          s7, s7, t3
-359:              bgeu         s5, s6, 367f
-                  srl          gp, a1, sp
-                  slt          a0, a7, t5
-                  slli         s7, a6, 23
-363:              srli         t4, t2, 18
-                  bne          s1, s2, 368f
-                  add          gp, ra, sp
-366:              bgeu         ra, a5, 384f
-367:              bgeu         t6, s10, 379f
-368:              sra          s4, gp, t4
-                  slt          a7, s9, s0
-                  andi         sp, s10, 286
-                  slli         s9, t2, 13
-                  srli         t3, s10, 20
-                  andi         s7, s6, -710
-                  or           t4, sp, a0
-                  srai         s2, a6, 12
-                  bge          t0, s3, 377f
-377:              bne          s3, t6, 392f
                   nop
-379:              addi         s3, t1, 1292
-                  add          s2, zero, s5
-                  blt          sp, t0, 386f
-                  srl          gp, s11, s9
-                  lui          t2, 493572
-384:              sll          zero, s6, a0
-                  srai         sp, s1, 31
-386:              and          s2, t0, a3
-                  andi         a4, t2, -1634
-                  sll          s4, s4, gp
-                  bne          zero, a2, 405f
+                  andi         a7, ra, -856
+                  bltu         s6, zero, 87f
+                  ori          t4, s5, 1553
+                  bge          gp, a1, 74f
+                  blt          t4, sp, 74f
+                  ori          s5, a2, 1218
+                  srli         s6, a3, 1
+                  srai         s4, tp, 22
+74:               bgeu         t0, t4, 91f
+                  lui          s6, 705051
+                  sltu         s7, s9, s4
+                  and          gp, t6, s9
+                  slti         a5, t4, -469
+                  auipc        a1, 1033233
+                  beq          a7, t3, 81f
+81:               blt          a5, a4, 86f
+                  or           s5, s10, a7
+                  blt          a4, a7, 87f
+                  blt          s1, t3, 93f
+                  slt          s3, a0, t4
+86:               bltu         tp, a6, 87f
+87:               slli         t5, a6, 30
+                  or           a0, s7, gp
+                  bltu         s0, a0, 106f
+                  blt          sp, a6, 104f
+91:               addi         sp, t1, -484
+                  addi         s11, t6, -1217
+93:               srai         a6, a7, 1
+                  beq          s9, sp, 113f
+                  slt          a5, a4, a5
+                  xori         s5, t5, -866
+                  xor          a3, s0, s0
+                  slt          s5, s0, s3
+                  sub          a7, a2, t4
+                  blt          sp, s1, 107f
+                  srl          s2, a1, s4
+                  xori         s1, s11, -1773
+                  addi         s5, s5, 1886
+104:              blt          a5, zero, 112f
+                  sub          s8, s9, a2
+106:              slt          s6, t6, a1
+107:              sub          s5, a1, s9
+                  bltu         a7, a6, 115f
+                  lui          a3, 479373
+                  srli         a2, s10, 2
+                  bge          tp, s10, 115f
+112:              sra          s2, s2, s8
+113:              fence.i
+                  bgeu         a2, s10, 115f
+115:              or           tp, s8, s7
+                  lw           ra, 4(t1)
+                  xori         a5, t3, 262
+                  auipc        a1, 271818
+                  and          a6, a0, s0
+                  slt          s3, t5, s11
+                  srai         a5, a0, 8
+                  srl          sp, a6, s4
+                  addi         t1, t1, 40
+                  sltu         a0, t1, zero
+                  sltu         s1, s8, tp
+                  sra          a5, s5, tp
+                  sub          zero, s1, a6
+163:              addi x13, x1, 0
+163:              jalr x13, x13, 0
+sub_3:            srl          s10, s11, sp
+                  sll          s1, t1, t0
+                  slti         a1, t5, 2020
+                  addi         a2, s9, -1537
+                  xor          zero, s6, s5
+                  addi         t1, t1, -52
+                  lui          zero, 853262
+                  ori          s3, s11, 1942
+                  sw           ra, 4(t1)
+                  slt          sp, s10, s6
                   nop
-                  auipc        tp, 961674
-392:              sltiu        t6, a4, 1293
-                  ori          a0, ra, 2021
-                  auipc        a0, 757658
-                  bgeu         a7, a0, 397f
-                  xor          s6, s10, a0
-397:              xori         gp, a0, -1857
-                  auipc        s4, 40638
-                  nop
-                  sltiu        a3, s6, -69
-                  add          zero, s8, t6
-                  srai         s5, a4, 18
-                  xori         t0, s3, 1467
-                  bge          s7, a7, 405f
-405:              sll          s4, a7, sp
-                  lui          s6, 954297
-                  addi         a4, s4, 950
-                  lw           gp, 4(a6)
-                  sub          a3, s6, s9
-                  addi         a6, a6, 56
-                  or           a3, a5, a3
-447:              addi x28, x3, 0
-447:              jalr x28, x28, 0
+                  slti         zero, s11, -1313
+                  ori          t2, t1, -128
+                  beq          s1, t0, 21f
+                  sltu         a0, s8, t1
+                  bltu         s4, a6, 8f
+                  bne          gp, t1, 12f
+                  bge          s4, t5, 26f
+                  sub          s2, s0, s3
+8:                slt          a2, s2, s9
+                  slt          gp, a4, a4
+                  bgeu         a1, a1, 17f
+                  bne          t6, a0, 25f
+12:               bgeu         s2, tp, 17f
+                  fence.i
+                  xor          ra, a2, s9
+                  andi         s7, ra, 1780
+                  sra          a0, t0, a2
+17:               sub          a3, s0, s11
+                  blt          a0, t1, 26f
+                  bge          gp, zero, 24f
+                  slt          s5, a6, a4
+21:               srl          a7, a4, s0
+                  slti         t2, t0, -713
+                  sra          s8, a6, s9
+24:               slli         gp, ra, 19
+25:               nop
+26:               add          s4, t3, t3
+                  slti         s5, s7, -77
+                  sra          a0, a0, t4
+                  or           a2, sp, tp
+                  lw           ra, 4(t1)
+                  slt          a3, s5, t3
+                  slli         t2, tp, 15
+                  addi         t1, t1, 52
+                  auipc        a5, 227277
+                  add          t4, a0, a3
+47:               addi x11, x1, 1
+47:               jalr x11, x11, 0
 write_tohost:     
                   sw gp, tohost, t5
 
@@ -3454,1604 +3449,436 @@ user_stack_end:
 .align 2
 kernel_instr_start:
 .text
-mmode_intr_vector_1:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_2:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_3:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_4:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_5:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_6:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_7:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_8:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_9:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_10:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_11:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_12:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_13:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_14:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-mmode_intr_vector_15:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x6
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x342 # MCAUSE
-                  srli x23, x23, 0x1f
-                  beqz x23, 1f
-                  li x10, 0x8ffffffc
-                  li x23, 0x300
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x300
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x304
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x304
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x344
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x344
-                  sw x23, 0(x10)
-                  j mmode_intr_handler
-                  1: la x11, test_done
-                  jalr x0, x11, 0
-
-.align           4
+.align           2
 mtvec_handler:    
-                  .option norvc;
-                  j mmode_exception_handler
-                  j mmode_intr_vector_1
-                  j mmode_intr_vector_2
-                  j mmode_intr_vector_3
-                  j mmode_intr_vector_4
-                  j mmode_intr_vector_5
-                  j mmode_intr_vector_6
-                  j mmode_intr_vector_7
-                  j mmode_intr_vector_8
-                  j mmode_intr_vector_9
-                  j mmode_intr_vector_10
-                  j mmode_intr_vector_11
-                  j mmode_intr_vector_12
-                  j mmode_intr_vector_13
-                  j mmode_intr_vector_14
-                  j mmode_intr_vector_15
+                  addi x25, x25, -4
+                  sw  x6, (x25)
+                  add x6, x25, zero
+                  addi x6, x6, -128
+                  sw  x1, 4(x6)
+                  sw  x2, 8(x6)
+                  sw  x3, 12(x6)
+                  sw  x4, 16(x6)
+                  sw  x5, 20(x6)
+                  sw  x6, 24(x6)
+                  sw  x7, 28(x6)
+                  sw  x8, 32(x6)
+                  sw  x9, 36(x6)
+                  sw  x10, 40(x6)
+                  sw  x11, 44(x6)
+                  sw  x12, 48(x6)
+                  sw  x13, 52(x6)
+                  sw  x14, 56(x6)
+                  sw  x15, 60(x6)
+                  sw  x16, 64(x6)
+                  sw  x17, 68(x6)
+                  sw  x18, 72(x6)
+                  sw  x19, 76(x6)
+                  sw  x20, 80(x6)
+                  sw  x21, 84(x6)
+                  sw  x22, 88(x6)
+                  sw  x23, 92(x6)
+                  sw  x24, 96(x6)
+                  sw  x25, 100(x6)
+                  sw  x26, 104(x6)
+                  sw  x27, 108(x6)
+                  sw  x28, 112(x6)
+                  sw  x29, 116(x6)
+                  sw  x30, 120(x6)
+                  sw  x31, 124(x6)
+                  add x25, x6, zero
+                  csrr x16, 0x300 # MSTATUS
+                  csrr x16, 0x342 # MCAUSE
+                  srli x16, x16, 31
+                  bne x16, x0, mmode_intr_handler
 
 mmode_exception_handler:
-                  addi x9, x9, -4
-                  sw  x16, (x9)
-                  add x16, x9, zero
-                  addi x16, x16, -128
-                  sw  x1, 4(x16)
-                  sw  x2, 8(x16)
-                  sw  x3, 12(x16)
-                  sw  x4, 16(x16)
-                  sw  x5, 20(x16)
-                  sw  x6, 24(x16)
-                  sw  x7, 28(x16)
-                  sw  x8, 32(x16)
-                  sw  x9, 36(x16)
-                  sw  x10, 40(x16)
-                  sw  x11, 44(x16)
-                  sw  x12, 48(x16)
-                  sw  x13, 52(x16)
-                  sw  x14, 56(x16)
-                  sw  x15, 60(x16)
-                  sw  x16, 64(x16)
-                  sw  x17, 68(x16)
-                  sw  x18, 72(x16)
-                  sw  x19, 76(x16)
-                  sw  x20, 80(x16)
-                  sw  x21, 84(x16)
-                  sw  x22, 88(x16)
-                  sw  x23, 92(x16)
-                  sw  x24, 96(x16)
-                  sw  x25, 100(x16)
-                  sw  x26, 104(x16)
-                  sw  x27, 108(x16)
-                  sw  x28, 112(x16)
-                  sw  x29, 116(x16)
-                  sw  x30, 120(x16)
-                  sw  x31, 124(x16)
-                  add x9, x16, zero
-                  li x10, 0x8ffffffc
-                  li x23, 0x8
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  csrr x23, 0x341 # MEPC
-                  csrr x23, 0x342 # MCAUSE
-                  li x10, 0x3 # BREAKPOINT
-                  beq x23, x10, ebreak_handler
-                  li x10, 0x8 # ECALL_UMODE
-                  beq x23, x10, ecall_handler
-                  li x10, 0x9 # ECALL_SMODE
-                  beq x23, x10, ecall_handler
-                  li x10, 0xb # ECALL_MMODE
-                  beq x23, x10, ecall_handler
-                  li x10, 0x1
-                  beq x23, x10, instr_fault_handler
-                  li x10, 0x5
-                  beq x23, x10, load_fault_handler
-                  li x10, 0x7
-                  beq x23, x10, store_fault_handler
-                  li x10, 0xc
-                  beq x23, x10, pt_fault_handler
-                  li x10, 0xd
-                  beq x23, x10, pt_fault_handler
-                  li x10, 0xf
-                  beq x23, x10, pt_fault_handler
-                  li x10, 0x2 # ILLEGAL_INSTRUCTION
-                  beq x23, x10, illegal_instr_handler
-                  csrr x10, 0x343 # MTVAL
-                  1: la x11, test_done
-                  jalr x1, x11, 0
+                  li x11, 0x8ffffffc
+                  li x16, 0x8
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  csrr x16, 0x341 # MEPC
+                  csrr x16, 0x342 # MCAUSE
+                  li x11, 0x3 # BREAKPOINT
+                  beq x16, x11, ebreak_handler
+                  li x11, 0x8 # ECALL_UMODE
+                  beq x16, x11, ecall_handler
+                  li x11, 0x9 # ECALL_SMODE
+                  beq x16, x11, ecall_handler
+                  li x11, 0xb # ECALL_MMODE
+                  beq x16, x11, ecall_handler
+                  li x11, 0x1
+                  beq x16, x11, instr_fault_handler
+                  li x11, 0x5
+                  beq x16, x11, load_fault_handler
+                  li x11, 0x7
+                  beq x16, x11, store_fault_handler
+                  li x11, 0xc
+                  beq x16, x11, pt_fault_handler
+                  li x11, 0xd
+                  beq x16, x11, pt_fault_handler
+                  li x11, 0xf
+                  beq x16, x11, pt_fault_handler
+                  li x11, 0x2 # ILLEGAL_INSTRUCTION
+                  beq x16, x11, illegal_instr_handler
+                  csrr x11, 0x343 # MTVAL
+                  1: la x14, test_done
+                  jalr x1, x14, 0
 
 ecall_handler:    
-                  la x23, _start
-                  sw x0, 0(x23)
-                  sw x1, 4(x23)
-                  sw x2, 8(x23)
-                  sw x3, 12(x23)
-                  sw x4, 16(x23)
-                  sw x5, 20(x23)
-                  sw x6, 24(x23)
-                  sw x7, 28(x23)
-                  sw x8, 32(x23)
-                  sw x9, 36(x23)
-                  sw x10, 40(x23)
-                  sw x11, 44(x23)
-                  sw x12, 48(x23)
-                  sw x13, 52(x23)
-                  sw x14, 56(x23)
-                  sw x15, 60(x23)
-                  sw x16, 64(x23)
-                  sw x17, 68(x23)
-                  sw x18, 72(x23)
-                  sw x19, 76(x23)
-                  sw x20, 80(x23)
-                  sw x21, 84(x23)
-                  sw x22, 88(x23)
-                  sw x23, 92(x23)
-                  sw x24, 96(x23)
-                  sw x25, 100(x23)
-                  sw x26, 104(x23)
-                  sw x27, 108(x23)
-                  sw x28, 112(x23)
-                  sw x29, 116(x23)
-                  sw x30, 120(x23)
-                  sw x31, 124(x23)
-                  la x11, write_tohost
-                  jalr x0, x11, 0
+                  la x16, _start
+                  sw x0, 0(x16)
+                  sw x1, 4(x16)
+                  sw x2, 8(x16)
+                  sw x3, 12(x16)
+                  sw x4, 16(x16)
+                  sw x5, 20(x16)
+                  sw x6, 24(x16)
+                  sw x7, 28(x16)
+                  sw x8, 32(x16)
+                  sw x9, 36(x16)
+                  sw x10, 40(x16)
+                  sw x11, 44(x16)
+                  sw x12, 48(x16)
+                  sw x13, 52(x16)
+                  sw x14, 56(x16)
+                  sw x15, 60(x16)
+                  sw x16, 64(x16)
+                  sw x17, 68(x16)
+                  sw x18, 72(x16)
+                  sw x19, 76(x16)
+                  sw x20, 80(x16)
+                  sw x21, 84(x16)
+                  sw x22, 88(x16)
+                  sw x23, 92(x16)
+                  sw x24, 96(x16)
+                  sw x25, 100(x16)
+                  sw x26, 104(x16)
+                  sw x27, 108(x16)
+                  sw x28, 112(x16)
+                  sw x29, 116(x16)
+                  sw x30, 120(x16)
+                  sw x31, 124(x16)
+                  la x14, write_tohost
+                  jalr x0, x14, 0
 
 instr_fault_handler:
-                  li x10, 0x8ffffffc
-                  li x23, 0x9
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  add x16, x9, zero
-                  lw  x1, 4(x16)
-                  lw  x2, 8(x16)
-                  lw  x3, 12(x16)
-                  lw  x4, 16(x16)
-                  lw  x5, 20(x16)
-                  lw  x6, 24(x16)
-                  lw  x7, 28(x16)
-                  lw  x8, 32(x16)
-                  lw  x9, 36(x16)
-                  lw  x10, 40(x16)
-                  lw  x11, 44(x16)
-                  lw  x12, 48(x16)
-                  lw  x13, 52(x16)
-                  lw  x14, 56(x16)
-                  lw  x15, 60(x16)
-                  lw  x16, 64(x16)
-                  lw  x17, 68(x16)
-                  lw  x18, 72(x16)
-                  lw  x19, 76(x16)
-                  lw  x20, 80(x16)
-                  lw  x21, 84(x16)
-                  lw  x22, 88(x16)
-                  lw  x23, 92(x16)
-                  lw  x24, 96(x16)
-                  lw  x25, 100(x16)
-                  lw  x26, 104(x16)
-                  lw  x27, 108(x16)
-                  lw  x28, 112(x16)
-                  lw  x29, 116(x16)
-                  lw  x30, 120(x16)
-                  lw  x31, 124(x16)
-                  addi x16, x16, 128
-                  add x9, x16, zero
-                  lw  x16, (x9)
-                  addi x9, x9, 4
+                  li x11, 0x8ffffffc
+                  li x16, 0x9
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  li x11, 0x8ffffffc
+                  li x16, 0x342
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x342
+                  sw x16, 0(x11)
+                  add x6, x25, zero
+                  lw  x1, 4(x6)
+                  lw  x2, 8(x6)
+                  lw  x3, 12(x6)
+                  lw  x4, 16(x6)
+                  lw  x5, 20(x6)
+                  lw  x6, 24(x6)
+                  lw  x7, 28(x6)
+                  lw  x8, 32(x6)
+                  lw  x9, 36(x6)
+                  lw  x10, 40(x6)
+                  lw  x11, 44(x6)
+                  lw  x12, 48(x6)
+                  lw  x13, 52(x6)
+                  lw  x14, 56(x6)
+                  lw  x15, 60(x6)
+                  lw  x16, 64(x6)
+                  lw  x17, 68(x6)
+                  lw  x18, 72(x6)
+                  lw  x19, 76(x6)
+                  lw  x20, 80(x6)
+                  lw  x21, 84(x6)
+                  lw  x22, 88(x6)
+                  lw  x23, 92(x6)
+                  lw  x24, 96(x6)
+                  lw  x25, 100(x6)
+                  lw  x26, 104(x6)
+                  lw  x27, 108(x6)
+                  lw  x28, 112(x6)
+                  lw  x29, 116(x6)
+                  lw  x30, 120(x6)
+                  lw  x31, 124(x6)
+                  addi x6, x6, 128
+                  add x25, x6, zero
+                  lw  x6, (x25)
+                  addi x25, x25, 4
                   mret
 
 load_fault_handler:
-                  li x10, 0x8ffffffc
-                  li x23, 0xb
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  add x16, x9, zero
-                  lw  x1, 4(x16)
-                  lw  x2, 8(x16)
-                  lw  x3, 12(x16)
-                  lw  x4, 16(x16)
-                  lw  x5, 20(x16)
-                  lw  x6, 24(x16)
-                  lw  x7, 28(x16)
-                  lw  x8, 32(x16)
-                  lw  x9, 36(x16)
-                  lw  x10, 40(x16)
-                  lw  x11, 44(x16)
-                  lw  x12, 48(x16)
-                  lw  x13, 52(x16)
-                  lw  x14, 56(x16)
-                  lw  x15, 60(x16)
-                  lw  x16, 64(x16)
-                  lw  x17, 68(x16)
-                  lw  x18, 72(x16)
-                  lw  x19, 76(x16)
-                  lw  x20, 80(x16)
-                  lw  x21, 84(x16)
-                  lw  x22, 88(x16)
-                  lw  x23, 92(x16)
-                  lw  x24, 96(x16)
-                  lw  x25, 100(x16)
-                  lw  x26, 104(x16)
-                  lw  x27, 108(x16)
-                  lw  x28, 112(x16)
-                  lw  x29, 116(x16)
-                  lw  x30, 120(x16)
-                  lw  x31, 124(x16)
-                  addi x16, x16, 128
-                  add x9, x16, zero
-                  lw  x16, (x9)
-                  addi x9, x9, 4
+                  li x11, 0x8ffffffc
+                  li x16, 0xb
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  li x11, 0x8ffffffc
+                  li x16, 0x342
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x342
+                  sw x16, 0(x11)
+                  add x6, x25, zero
+                  lw  x1, 4(x6)
+                  lw  x2, 8(x6)
+                  lw  x3, 12(x6)
+                  lw  x4, 16(x6)
+                  lw  x5, 20(x6)
+                  lw  x6, 24(x6)
+                  lw  x7, 28(x6)
+                  lw  x8, 32(x6)
+                  lw  x9, 36(x6)
+                  lw  x10, 40(x6)
+                  lw  x11, 44(x6)
+                  lw  x12, 48(x6)
+                  lw  x13, 52(x6)
+                  lw  x14, 56(x6)
+                  lw  x15, 60(x6)
+                  lw  x16, 64(x6)
+                  lw  x17, 68(x6)
+                  lw  x18, 72(x6)
+                  lw  x19, 76(x6)
+                  lw  x20, 80(x6)
+                  lw  x21, 84(x6)
+                  lw  x22, 88(x6)
+                  lw  x23, 92(x6)
+                  lw  x24, 96(x6)
+                  lw  x25, 100(x6)
+                  lw  x26, 104(x6)
+                  lw  x27, 108(x6)
+                  lw  x28, 112(x6)
+                  lw  x29, 116(x6)
+                  lw  x30, 120(x6)
+                  lw  x31, 124(x6)
+                  addi x6, x6, 128
+                  add x25, x6, zero
+                  lw  x6, (x25)
+                  addi x25, x25, 4
                   mret
 
 store_fault_handler:
-                  li x10, 0x8ffffffc
-                  li x23, 0xc
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  add x16, x9, zero
-                  lw  x1, 4(x16)
-                  lw  x2, 8(x16)
-                  lw  x3, 12(x16)
-                  lw  x4, 16(x16)
-                  lw  x5, 20(x16)
-                  lw  x6, 24(x16)
-                  lw  x7, 28(x16)
-                  lw  x8, 32(x16)
-                  lw  x9, 36(x16)
-                  lw  x10, 40(x16)
-                  lw  x11, 44(x16)
-                  lw  x12, 48(x16)
-                  lw  x13, 52(x16)
-                  lw  x14, 56(x16)
-                  lw  x15, 60(x16)
-                  lw  x16, 64(x16)
-                  lw  x17, 68(x16)
-                  lw  x18, 72(x16)
-                  lw  x19, 76(x16)
-                  lw  x20, 80(x16)
-                  lw  x21, 84(x16)
-                  lw  x22, 88(x16)
-                  lw  x23, 92(x16)
-                  lw  x24, 96(x16)
-                  lw  x25, 100(x16)
-                  lw  x26, 104(x16)
-                  lw  x27, 108(x16)
-                  lw  x28, 112(x16)
-                  lw  x29, 116(x16)
-                  lw  x30, 120(x16)
-                  lw  x31, 124(x16)
-                  addi x16, x16, 128
-                  add x9, x16, zero
-                  lw  x16, (x9)
-                  addi x9, x9, 4
+                  li x11, 0x8ffffffc
+                  li x16, 0xc
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  li x11, 0x8ffffffc
+                  li x16, 0x342
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x342
+                  sw x16, 0(x11)
+                  add x6, x25, zero
+                  lw  x1, 4(x6)
+                  lw  x2, 8(x6)
+                  lw  x3, 12(x6)
+                  lw  x4, 16(x6)
+                  lw  x5, 20(x6)
+                  lw  x6, 24(x6)
+                  lw  x7, 28(x6)
+                  lw  x8, 32(x6)
+                  lw  x9, 36(x6)
+                  lw  x10, 40(x6)
+                  lw  x11, 44(x6)
+                  lw  x12, 48(x6)
+                  lw  x13, 52(x6)
+                  lw  x14, 56(x6)
+                  lw  x15, 60(x6)
+                  lw  x16, 64(x6)
+                  lw  x17, 68(x6)
+                  lw  x18, 72(x6)
+                  lw  x19, 76(x6)
+                  lw  x20, 80(x6)
+                  lw  x21, 84(x6)
+                  lw  x22, 88(x6)
+                  lw  x23, 92(x6)
+                  lw  x24, 96(x6)
+                  lw  x25, 100(x6)
+                  lw  x26, 104(x6)
+                  lw  x27, 108(x6)
+                  lw  x28, 112(x6)
+                  lw  x29, 116(x6)
+                  lw  x30, 120(x6)
+                  lw  x31, 124(x6)
+                  addi x6, x6, 128
+                  add x25, x6, zero
+                  lw  x6, (x25)
+                  addi x25, x25, 4
                   mret
 
 ebreak_handler:   
-                  li x10, 0x8ffffffc
-                  li x23, 0xd
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  csrr  x23, 0x341
-                  addi  x23, x23, 4
-                  csrw  0x341, x23
-                  add x16, x9, zero
-                  lw  x1, 4(x16)
-                  lw  x2, 8(x16)
-                  lw  x3, 12(x16)
-                  lw  x4, 16(x16)
-                  lw  x5, 20(x16)
-                  lw  x6, 24(x16)
-                  lw  x7, 28(x16)
-                  lw  x8, 32(x16)
-                  lw  x9, 36(x16)
-                  lw  x10, 40(x16)
-                  lw  x11, 44(x16)
-                  lw  x12, 48(x16)
-                  lw  x13, 52(x16)
-                  lw  x14, 56(x16)
-                  lw  x15, 60(x16)
-                  lw  x16, 64(x16)
-                  lw  x17, 68(x16)
-                  lw  x18, 72(x16)
-                  lw  x19, 76(x16)
-                  lw  x20, 80(x16)
-                  lw  x21, 84(x16)
-                  lw  x22, 88(x16)
-                  lw  x23, 92(x16)
-                  lw  x24, 96(x16)
-                  lw  x25, 100(x16)
-                  lw  x26, 104(x16)
-                  lw  x27, 108(x16)
-                  lw  x28, 112(x16)
-                  lw  x29, 116(x16)
-                  lw  x30, 120(x16)
-                  lw  x31, 124(x16)
-                  addi x16, x16, 128
-                  add x9, x16, zero
-                  lw  x16, (x9)
-                  addi x9, x9, 4
+                  li x11, 0x8ffffffc
+                  li x16, 0xd
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  li x11, 0x8ffffffc
+                  li x16, 0x342
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x342
+                  sw x16, 0(x11)
+                  csrr  x16, 0x341
+                  addi  x16, x16, 4
+                  csrw  0x341, x16
+                  add x6, x25, zero
+                  lw  x1, 4(x6)
+                  lw  x2, 8(x6)
+                  lw  x3, 12(x6)
+                  lw  x4, 16(x6)
+                  lw  x5, 20(x6)
+                  lw  x6, 24(x6)
+                  lw  x7, 28(x6)
+                  lw  x8, 32(x6)
+                  lw  x9, 36(x6)
+                  lw  x10, 40(x6)
+                  lw  x11, 44(x6)
+                  lw  x12, 48(x6)
+                  lw  x13, 52(x6)
+                  lw  x14, 56(x6)
+                  lw  x15, 60(x6)
+                  lw  x16, 64(x6)
+                  lw  x17, 68(x6)
+                  lw  x18, 72(x6)
+                  lw  x19, 76(x6)
+                  lw  x20, 80(x6)
+                  lw  x21, 84(x6)
+                  lw  x22, 88(x6)
+                  lw  x23, 92(x6)
+                  lw  x24, 96(x6)
+                  lw  x25, 100(x6)
+                  lw  x26, 104(x6)
+                  lw  x27, 108(x6)
+                  lw  x28, 112(x6)
+                  lw  x29, 116(x6)
+                  lw  x30, 120(x6)
+                  lw  x31, 124(x6)
+                  addi x6, x6, 128
+                  add x25, x6, zero
+                  lw  x6, (x25)
+                  addi x25, x25, 4
                   mret
 
 illegal_instr_handler:
-                  li x10, 0x8ffffffc
-                  li x23, 0xa
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  li x10, 0x8ffffffc
-                  li x23, 0x342
-                  slli x23, x23, 8
-                  addi x23, x23, 0x3
-                  sw x23, 0(x10)
-                  csrr x23, 0x342
-                  sw x23, 0(x10)
-                  csrr  x23, 0x341
-                  addi  x23, x23, 4
-                  csrw  0x341, x23
-                  add x16, x9, zero
-                  lw  x1, 4(x16)
-                  lw  x2, 8(x16)
-                  lw  x3, 12(x16)
-                  lw  x4, 16(x16)
-                  lw  x5, 20(x16)
-                  lw  x6, 24(x16)
-                  lw  x7, 28(x16)
-                  lw  x8, 32(x16)
-                  lw  x9, 36(x16)
-                  lw  x10, 40(x16)
-                  lw  x11, 44(x16)
-                  lw  x12, 48(x16)
-                  lw  x13, 52(x16)
-                  lw  x14, 56(x16)
-                  lw  x15, 60(x16)
-                  lw  x16, 64(x16)
-                  lw  x17, 68(x16)
-                  lw  x18, 72(x16)
-                  lw  x19, 76(x16)
-                  lw  x20, 80(x16)
-                  lw  x21, 84(x16)
-                  lw  x22, 88(x16)
-                  lw  x23, 92(x16)
-                  lw  x24, 96(x16)
-                  lw  x25, 100(x16)
-                  lw  x26, 104(x16)
-                  lw  x27, 108(x16)
-                  lw  x28, 112(x16)
-                  lw  x29, 116(x16)
-                  lw  x30, 120(x16)
-                  lw  x31, 124(x16)
-                  addi x16, x16, 128
-                  add x9, x16, zero
-                  lw  x16, (x9)
-                  addi x9, x9, 4
+                  li x11, 0x8ffffffc
+                  li x16, 0xa
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  li x11, 0x8ffffffc
+                  li x16, 0x342
+                  slli x16, x16, 8
+                  addi x16, x16, 0x3
+                  sw x16, 0(x11)
+                  csrr x16, 0x342
+                  sw x16, 0(x11)
+                  csrr  x16, 0x341
+                  addi  x16, x16, 4
+                  csrw  0x341, x16
+                  add x6, x25, zero
+                  lw  x1, 4(x6)
+                  lw  x2, 8(x6)
+                  lw  x3, 12(x6)
+                  lw  x4, 16(x6)
+                  lw  x5, 20(x6)
+                  lw  x6, 24(x6)
+                  lw  x7, 28(x6)
+                  lw  x8, 32(x6)
+                  lw  x9, 36(x6)
+                  lw  x10, 40(x6)
+                  lw  x11, 44(x6)
+                  lw  x12, 48(x6)
+                  lw  x13, 52(x6)
+                  lw  x14, 56(x6)
+                  lw  x15, 60(x6)
+                  lw  x16, 64(x6)
+                  lw  x17, 68(x6)
+                  lw  x18, 72(x6)
+                  lw  x19, 76(x6)
+                  lw  x20, 80(x6)
+                  lw  x21, 84(x6)
+                  lw  x22, 88(x6)
+                  lw  x23, 92(x6)
+                  lw  x24, 96(x6)
+                  lw  x25, 100(x6)
+                  lw  x26, 104(x6)
+                  lw  x27, 108(x6)
+                  lw  x28, 112(x6)
+                  lw  x29, 116(x6)
+                  lw  x30, 120(x6)
+                  lw  x31, 124(x6)
+                  addi x6, x6, 128
+                  add x25, x6, zero
+                  lw  x6, (x25)
+                  addi x25, x25, 4
                   mret
 
 pt_fault_handler: 
-                  li x10, 0x8ffffffc
-                  li x23, 0x8
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
+                  li x11, 0x8ffffffc
+                  li x16, 0x8
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
                   nop
 
 .align 2
 mmode_intr_handler:
-                  csrr  x23, 0x300 # MSTATUS;
-                  csrr  x23, 0x304 # MIE;
-                  csrr  x23, 0x344 # MIP;
-                  csrrc x23, 0x344, x23 # MIP;
-                  li x10, 0x8ffffffc
-                  li x23, 0x7
-                  slli x23, x23, 8
-                  addi x23, x23, 0x0
-                  sw x23, 0(x10)
-                  add x16, x9, zero
-                  lw  x1, 4(x16)
-                  lw  x2, 8(x16)
-                  lw  x3, 12(x16)
-                  lw  x4, 16(x16)
-                  lw  x5, 20(x16)
-                  lw  x6, 24(x16)
-                  lw  x7, 28(x16)
-                  lw  x8, 32(x16)
-                  lw  x9, 36(x16)
-                  lw  x10, 40(x16)
-                  lw  x11, 44(x16)
-                  lw  x12, 48(x16)
-                  lw  x13, 52(x16)
-                  lw  x14, 56(x16)
-                  lw  x15, 60(x16)
-                  lw  x16, 64(x16)
-                  lw  x17, 68(x16)
-                  lw  x18, 72(x16)
-                  lw  x19, 76(x16)
-                  lw  x20, 80(x16)
-                  lw  x21, 84(x16)
-                  lw  x22, 88(x16)
-                  lw  x23, 92(x16)
-                  lw  x24, 96(x16)
-                  lw  x25, 100(x16)
-                  lw  x26, 104(x16)
-                  lw  x27, 108(x16)
-                  lw  x28, 112(x16)
-                  lw  x29, 116(x16)
-                  lw  x30, 120(x16)
-                  lw  x31, 124(x16)
-                  addi x16, x16, 128
-                  add x9, x16, zero
-                  lw  x16, (x9)
-                  addi x9, x9, 4
+                  csrr  x16, 0x300 # MSTATUS;
+                  csrr  x16, 0x304 # MIE;
+                  csrr  x16, 0x344 # MIP;
+                  csrrc x16, 0x344, x16 # MIP;
+                  li x11, 0x8ffffffc
+                  li x16, 0x7
+                  slli x16, x16, 8
+                  addi x16, x16, 0x0
+                  sw x16, 0(x11)
+                  add x6, x25, zero
+                  lw  x1, 4(x6)
+                  lw  x2, 8(x6)
+                  lw  x3, 12(x6)
+                  lw  x4, 16(x6)
+                  lw  x5, 20(x6)
+                  lw  x6, 24(x6)
+                  lw  x7, 28(x6)
+                  lw  x8, 32(x6)
+                  lw  x9, 36(x6)
+                  lw  x10, 40(x6)
+                  lw  x11, 44(x6)
+                  lw  x12, 48(x6)
+                  lw  x13, 52(x6)
+                  lw  x14, 56(x6)
+                  lw  x15, 60(x6)
+                  lw  x16, 64(x6)
+                  lw  x17, 68(x6)
+                  lw  x18, 72(x6)
+                  lw  x19, 76(x6)
+                  lw  x20, 80(x6)
+                  lw  x21, 84(x6)
+                  lw  x22, 88(x6)
+                  lw  x23, 92(x6)
+                  lw  x24, 96(x6)
+                  lw  x25, 100(x6)
+                  lw  x26, 104(x6)
+                  lw  x27, 108(x6)
+                  lw  x28, 112(x6)
+                  lw  x29, 116(x6)
+                  lw  x30, 120(x6)
+                  lw  x31, 124(x6)
+                  addi x6, x6, 128
+                  add x25, x6, zero
+                  lw  x6, (x25)
+                  addi x25, x25, 4
                   mret;
 
 kernel_instr_end: nop
