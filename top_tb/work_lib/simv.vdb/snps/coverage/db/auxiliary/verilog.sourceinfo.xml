@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
-  <srcinfo name="/home/sjp/Desktop/ICP2/ICP2_verify/top_tb"  >
+  <srcinfo name="/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb"  >
     <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="O-2018.09-SP2"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv"  id="0"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh"  id="1"  />
@@ -164,35 +164,43 @@
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv"  id="159"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/verdi_trans_recorder_dpi.svh"  id="160"  />
       <fileinfo name="/usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh"  id="161"  />
-      <fileinfo name="./tb/rtl/common.sv"  id="162"  />
-      <fileinfo name="./tb/rtl/alu.sv"  id="163"  />
-      <fileinfo name="./tb/rtl/control.sv"  id="164"  />
-      <fileinfo name="./tb/rtl/cpu.sv"  id="165"  />
-      <fileinfo name="./tb/rtl/instr_decompressor.sv"  id="166"  />
-      <fileinfo name="./tb/rtl/data_memory.sv"  id="167"  />
-      <fileinfo name="./tb/rtl/decode_stage.sv"  id="168"  />
-      <fileinfo name="./tb/rtl/execute_stage.sv"  id="169"  />
-      <fileinfo name="./tb/rtl/fetch_stage.sv"  id="170"  />
-      <fileinfo name="./tb/rtl/forwarding_unit.sv"  id="171"  />
-      <fileinfo name="./tb/rtl/gshare_predictor.sv"  id="172"  />
-      <fileinfo name="./tb/rtl/mem_stage.sv"  id="173"  />
-      <fileinfo name="./tb/rtl/program_memory.sv"  id="174"  />
-      <fileinfo name="./tb/rtl/register_file.sv"  id="175"  />
-      <fileinfo name="./tb/rtl/stall_unit.sv"  id="176"  />
-      <fileinfo name="./tb/rtl/uart.sv"  id="177"  />
-      <fileinfo name="./tb/rtl/uart_wrapper.sv"  id="178"  />
-      <fileinfo name="./agent/cosim_agent/cosim_agent_pkg.sv"  id="179"  />
-      <fileinfo name="./agent/cosim_agent/spike_cosim_dpi.svh"  id="180"  />
-      <fileinfo name="./agent/cosim_agent/cosim_dpi.svh"  id="181"  />
-      <fileinfo name="./vendor/lowrisc_ip/dv/sv/mem_model/mem_model_pkg.sv"  id="182"  />
-      <fileinfo name="./vendor/lowrisc_ip/dv/sv/dv_utils/dv_macros.svh"  id="183"  />
-      <fileinfo name="./vendor/lowrisc_ip/dv/sv/mem_model/mem_model.svh"  id="184"  />
-      <fileinfo name="./tb/mem_test.sv"  id="185"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_if.sv"  id="186"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_agent_pkg.sv"  id="187"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_seq_item.svh"  id="188"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_agent_config.svh"  id="189"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_monitor.svh"  id="190"  />
-      <fileinfo name="./tb/agents/wb_agent/wb_agent.svh"  id="191"  />
-      <fileinfo name=""  id="192"  />
+      <fileinfo name="tb/rtl/common.sv"  id="162"  />
+      <fileinfo name="tb/rtl/alu.sv"  id="163"  />
+      <fileinfo name="tb/rtl/control.sv"  id="164"  />
+      <fileinfo name="tb/rtl/cpu.sv"  id="165"  />
+      <fileinfo name="tb/rtl/data_memory.sv"  id="166"  />
+      <fileinfo name="tb/rtl/decode_stage.sv"  id="167"  />
+      <fileinfo name="tb/rtl/execute_stage.sv"  id="168"  />
+      <fileinfo name="tb/rtl/fetch_stage.sv"  id="169"  />
+      <fileinfo name="tb/rtl/forwarding_unit.sv"  id="170"  />
+      <fileinfo name="tb/rtl/gshare_predictor.sv"  id="171"  />
+      <fileinfo name="tb/rtl/instr_decompressor.sv"  id="172"  />
+      <fileinfo name="tb/rtl/mem_stage.sv"  id="173"  />
+      <fileinfo name="tb/rtl/program_memory.sv"  id="174"  />
+      <fileinfo name="tb/rtl/register_file.sv"  id="175"  />
+      <fileinfo name="tb/rtl/stall_unit.sv"  id="176"  />
+      <fileinfo name="tb/rtl/uart.sv"  id="177"  />
+      <fileinfo name="tb/rtl/uart_wrapper.sv"  id="178"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_if.sv"  id="179"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_if.sv"  id="180"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_agent_pkg.sv"  id="181"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_seq_item.svh"  id="182"  />
+      <fileinfo name="./tb/env/top_cosim_config.svh"  id="183"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_agent_config.svh"  id="184"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_monitor.svh"  id="185"  />
+      <fileinfo name="./cosim/cosim_agent/spike_cosim_dpi.svh"  id="186"  />
+      <fileinfo name="./cosim/cosim_agent/cosim_dpi.svh"  id="187"  />
+      <fileinfo name="./tb/agents/mem_agent/mem_agent.svh"  id="188"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_agent_pkg.sv"  id="189"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_seq_item.svh"  id="190"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_agent_config.svh"  id="191"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_monitor.svh"  id="192"  />
+      <fileinfo name="./tb/agents/wb_agent/wb_agent.svh"  id="193"  />
+      <fileinfo name="./tb/env/top_env_pkg.sv"  id="194"  />
+      <fileinfo name="./tb/env/top_env_config.svh"  id="195"  />
+      <fileinfo name="./tb/env/top_scoreboard.svh"  id="196"  />
+      <fileinfo name="./tb/env/top_env.svh"  id="197"  />
+      <fileinfo name="./tb/uvm_tb/tests/top_test_base.sv"  id="198"  />
+      <fileinfo name="./tb/uvm_tb/top_tb.sv"  id="199"  />
+      <fileinfo name=""  id="200"  />
     </srcinfo>

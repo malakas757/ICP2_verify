@@ -1,6 +1,6 @@
 // Synopsys, Inc.
 // User: sjp
-// Date: Tue Dec  2 11:30:16 2025
+// Date: Wed Dec  3 11:10:50 2025
 
 // ==================================================================================================
 // This config file prototype is produced from the last run using the complete list of extracted fsms.

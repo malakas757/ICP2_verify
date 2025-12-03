@@ -8,6 +8,12 @@ module cpu(
     input reset_n,
     input io_rx,
     //output [31:0] alu_out,
+    //uvm_output
+    
+    
+    
+    
+    /////////////////////////
     output indication
 );
 

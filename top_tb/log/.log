@@ -1,8 +1,8 @@
-Command: /home/sjp/Desktop/ICP2/ICP2_verify/top_tb/./work_lib/simv -sv_lib libcosim_dpi -l ./log/.log +ntb_random_seed_automatic
+Command: /home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/./work_lib/simv -sv_lib libcosim_dpi -l ./log/.log +ntb_random_seed_automatic
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Dec  1 18:05 2025
-NOTE: automatic random seed used: 2339606016
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Dec  3 12:20 2025
+NOTE: automatic random seed used: 1031780533
 UVM_INFO /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -25,40 +25,24 @@ UVM-1.2.Synopsys
 
       (Specify +UVM_NO_RELNOTES to turn off this notice)
 
-*Verdi* Loading libsscore_vcs201809.so
-FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
-(C) 1996 - 2019 by Synopsys, Inc.
-*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
-*Verdi* : Create FSDB file 'test.fsdb'
-*Verdi* : Begin traversing the scopes, layer (0).
-*Verdi* : End of traversing.
-UVM_INFO ./tb/mem_test.sv(109) @ 100000: reporter [DONE] Total written bytes = 0
-handle exists
-base addr = 80000000 
+No MEM_FILE argument
 
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000000] = 0x93
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000001] = 0x2
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000002] = 0x80
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000003] = 0x1
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000004] = 0x13
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000005] = 0x3
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000006] = 0xc0
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000007] = 0x0
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000008] = 0x23
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x80000009] = 0xa2
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000a] = 0x62
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000b] = 0x0
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000c] = 0x83
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000d] = 0xa3
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000e] = 0x42
-UVM_INFO ./tb/mem_test.sv(89) @ 100000: reporter [load mem to cosim] Init mem [0x8000000f] = 0x0
-you success1
-you success2
-you success3
-you success4
-$finish called from file "./tb/mem_test.sv", line 152.
-$finish at simulation time               100000
+Warning-[STASKW_CO] Cannot open file
+tb/rtl/program_memory.sv, 35
+  The file 
+  './dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test_0.bin' 
+  could not be opened. No such file or directory.
+  Please ensure that the file exists with proper permissions.
+
+Error !!! can not open bin file
+
+Error-[STASKE_FRPIFD] Invalid file descriptor to $fread
+tb/rtl/program_memory.sv, 38
+  An invalid file descriptor '0' is passed to $fread. There is no file 
+  associated with this file descriptor.
+  Please pass a valid file descriptor as argument to $fread.
+
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 100000 ps
-CPU Time:      0.240 seconds;       Data structure size:   0.4Mb
-Mon Dec  1 18:05:30 2025
+Time: 0 ps
+CPU Time:      0.540 seconds;       Data structure size:   0.5Mb
+Wed Dec  3 12:20:12 2025

@@ -1,4 +1,5 @@
 import uvm_pkg::*;
+import common::*;
 import wb_agent_pkg::*;
 import mem_agent_pkg::*;
 import top_env_pkg::*;
@@ -25,14 +26,15 @@ endfunction
 function void build_phase(uvm_phase phase);
     m_env_cfg = top_env_config::type_id::create("m_env_config");
     m_wb_agent_cfg = wb_agent_config::type_id::create("m_wb_config");
+    m_mem_agent_cfg = mem_agent_config::type_id::create("m_mem_config");    
     m_top_cosim_cfg = top_cosim_config::type_id::create("m_cosim_config");
 
     configure_cosim_params();
 
     m_env = top_env::type_id::create("m_env", this);
     
-    uvm_config_db #(virtual wb_if)::get(this, "", "wb_if", m_wb_agent_cfg.vif);
-
+    uvm_config_db #(virtual wb_if)::get(this, "", "WB_IF", m_wb_agent_cfg.vif);
+    uvm_config_db #(virtual mem_if)::get(this, "", "MEM_IF", m_mem_agent_cfg.vif);
     m_env_cfg.m_wb_agent_cfg = m_wb_agent_cfg;
 
     uvm_config_db #(top_env_config)::set(this, "m_env", "top_env_config", m_env_cfg);
@@ -130,7 +132,7 @@ function void load_binary_to_dut_mem(bit[31:0] base_addr, string bin);
 */
 virtual task wait_for_test_done();
     int max_cycles = 100000;
-    `uvm_info(get_type_name(), $sformats("Waiting for test to complete (max %0d cycles)...", max_cycles), UVM_LOW)
+    `uvm_info(get_type_name(), $sformatf("Waiting for test to complete (max %0d cycles)...", max_cycles), UVM_LOW)
     repeat(max_cycles) @(posedge m_wb_agent_cfg.vif.clk);
     `uvm_info(get_type_name(), "Test completed", UVM_LOW)
 endtask

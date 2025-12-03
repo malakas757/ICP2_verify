@@ -1,4 +1,4 @@
-674      
+701      
 0 uvm_macros.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/uvm_macros.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_macros.svh
@@ -612,68 +612,95 @@
 0 uvm_verdi_pli.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/uvm_verdi_pli.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_verdi_pli.svh
+0 mem_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/mem_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/mem_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/mem_seq_item.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/mem_seq_item.svh
+0 top_cosim_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/top_cosim_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/top_cosim_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/top_cosim_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/top_cosim_config.svh
+0 ./tb/agents/mem_agent/top_cosim_config.svh
+0 ./tb/agents/wb_agent/top_cosim_config.svh
+0 mem_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/mem_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/mem_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/mem_agent_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/mem_agent_config.svh
+0 mem_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/mem_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/mem_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/mem_monitor.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/mem_monitor.svh
 0 spike_cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/spike_cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/spike_cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/spike_cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/spike_cosim_dpi.svh
+0 ./tb/agents/mem_agent/spike_cosim_dpi.svh
+0 ./tb/agents/wb_agent/spike_cosim_dpi.svh
+0 ./tb/env/spike_cosim_dpi.svh
 0 cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/cosim_dpi.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/cosim_dpi.svh
-0 dv_macros.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/dv_macros.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/dv_macros.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/dv_macros.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/dv_macros.svh
-0 ./agent/cosim_agent/dv_macros.svh
-0 ../../cosim/dv_macros.svh
-0 ./vendor/lowrisc_ip/dv/sv/mem_model/dv_macros.svh
-0 mem_model.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/mem_model.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/mem_model.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/mem_model.svh
-0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/mem_model.svh
-0 ./agent/cosim_agent/mem_model.svh
-0 ../../cosim/mem_model.svh
+0 ./tb/agents/mem_agent/cosim_dpi.svh
+0 ./tb/agents/wb_agent/cosim_dpi.svh
+0 ./tb/env/cosim_dpi.svh
+0 mem_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/mem_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/mem_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/mem_agent.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/mem_agent.svh
 0 wb_seq_item.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/wb_seq_item.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/wb_seq_item.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/wb_seq_item.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/wb_seq_item.svh
-0 ./agent/cosim_agent/wb_seq_item.svh
-0 ../../cosim/wb_seq_item.svh
-0 ./vendor/lowrisc_ip/dv/sv/mem_model/wb_seq_item.svh
-0 ./vendor/lowrisc_ip/dv/sv/dv_utils/wb_seq_item.svh
+0 ./tb/agents/mem_agent/wb_seq_item.svh
 0 wb_agent_config.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/wb_agent_config.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/wb_agent_config.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/wb_agent_config.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/wb_agent_config.svh
-0 ./agent/cosim_agent/wb_agent_config.svh
-0 ../../cosim/wb_agent_config.svh
-0 ./vendor/lowrisc_ip/dv/sv/mem_model/wb_agent_config.svh
-0 ./vendor/lowrisc_ip/dv/sv/dv_utils/wb_agent_config.svh
+0 ./tb/agents/mem_agent/wb_agent_config.svh
 0 wb_monitor.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/wb_monitor.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/wb_monitor.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/wb_monitor.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/wb_monitor.svh
-0 ./agent/cosim_agent/wb_monitor.svh
-0 ../../cosim/wb_monitor.svh
-0 ./vendor/lowrisc_ip/dv/sv/mem_model/wb_monitor.svh
-0 ./vendor/lowrisc_ip/dv/sv/dv_utils/wb_monitor.svh
+0 ./tb/agents/mem_agent/wb_monitor.svh
 0 wb_agent.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/wb_agent.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/wb_agent.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/wb_agent.svh
 0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/wb_agent.svh
-0 ./agent/cosim_agent/wb_agent.svh
-0 ../../cosim/wb_agent.svh
-0 ./vendor/lowrisc_ip/dv/sv/mem_model/wb_agent.svh
-0 ./vendor/lowrisc_ip/dv/sv/dv_utils/wb_agent.svh
-55
+0 ./tb/agents/mem_agent/wb_agent.svh
+0 top_env_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/top_env_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/top_env_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/top_env_config.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/top_env_config.svh
+0 ./tb/agents/mem_agent/top_env_config.svh
+0 ./tb/agents/wb_agent/top_env_config.svh
+0 top_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/top_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/top_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/top_scoreboard.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/top_scoreboard.svh
+0 ./tb/agents/mem_agent/top_scoreboard.svh
+0 ./tb/agents/wb_agent/top_scoreboard.svh
+0 top_env.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/systemverilog/top_env.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/top_env.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/top_env.svh
+0 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/top_env.svh
+0 ./tb/agents/mem_agent/top_env.svh
+0 ./tb/agents/wb_agent/top_env.svh
+56
 +define+SVA+ASSERT_ON
 +define+UVM_VCS_RECORD
 +define+UVM_VERDI_VIF_RECORD
@@ -706,11 +733,12 @@
 -P
 -Xufe=2steps
 -cm
+-debug_acc+fsdb
 -debug_access+all
--f fileset/cosim.f
--f fileset/mem.f
--f fileset/rtl.f
--f fileset/tb.f
+-f fileset/agent.f
+-f fileset/design.f
+-f fileset/top_tb.f
+-f fileset/uvm_tb.f
 -fsdb
 -full64
 -gen_obj
@@ -730,7 +758,7 @@ line+cond+fsm+branch+tgl
 uvm-1.2
 vcs_compile.log
 98
-sysc_uni_pwd=/home/sjp/Desktop/ICP2/ICP2_verify/top_tb
+sysc_uni_pwd=/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb
 XMODIFIERS=@im=fcitx
 XDG_SESSION_TYPE=x11
 XDG_SESSION_DESKTOP=ubuntu
@@ -787,8 +815,8 @@ NOOP_HOME=/home/sjp/Desktop/difftest_xiangshan/chisel-template
 NEMU_HOME=/home/sjp/Desktop/difftest_xiangshan/NEMU
 MFLAGS=
 MANAGERPID=1153
-MAKE_TERMOUT=/dev/pts/0
-MAKE_TERMERR=/dev/pts/0
+MAKE_TERMOUT=/dev/pts/5
+MAKE_TERMERR=/dev/pts/5
 MAKELEVEL=1
 MAKEFLAGS=
 LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
@@ -811,7 +839,7 @@ GTK_MODULES=gail:atk-bridge
 GTK_IM_MODULE=fcitx
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
 GNOME_TERMINAL_SERVICE=:1.411
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/3bc08c2a_ba96_4430_a5d3_12166c1d5a4a
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/81288bd1_226b_4750_a7b0_246fd78bb5b8
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GDMSESSION=ubuntu
@@ -829,15 +857,21 @@ CPATH=/usr/include/x86_64-linux-gnu
 COLORTERM=truecolor
 CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 0
-200
+208
+1764755958 ./tb/env/top_env.svh
+1764755958 ./tb/env/top_scoreboard.svh
+1764755958 ./tb/env/top_env_config.svh
 1764612916 ./tb/agents/wb_agent/wb_agent.svh
 1764673810 ./tb/agents/wb_agent/wb_monitor.svh
 1764611410 ./tb/agents/wb_agent/wb_agent_config.svh
 1764674079 ./tb/agents/wb_agent/wb_seq_item.svh
-1764607738 ./vendor/lowrisc_ip/dv/sv/mem_model/mem_model.svh
-1764607738 ./vendor/lowrisc_ip/dv/sv/dv_utils/dv_macros.svh
-1759401894 ./agent/cosim_agent/cosim_dpi.svh
-1764607738 ./agent/cosim_agent/spike_cosim_dpi.svh
+1764755958 ./tb/agents/mem_agent/mem_agent.svh
+1759401894 ./cosim/cosim_agent/cosim_dpi.svh
+1764607738 ./cosim/cosim_agent/spike_cosim_dpi.svh
+1764755958 ./tb/agents/mem_agent/mem_monitor.svh
+1764755958 ./tb/agents/mem_agent/mem_agent_config.svh
+1764755958 ./tb/env/top_cosim_config.svh
+1764755958 ./tb/agents/mem_agent/mem_seq_item.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_pli.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/verdi_trans_recorder_dpi.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_verdi_reg_recording.sv
@@ -997,37 +1031,39 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_global_defines.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/macros/uvm_version_defines.svh
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_macros.svh
+1764762407 ./tb/uvm_tb/top_tb.sv
+1764762508 ./tb/uvm_tb/tests/top_test_base.sv
+1764755958 ./tb/env/top_env_pkg.sv
 1764612975 ./tb/agents/wb_agent/wb_agent_pkg.sv
+1764755958 ./tb/agents/mem_agent/mem_agent_pkg.sv
 1764672365 ./tb/agents/wb_agent/wb_if.sv
-1764608716 ./tb/mem_test.sv
-1764607738 ./vendor/lowrisc_ip/dv/sv/mem_model/mem_model_pkg.sv
-1764607738 ./agent/cosim_agent/cosim_agent_pkg.sv
-1764669898 ./tb/rtl/uart_wrapper.sv
-1764669898 ./tb/rtl/uart.sv
-1764669898 ./tb/rtl/stall_unit.sv
-1764669898 ./tb/rtl/register_file.sv
-1764669898 ./tb/rtl/program_memory.sv
-1764669898 ./tb/rtl/mem_stage.sv
-1764669898 ./tb/rtl/gshare_predictor.sv
-1764669898 ./tb/rtl/forwarding_unit.sv
-1764669898 ./tb/rtl/fetch_stage.sv
-1764669898 ./tb/rtl/execute_stage.sv
-1764669898 ./tb/rtl/decode_stage.sv
-1764669898 ./tb/rtl/data_memory.sv
-1764669898 ./tb/rtl/instr_decompressor.sv
-1764673643 ./tb/rtl/cpu.sv
-1764669898 ./tb/rtl/control.sv
-1764669898 ./tb/rtl/alu.sv
-1764669898 ./tb/rtl/common.sv
+1764755958 ./tb/agents/mem_agent/mem_if.sv
+1764669898 tb/rtl/uart_wrapper.sv
+1764669898 tb/rtl/uart.sv
+1764669898 tb/rtl/stall_unit.sv
+1764669898 tb/rtl/register_file.sv
+1764760455 tb/rtl/program_memory.sv
+1764669898 tb/rtl/mem_stage.sv
+1764669898 tb/rtl/instr_decompressor.sv
+1764669898 tb/rtl/gshare_predictor.sv
+1764669898 tb/rtl/forwarding_unit.sv
+1764669898 tb/rtl/fetch_stage.sv
+1764669898 tb/rtl/execute_stage.sv
+1764669898 tb/rtl/decode_stage.sv
+1764669898 tb/rtl/data_memory.sv
+1764757954 tb/rtl/cpu.sv
+1764669898 tb/rtl/control.sv
+1764669898 tb/rtl/alu.sv
+1764669898 tb/rtl/common.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/vcs/uvm_custom_install_vcs_recorder.sv
 1551426030 /usr/software/vcs2018/vcs/O-2018.09-SP2/etc/uvm-1.2/uvm_pkg.sv
 1551421444 /usr/software/vcs2018/vcs/O-2018.09-SP2/include/cm_vcsd.tab
-1764669740 fileset/tb.f
-1764607738 fileset/mem.f
-1764607738 fileset/cosim.f
-1764673848 fileset/rtl.f
+1764761931 fileset/top_tb.f
+1764761794 fileset/uvm_tb.f
+1764762180 fileset/agent.f
+1764755958 fileset/design.f
 1550753332 /usr/software/verdi/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
 1551421246 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
 6
@@ -1037,5 +1073,5 @@ CLASSPATH=.:/opt/java/jdk-17.0.14/lib
 1551421792 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /usr/software/vcs2018/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1764674093 work_lib/simv.daidir
+1764762519 work_lib/simv.daidir
 -1 partitionlib

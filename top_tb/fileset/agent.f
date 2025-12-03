@@ -1,13 +1,12 @@
-+incdir+./fetch_tb/agents/bpu_agent
-+incdir+./fetch_tb/agents/exec_agent
-+incdir+./fetch_tb/agents/if_id_agent
++incdir+./tb/agents/mem_agent
++incdir+./tb/agents/wb_agent
++incdir+./tb/env
++incdir+./cosim/cosim_agent
 
-./fetch_tb/agents/if_id_agent/if_id_if.sv
-./fetch_tb/agents/if_id_agent/if_id_agent_pkg.sv
-./fetch_tb/agents/bpu_agent/bpu_if.sv
-./fetch_tb/agents/bpu_agent/bpu_agent_pkg.sv
-./fetch_tb/agents/exec_agent/exec_if.sv
-./fetch_tb/agents/exec_agent/exec_agent_pkg.sv
-
+./tb/agents/mem_agent/mem_if.sv
+./tb/agents/wb_agent/wb_if.sv
+./tb/agents/mem_agent/mem_agent_pkg.sv
+./tb/agents/wb_agent/wb_agent_pkg.sv
+#./tb/uvm_tb/tests/top_test_base.sv
 
 

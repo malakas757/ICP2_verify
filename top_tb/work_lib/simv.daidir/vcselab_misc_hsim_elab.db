@@ -1,6 +1,6 @@
 psSimBaseName                      	work_lib/simv
 psLogFileName                      	vcs_compile.log
-pDaiDir                            	/home/sjp/Desktop/ICP2/ICP2_verify/top_tb/work_lib/simv.daidir
+pDaiDir                            	/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/work_lib/simv.daidir
 destPath                           	csrc/
 fSharedMaster                      	0
 fHsimPCSharedLibSpecified          	0

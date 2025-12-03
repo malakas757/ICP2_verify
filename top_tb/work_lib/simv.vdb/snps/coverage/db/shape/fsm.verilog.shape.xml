@@ -2,7 +2,7 @@
 <!DOCTYPE cov SYSTEM "ucdb_fsm.dtd">
   <fsm count="0"  noconst="0"  >
     <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="O-2018.09-SP2"  />
-      <fsmdef file="170"  name="fetch_stage"  lib=""  chksum="300395582"  >
+      <fsmdef file="169"  name="fetch_stage"  lib=""  chksum="300395582"  >
         <fsmshape >
           <fsmfsm name="state"  id="0"  width="32"  line="77"  chksum="300395582"  >
             <state name="DIRECT"  value="1"  id="0"  flag="L"  line="131"  />
@@ -20,7 +20,7 @@
             
           </fsmfsm>
         </fsmshape>
-        <fsminst name="cpu.inst_fetch_stage"  />
+        <fsminst name="top_tb.DUT.inst_fetch_stage"  />
       </fsmdef>
       <fsmdef file="177"  name="uart"  lib=""  chksum="3955911220"  >
         <fsmshape >
@@ -47,7 +47,7 @@
             
           </fsmfsm>
         </fsmshape>
-        <fsminst name="cpu.inst_uart_wrapper.uart_inst"  />
+        <fsminst name="top_tb.DUT.inst_uart_wrapper.uart_inst"  />
       </fsmdef>
           <metric_sig chksum="60F85A63A3BDC69D981CE04F2CAA5BA5C23768C2"  />
     </fsm>

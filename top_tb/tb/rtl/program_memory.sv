@@ -9,13 +9,39 @@ module program_memory (
     // output logic [31:0] curr_read_data,
     // output logic [31:0] next_read_data
 );
+    parameter int BASE_ADDR = 0;
+    parameter string BIN_PATH = "./dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test_0.bin";
+    logic [7:0] ram [131072];
+    logic [16:0] half_word_address;
+    
+    initial begin
+    	if ($value$plusargs("MEM_FILE=%s", BIN_PATH)) begin
+   	   $display("MEM_File = %s", BIN_PATH);
+    	end else begin
+           $display("No MEM_FILE argument");
+    	end
+     end
+  
+    initial begin
+	load_binary_to_dut_mem(BASE_ADDR,BIN_PATH);
+    end    
+    assign half_word_address = byte_address[16:0];
+    assign read_data = {ram[half_word_address+3],ram[half_word_address+2],ram[half_word_address+1],ram[half_word_address]};
+    
+function void load_binary_to_dut_mem(int base_addr, string bin);
+   bit [7:0]  r8;
+   int unsigned addr = base_addr; // use int cause dynamic array need int to index
+   int 		bin_fd;
+   bin_fd = $fopen(bin,"rb");
+   if (!bin_fd)
+     $display("Error !!! can not open bin file");
+   while ($fread(r8, bin_fd)) begin
+      ram[addr] = r8;
+      $display("dut:load one byte Init mem [0x%h] = 0x%0h", addr, ram[addr]);
+      addr++;
+   end
+endfunction // load_binary_to_dut_mem
 
-    logic [31:0] ram [0:255];
-    logic [7:0] word_address;
-    
-    
-    assign word_address = byte_address[9:2];
-    
     
     // initial begin
         // $readmemb("instruction_mem.mem", ram);  the reading process is not functional
@@ -230,14 +256,15 @@ module program_memory (
 
     // end
     
-    
+    /*
     always @(posedge clk) begin
         if (write_enable) begin
             ram[word_address] <= write_data;
         end 
     end
+    */
     
-    assign read_data = ram[word_address];
+  
     // assign next_read_data = ram[word_address + 1];
     // assign pc_inc = byte_address + 4;
 endmodule
