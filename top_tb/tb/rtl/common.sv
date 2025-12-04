@@ -74,7 +74,7 @@ package common;
         logic mem_sign;
         logic is_branch;
     } control_type;
-    
+    control
     
     typedef struct packed
     {

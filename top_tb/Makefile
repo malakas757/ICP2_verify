@@ -229,12 +229,19 @@ vcs_sim_cov:
 	@echo "====================================================="
 	@rm -rf cover log $(MERGED_VDB) $(REPORT_DIR)
 	@mkdir -p cover log $(REPORT_DIR)
+	@ln -sf $(abspath $(DPI_SO)) ./libcosim_dpi.so
 
 	@for i in $(TEST_NAMES); do \
 		echo "==> Running Test: $$i"; \
+		LD_LIBRARY_PATH=/opt/spike-cosim/lib:$$LD_LIBRARY_PATH \
 		./work_lib/simv \
-			+UVM_TIMEOUT=900000000 +UVM_TESTNAME=$$i \
+			-sv_lib libcosim_dpi \
+			+UVM_TIMEOUT=900000000 \
+			+UVM_TESTNAME=$$i \
+			+MEM_FILE=$(LATEST_OUT)/asm_test/riscv_rand_instr_test_0.bin \
+			-cm line+cond+fsm+tgl+branch \
 			-cm_dir cover/$$i.vdb \
+			-cm_name $$i \
 			-l log/$$i.log; \
 	done
 

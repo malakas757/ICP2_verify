@@ -10,6 +10,7 @@ import common::*;
 //`include "wb_driver.svh"
 //`include "wb_coverage_monitor.svh"
 `include "wb_monitor.svh"
+`include "wb_isa_coverage_monitor.svh"
 `include "wb_agent.svh"
 
 // Utility Sequences

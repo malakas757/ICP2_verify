@@ -3,6 +3,7 @@ class wb_agent extends uvm_component;
     `uvm_component_utils(wb_agent);
     //wb_driver driver;
     wb_monitor monitor;
+    wb_isa_coverage_monitor isa_cov;
     //wb_sequencer sequencer;
     //wb_coverage_monitor fcov_monitor;
     wb_agent_config cfg;
@@ -25,6 +26,8 @@ function void wb_agent::build_phase(uvm_phase phase);
     end
 
     monitor = wb_monitor::type_id::create("monitor", this);
+    isa_cov = wb_isa_coverage_monitor::type_id::create("isa_cov", this);
+    
 
 /* Will not be created in this case
     if(cfg.active == UVM_ACTIVE) begin
@@ -49,5 +52,6 @@ function void wb_agent::connect_phase(uvm_phase phase);
     end
     */
     // To do: Connect monitor ap with fcov monitor 
+    monitor.ap.connect(isa_cov.analysis_export);
 
 endfunction

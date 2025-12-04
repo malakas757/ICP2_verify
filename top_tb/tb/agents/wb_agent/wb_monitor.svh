@@ -29,11 +29,12 @@ task wb_monitor::run_phase(uvm_phase phase);
 
     //wb_seq_item cloned_item;
 
-    item = wb_seq_item::type_id::create("item");
+    
     @(posedge vif.rstn);
     wait(vif.run_flag == 1);
     @(vif.mon_cb);
     forever begin
+        item = wb_seq_item::type_id::create("item");
         @(vif.mon_cb);
         // copy all monitored signals into the sequence item
        item.pc    = vif.mon_cb.mem_wb_reg.pc;

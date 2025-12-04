@@ -10,7 +10,7 @@ module program_memory (
     // output logic [31:0] next_read_data
 );
     parameter int BASE_ADDR = 0;
-    parameter string BIN_PATH = "./dv_out/out_fetch_random_test_seed/asm_test/riscv_rand_instr_test_0.bin";
+    parameter string BIN_PATH = "./dv_out/out_base_test_seed/asm_test/riscv_rand_instr_test_0.bin"; //need to be flexible
     logic [7:0] ram [131072];
     logic [16:0] half_word_address;
     
