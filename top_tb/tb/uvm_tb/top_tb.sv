@@ -17,11 +17,16 @@ cpu DUT (
 );
 
 //TO DO MEM IF
+//MEM_IF
+assign MEM_IF.alu_data_in = DUT.ex_mem_reg.alu_data;
+assign MEM_IF.memory_data_in = DUT.ex_mem_reg.memory_data;
+assign MEM_IF.control_in = DUT.ex_mem_reg.control;
+assign MEM_IF.pc_in = DUT.ex_mem_reg.pc;
+assign MEM_IF.memory_data_out = DUT.memory_memory_data;
 
 
 //WB_IF
 assign WB_IF.mem_wb_reg = DUT.mem_wb_reg;
-
 
 initial begin
     uvm_config_db #(virtual mem_if)::set(null, "uvm_test_top", "MEM_IF", MEM_IF);
