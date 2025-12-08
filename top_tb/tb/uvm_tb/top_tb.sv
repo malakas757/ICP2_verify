@@ -17,7 +17,12 @@ cpu DUT (
     .indication()
 );
 
-//MEM IF
+//MEM_IF
+assign MEM_IF.alu_data_in = DUT.ex_mem_reg.alu_data;
+assign MEM_IF.memory_data_in = DUT.ex_mem_reg.memory_data;
+assign MEM_IF.control_in = DUT.ex_mem_reg.control;
+assign MEM_IF.pc_in = DUT.ex_mem_reg.pc;
+assign MEM_IF.memory_data_out = DUT.memory_memory_data;
 
 
 //WB_IF
@@ -30,7 +35,6 @@ assign PIPELINE_IF.id_ex_rs2 = DUT.id_ex_reg.reg_rs2_id;
 assign PIPELINE_IF.id_ex_control = DUT.id_ex_reg.control;
 assign PIPELINE_IF.ex_mem_rd = DUT.ex_mem_reg.reg_rd_id;
 assign PIPELINE_IF.ex_mem_control = DUT.ex_mem_reg.control;
-
 
 
 initial begin
