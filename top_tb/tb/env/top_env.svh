@@ -5,6 +5,8 @@ class top_env extends uvm_component;
 top_scoreboard top_sb;
 wb_agent m_wb_agent;
 mem_agent m_mem_agent;
+pipeline_agent m_pipeline_agent;
+top_pipeline_coverage_monitor pipeline_cov;
 
 top_env_config m_env_cfg;
 top_cosim_config m_cosim_cfg;
@@ -26,20 +28,24 @@ function void build_phase(uvm_phase phase);
     
     m_wb_agent = wb_agent::type_id::create("m_wb_agent", this);
     m_mem_agent = mem_agent::type_id::create("m_mem_agent", this);
+    m_pipeline_agent = pipeline_agent::type_id::create("m_pipeline_agent", this);
     top_sb = top_scoreboard::type_id::create("m_top_sb", this);
+    pipeline_cov = top_pipeline_coverage_monitor::type_id::create("pipe_cov", this);
     
 
-    uvm_config_db #(wb_agent_config)::set(this, "m_wb_agent*", "wb_agent_config", m_env_cfg.m_wb_agent_cfg);
-    uvm_config_db #(mem_agent_config)::set(this, "m_mem_agent*", "mem_agent_config", m_env_cfg.m_mem_agent_cfg);
+    uvm_config_db #(wb_agent_config)::set(this, "m_wb_agent", "wb_agent_config", m_env_cfg.m_wb_agent_cfg);
+    uvm_config_db #(mem_agent_config)::set(this, "m_mem_agent", "mem_agent_config", m_env_cfg.m_mem_agent_cfg);
+    uvm_config_db #(pipeline_agent_config)::set(this, "m_pipeline_agent", "pipeline_agent_config", m_env_cfg.m_pipeline_agent_cfg);
 endfunction
 
 function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     m_wb_agent.ap.connect(top_sb.wb_fifo.analysis_export);
+    m_wb_agent.ap.connect(pipeline_cov.wb_fifo.analysis_export);
+    m_pipeline_agent.ap.connect(pipeline_cov.pipeline_fifo.analysis_export);
+
     top_sb.vif = m_env_cfg.m_wb_agent_cfg.vif;
 endfunction
-
-
 
 function void write_mem_byte(bit [31:0] addr, bit [7:0] d);
     riscv_cosim_write_mem_byte(m_cosim_cfg.cosim_handle, addr, d);

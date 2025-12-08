@@ -64,18 +64,20 @@ task top_scoreboard::run_cosim_wb();
 
     forever begin
         wb_fifo.get(req);
-        if (!riscv_cosim_step(m_cfg.cosim_handle, req.rd_id, req.data, req.pc,
-                                0, 0)) begin
-            if (m_cfg.relax_cosim_check) begin 
-            `uvm_info(`gfn, "Find ERROR(relax_check)", UVM_LOW)
-             `uvm_fatal(`gfn, get_cosim_error_str())
-            end else begin
-            `uvm_info(`gfn, "Find ERROR", UVM_LOW)
-            `uvm_fatal(`gfn, get_cosim_error_str())
+        if(req.mem_wb_valid) begin
+            if (!riscv_cosim_step(m_cfg.cosim_handle, req.rd_id, req.data, req.pc,
+                                    0, 0)) begin
+                if (m_cfg.relax_cosim_check) begin 
+                `uvm_info(`gfn, "Find ERROR(relax_check)", UVM_LOW)
+                `uvm_fatal(`gfn, get_cosim_error_str())
+                end else begin
+                `uvm_info(`gfn, "Find ERROR", UVM_LOW)
+                `uvm_fatal(`gfn, get_cosim_error_str())
+                end
             end
-        end
-	else begin  
-	   debug_info();
+            else begin  
+            debug_info();
+            end
         end
     end
 endtask

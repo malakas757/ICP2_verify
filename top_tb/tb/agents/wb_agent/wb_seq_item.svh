@@ -14,6 +14,8 @@ class wb_seq_item extends uvm_sequence_item;
    logic [31:0] pc;
    logic [31:0] data;
    control_type control;
+
+   logic mem_wb_valid;
    
 
 

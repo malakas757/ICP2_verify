@@ -1,13 +1,9 @@
-`include "spike_cosim_dpi.svh"
-`include "cosim_dpi.svh"
-
 class mem_monitor extends uvm_component;
     `uvm_component_utils(mem_monitor)
 
 virtual mem_if vif;
 uvm_analysis_port#(mem_seq_item) ap;
 
-mem_agent_config m_cfg;
 top_cosim_config m_cosim_cfg;
 
 
@@ -25,9 +21,6 @@ function void mem_monitor::build_phase(uvm_phase phase);
     super.build_phase(phase);
     ap = new("ap", this);
 
-    if (!uvm_config_db#(mem_agent_config)::get(this, "", "mem_agent_config", m_cfg)) begin
-      `uvm_fatal("NOCONFIG", "mem_monitor: cannot get mem_agent_config")
-    end
     if (!uvm_config_db#(top_cosim_config)::get(this, "", "top_cosim_config", m_cosim_cfg)) begin
       `uvm_fatal("NOCONFIG", "mem_monitor: cannot get cosim_config")
     end

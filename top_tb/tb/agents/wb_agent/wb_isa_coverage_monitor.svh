@@ -37,26 +37,39 @@ class wb_isa_coverage_monitor extends uvm_subscriber #(wb_seq_item);
             bins src_imm = {1};
         }
 
-        cross cp_encoding, cp_alu_op {
-        //In DUT, the J type is calculated in exe_stage instead of alu
+
         
-        bins alu_ops = binsof(cp_encoding) intersect {R_TYPE, I_TYPE} && 
-                             binsof(cp_alu_op) intersect {
-                                 ALU_ADD, ALU_SUB, 
-                                 ALU_AND, ALU_OR, ALU_XOR, 
-                                 ALU_SLL, ALU_SRL, ALU_SRA, 
-                                 ALU_SLT, ALU_SLTU
-                             };
+        cross cp_encoding, cp_alu_op {
+            // Define only the VALID combinations.            
+            bins valid_r = binsof(cp_encoding) intersect {R_TYPE} &&
+                           binsof(cp_alu_op) intersect {
+                               ALU_ADD, ALU_SUB,  
+                               ALU_AND, ALU_OR, ALU_XOR,
+                               ALU_SLL, ALU_SRL, ALU_SRA,
+                               ALU_SLT, ALU_SLTU
+                           };
 
-        bins store_addr = binsof(cp_encoding) intersect {S_TYPE} && 
-                                binsof(cp_alu_op) intersect {ALU_ADD};
+            bins valid_i = binsof(cp_encoding) intersect {I_TYPE} &&
+                           binsof(cp_alu_op) intersect {
+                               ALU_ADD,           
+                               ALU_AND, ALU_OR, ALU_XOR,
+                               ALU_SLL, ALU_SRL, ALU_SRA,
+                               ALU_SLT, ALU_SLTU
+                           };
 
-        bins branches = binsof(cp_encoding) intersect {B_TYPE} && 
-                              binsof(cp_alu_op) intersect {
-                                  B_BNE, B_BLT, B_BGE, B_LTU, B_GEU};
+            bins valid_s = binsof(cp_encoding) intersect {S_TYPE} &&
+                           binsof(cp_alu_op) intersect {ALU_ADD};
 
-        bins u_type = binsof(cp_encoding) intersect {U_TYPE} && 
-                            binsof(cp_alu_op) intersect {ALU_LUI, ALU_ADD};
+            bins valid_b = binsof(cp_encoding) intersect {B_TYPE} &&
+                           binsof(cp_alu_op) intersect {
+                               ALU_SUB, B_BNE, B_BLT, B_BGE, B_LTU, B_GEU
+                           };
+
+            bins valid_u = binsof(cp_encoding) intersect {U_TYPE} &&
+                           binsof(cp_alu_op) intersect {ALU_LUI, ALU_ADD};
+
+            bins valid_j = binsof(cp_encoding) intersect {J_TYPE} &&
+                           binsof(cp_alu_op) intersect {ALU_ADD};
         }
 
     endgroup
@@ -64,7 +77,7 @@ class wb_isa_coverage_monitor extends uvm_subscriber #(wb_seq_item);
     // Covergroup 2:MEM access
     // mem_read, mem_write, mem_size, mem_sign
     covergroup lsu_cg;
-        option.per_instance = 1;
+	option.per_instance = 1;
         option.comment = "Memory Access Coverage";
 
         cp_mem_read: coverpoint m_item.control.mem_read {
@@ -97,7 +110,7 @@ class wb_isa_coverage_monitor extends uvm_subscriber #(wb_seq_item);
     // reg_write, mem_to_reg, is_branch, rd_id
 
     covergroup ctrl_cg;
-        option.per_instance = 1;
+	option.per_instance = 1;
         option.comment = "Control Flow and Register Writeback";
 
         cp_reg_write: coverpoint m_item.control.reg_write {
@@ -127,8 +140,8 @@ class wb_isa_coverage_monitor extends uvm_subscriber #(wb_seq_item);
         }
         
         cross cp_reg_write, cp_rd_id{
-            bins rd_write = binsof(cp_reg_write) intersect {1} &&
-                            binsof(cp_rd_id);
+            ignore_bins none_write = binsof(cp_reg_write) intersect {0};
+                        
         }
 
     endgroup
@@ -142,10 +155,11 @@ class wb_isa_coverage_monitor extends uvm_subscriber #(wb_seq_item);
 
     virtual function void write(wb_seq_item t);
         m_item = t; 
-        
-        isa_cg.sample();
-        lsu_cg.sample();
-        ctrl_cg.sample();
+        if(m_item.mem_wb_valid) begin
+            isa_cg.sample();
+            lsu_cg.sample();
+            ctrl_cg.sample();
+        end
     endfunction
 
 endclass

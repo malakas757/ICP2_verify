@@ -13,14 +13,14 @@
 
 +incdir+agents/mem_agent
 +incdir+agents/wb_agent
++incdir+agents/pipeline_agent
++incdir+cosim_agent
 +incdir+env
 
-rtl/TOP.sv
 rtl/alu.sv
 rtl/common.sv
 rtl/control.sv
 rtl/cpu.sv
-rtl/cpu_ILA.sv
 rtl/data_memory.sv
 rtl/decode_stage.sv
 rtl/execute_stage.sv
@@ -35,10 +35,13 @@ rtl/stall_unit.sv
 rtl/uart.sv
 rtl/uart_wrapper.sv
 
+cosim_agent/cosim_agent_pkg.sv
 agents/mem_agent/mem_if.sv
 agents/wb_agent/wb_if.sv
+agents/pipeline_agent/pipeline_if.sv
 agents/mem_agent/mem_agent_pkg.sv
 agents/wb_agent/wb_agent_pkg.sv
+agents/pipeline_agent/pipeline_agent_pkg.sv
 
 env/top_env_pkg.sv
 uvm_tb/tests/top_test_base.sv

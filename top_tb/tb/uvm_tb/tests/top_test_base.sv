@@ -3,17 +3,18 @@ import common::*;
 import cosim_agent_pkg::*;
 import wb_agent_pkg::*;
 import mem_agent_pkg::*;
+import pipeline_agent_pkg::*;
 import top_env_pkg::*;
 
 `include "uvm_macros.svh"
-`include "spike_cosim_dpi.svh"
-`include "cosim_dpi.svh"
+
 class top_test_base extends uvm_test;
 
 top_env m_env;
 top_env_config m_env_cfg;
 wb_agent_config m_wb_agent_cfg;
 mem_agent_config m_mem_agent_cfg;
+pipeline_agent_config m_pipeline_agent_cfg;
 top_cosim_config m_top_cosim_cfg;
 
 string BIN_PATH = "./dv_out/out_base_test_seed/asm_test/riscv_rand_instr_test_0.bin";
@@ -27,7 +28,8 @@ endfunction
 function void build_phase(uvm_phase phase);
     m_env_cfg = top_env_config::type_id::create("m_env_config");
     m_wb_agent_cfg = wb_agent_config::type_id::create("m_wb_config");
-    m_mem_agent_cfg = mem_agent_config::type_id::create("m_mem_config");    
+    m_mem_agent_cfg = mem_agent_config::type_id::create("m_mem_config");  
+    m_pipeline_agent_cfg = pipeline_agent_config::type_id::create("m_pipeline_config");  
     m_top_cosim_cfg = top_cosim_config::type_id::create("m_cosim_config");
 
     configure_cosim_params();
@@ -36,8 +38,10 @@ function void build_phase(uvm_phase phase);
     
     uvm_config_db #(virtual wb_if)::get(this, "", "WB_IF", m_wb_agent_cfg.vif);
     uvm_config_db #(virtual mem_if)::get(this, "", "MEM_IF", m_mem_agent_cfg.vif);
+    uvm_config_db #(virtual pipeline_if)::get(this, "", "PIPELINE_IF", m_pipeline_agent_cfg.vif);
     m_env_cfg.m_wb_agent_cfg = m_wb_agent_cfg;
     m_env_cfg.m_mem_agent_cfg = m_mem_agent_cfg;
+    m_env_cfg.m_pipeline_agent_cfg = m_pipeline_agent_cfg;
     uvm_config_db #(top_env_config)::set(this, "m_env*", "top_env_config", m_env_cfg);
     uvm_config_db #(top_cosim_config)::set(this, "*", "top_cosim_config", m_top_cosim_cfg); //Set global config
 endfunction

@@ -74,7 +74,6 @@ package common;
         logic mem_sign;
         logic is_branch;
     } control_type;
-    control
     
     typedef struct packed
     {
@@ -129,6 +128,17 @@ package common;
         logic [31:0] pc;
         control_type control;
     } mem_wb_type;
+
+     typedef struct packed
+    {
+        logic [4:0]  rd_id;   
+        logic [31:0] pc;
+        logic [31:0] data;
+        control_type control;
+        logic [4:0] rs1_id;
+        logic [4:0] rs2_id;
+        logic is_compressed;
+    } pipeline_type;
 
 
     function [31:0] immediate_extension(instruction_type instruction, encoding_type inst_encoding);

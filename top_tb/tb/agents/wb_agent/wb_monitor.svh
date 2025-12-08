@@ -43,16 +43,19 @@ task wb_monitor::run_phase(uvm_phase phase);
        item.control = vif.mon_cb.mem_wb_reg.control;
 
        if(vif.mon_cb.mem_wb_reg != '0) begin
-//          $cast(cloned_item, item.clone());
-  	  `uvm_info("WB_MON",
-            $sformatf("pc=%0h rd_id=%0d data=%0h mem_read=%0b",
-                      item.pc,
-                      item.rd_id,
-                      item.data,
-                      item.control),
-            UVM_LOW)       
-          ap.write(item);
+            item.mem_wb_valid = 1'b1;
+       end else begin
+            item.mem_wb_valid = 1'b0;
        end
+        `uvm_info("WB_MON",
+            $sformatf("pc=%0h rd_id=%0d data=%0h mem_read=%0b",
+                    item.pc,
+                    item.rd_id,
+                    item.data,
+                    item.control),
+            UVM_LOW)      
+        ap.write(item); 
+        
     end
 
 endtask
