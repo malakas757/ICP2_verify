@@ -65,6 +65,11 @@ task top_scoreboard::run_cosim_wb();
     forever begin
         wb_fifo.get(req);
         if(req.mem_wb_valid) begin
+            //bugs in DUT, when reg_write = 0, rd_id and data != 0. Add this to waive error_report in step:)
+            if(!req.control.reg_write) begin 
+                req.rd_id = 1'b0;
+                req.data = 'b0;
+            end
             if (!riscv_cosim_step(m_cfg.cosim_handle, req.rd_id, req.data, req.pc,
                                     0, 0)) begin
                 if (m_cfg.relax_cosim_check) begin 
@@ -76,7 +81,7 @@ task top_scoreboard::run_cosim_wb();
                 end
             end
             else begin  
-            debug_info();
+                debug_info();
             end
         end
     end

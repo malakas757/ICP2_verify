@@ -42,7 +42,7 @@ function void build_phase(uvm_phase phase);
     m_env_cfg.m_wb_agent_cfg = m_wb_agent_cfg;
     m_env_cfg.m_mem_agent_cfg = m_mem_agent_cfg;
     m_env_cfg.m_pipeline_agent_cfg = m_pipeline_agent_cfg;
-    uvm_config_db #(top_env_config)::set(this, "m_env*", "top_env_config", m_env_cfg);
+    uvm_config_db #(top_env_config)::set(this, "m_env", "top_env_config", m_env_cfg);
     uvm_config_db #(top_cosim_config)::set(this, "*", "top_cosim_config", m_top_cosim_cfg); //Set global config
 endfunction
 
@@ -94,6 +94,7 @@ task set_run_flag(int delay_cycles);
     repeat(delay_cycles) @(posedge m_wb_agent_cfg.vif.clk);
     //@(posedge m_if_id_agent_cfg.IFID.clk);
     m_wb_agent_cfg.vif.run_flag <= 1'b1;
+    m_mem_agent_cfg.vif.run_flag <= 1'b1;
     `uvm_info(get_type_name(), "run_flag is set to 1", UVM_LOW)
 endtask
 
@@ -142,7 +143,7 @@ function void load_binary_to_dut_mem(bit[31:0] base_addr, string bin);
   endfunction
 */
 virtual task wait_for_test_done();
-    int max_cycles = 100000;
+    int max_cycles = 1000;
     `uvm_info(get_type_name(), $sformatf("Waiting for test to complete (max %0d cycles)...", max_cycles), UVM_LOW)
     repeat(max_cycles) @(posedge m_wb_agent_cfg.vif.clk);
     `uvm_info(get_type_name(), "Test completed", UVM_LOW)

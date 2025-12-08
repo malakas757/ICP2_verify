@@ -31,6 +31,7 @@ task mem_monitor::run_phase(uvm_phase phase);
     mem_seq_item tr;
     mem_seq_item cloned_tr;
     tr = mem_seq_item::type_id::create("tr");
+
     
     @(posedge vif.rstn);
     wait(vif.run_flag == 1);
@@ -44,6 +45,8 @@ task mem_monitor::run_phase(uvm_phase phase);
         tr.control      = vif.mon_cb.control_in;
         tr.pc           = vif.mon_cb.pc_in;
         tr.load_data    = vif.mon_cb.memory_data_out;
+        `uvm_info("[MEM_MON]", $sformatf("pc = %h, mem_write = %b, mem_read = %b, store_data = %h, address = %h"
+        , vif.mon_cb.pc_in, vif.mon_cb.control_in.mem_write, vif.mon_cb.control_in.mem_read, vif.mon_cb.memory_data_in, vif.mon_cb.alu_data_in), UVM_LOW)
         
         if(vif.mon_cb.control_in.mem_write) begin
             riscv_cosim_notify_dside_access(
