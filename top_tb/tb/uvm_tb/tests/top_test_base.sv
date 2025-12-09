@@ -123,6 +123,11 @@ function void load_binary_to_mems();
     //load_binary_to_dut_mem(m_top_cosim_cfg.start_pc, BIN_PATH);
     
     // Initialize the cosim memory model
+    if ($value$plusargs("MEM_FILE=%s", BIN_PATH)) begin
+   	   `uvm_info("MEM_FILE", "MEM_File loaded", UVM_HIGH);
+    end else begin
+        `uvm_info("MEM_FILE", "MEM_File CANNOT FIND", UVM_HIGH);
+    end
     m_env.load_binary_to_mem(m_top_cosim_cfg.start_pc, BIN_PATH);
 endfunction
 

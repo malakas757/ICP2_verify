@@ -20,7 +20,7 @@ module program_memory (
     	end else begin
            $display("No MEM_FILE argument");
     	end
-     end
+    end
   
     initial begin
 	load_binary_to_dut_mem(BASE_ADDR,BIN_PATH);
