@@ -366,7 +366,8 @@ module cpu(
     assign wb_write_back_en = mem_wb_reg.control.reg_write;
     assign wb_result = mem_wb_reg.control.mem_read ? mem_wb_reg.memory_data : mem_wb_reg.alu_data;
     assign id_ex_flush = branch_id_ex_flush | stall_id_ex_flush;
-    assign indication_trigger = id_ex_reg.decpompress_failed | id_ex_reg.instruction_illegal | execute_overflow;
+    //assign indication_trigger = id_ex_reg.decpompress_failed | id_ex_reg.instruction_illegal | execute_overflow;
+    assign indication_trigger = id_ex_reg.decpompress_failed | id_ex_reg.instruction_illegal; // v team changed
     assign indication = indication_trigger | indication_extended;
     assign pc_write = stall_pc_write & run_flag;
     //assign alu_out = execute_alu_data;

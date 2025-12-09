@@ -44,17 +44,12 @@ task wb_monitor::run_phase(uvm_phase phase);
 
        if(vif.mon_cb.mem_wb_reg != '0) begin
             item.mem_wb_valid = 1'b1;
+	    debug_info();      
        end else begin
             item.mem_wb_valid = 1'b0;
        end
-        `uvm_info("WB_MON",
-            $sformatf("pc=%0h rd_id=%0d data=%0h mem_read=%0b",
-                    item.pc,
-                    item.rd_id,
-                    item.data,
-                    item.control),
-            UVM_LOW)      
-        ap.write(item); 
+
+       ap.write(item); 
         
     end
 
@@ -65,6 +60,8 @@ task wb_monitor::debug_info();
   `uvm_info("wb_mon",$sformatf("pc=%h",item.pc),UVM_LOW);
   `uvm_info("wb_mon",$sformatf("data=%h",item.data),UVM_LOW);
   `uvm_info("wb_mon",$sformatf("rd_id=%d",item.rd_id),UVM_LOW);
+  `uvm_info("wb_mon",$sformatf("control type is: %s", item.control.alu_op.name()), UVM_LOW)
+  `uvm_info("wb_mon",$sformatf("control type is: %s", item.control.encoding.name()), UVM_LOW)
 endtask
 
 

@@ -122,6 +122,8 @@ task top_scoreboard::debug_info();
   `uvm_info("scoreboard","complete an instruction",UVM_LOW);
   `uvm_info("scoreboard",$sformatf("pc=%h",req.pc),UVM_LOW);
   `uvm_info("scoreboard",$sformatf("rd_id=%d",req.rd_id),UVM_LOW);
-  `uvm_info("scoreboard",$sformatf("data=%b",req.data),UVM_LOW);
+  `uvm_info("scoreboard",$sformatf("data=%h",req.data),UVM_LOW);
+  `uvm_info("scoreboard",$sformatf("control type is: %s", req.control.alu_op.name()), UVM_LOW)
+  `uvm_info("scoreboard",$sformatf("control type is: %s", req.control.encoding.name()), UVM_LOW)
 endtask
 

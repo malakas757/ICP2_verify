@@ -6,5 +6,5 @@
 ./tb/env/top_env_pkg.sv
 #./tb/uvm_tb/sequence/seq_pkg.sv
 #./tb/uvm_tb/virtual_sequence/fetch_vseq_pkg.sv
-./tb/uvm_tb/tests/top_test_base.sv
+./tb/uvm_tb/tests/top_test_pkg.sv
 

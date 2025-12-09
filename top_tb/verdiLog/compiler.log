@@ -14,20 +14,95 @@ Highest level modules:
 top_tb
 
 
-*Error* failed to find identifier WB_IF.mem_wb_reg
+*Error* failed to find identifier MEM_IF.alu_data_in
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 21: 
+
+*Error* failed to find identifier DUT.ex_mem_reg.alu_data
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 21: 
+
+*Error* failed to find identifier MEM_IF.memory_data_in
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 22: 
+
+*Error* failed to find identifier DUT.ex_mem_reg.memory_data
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 22: 
+
+*Error* failed to find identifier MEM_IF.control_in
 "/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 23: 
+
+*Error* failed to find identifier DUT.ex_mem_reg.control
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 23: 
+
+*Error* failed to find identifier MEM_IF.pc_in
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 24: 
+
+*Error* failed to find identifier DUT.ex_mem_reg.pc
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 24: 
+
+*Error* failed to find identifier MEM_IF.memory_data_out
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 25: 
+
+*Error* failed to find identifier DUT.memory_memory_data
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 25: 
+
+*Error* failed to find identifier WB_IF.mem_wb_reg
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 29: 
 
 *Error* failed to find identifier DUT.mem_wb_reg
-"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 23: 
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 29: 
+
+*Error* failed to find identifier PIPELINE_IF.is_compressed
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 31: 
+
+*Error* failed to find identifier DUT.inst_fetch_stage.is_compressed
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 31: 
+
+*Error* failed to find identifier PIPELINE_IF.if_id_pc
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 32: 
+
+*Error* failed to find identifier DUT.fetch_pc
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 32: 
+
+*Error* failed to find identifier PIPELINE_IF.id_ex_rs1
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 33: 
+
+*Error* failed to find identifier DUT.id_ex_reg.reg_rs1_id
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 33: 
+
+*Error* failed to find identifier PIPELINE_IF.id_ex_rs2
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 34: 
+
+*Error* failed to find identifier DUT.id_ex_reg.reg_rs2_id
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 34: 
+
+*Error* failed to find identifier PIPELINE_IF.id_ex_control
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 35: 
+
+*Error* failed to find identifier DUT.id_ex_reg.control
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 35: 
+
+*Error* failed to find identifier PIPELINE_IF.ex_mem_rd
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 36: 
+
+*Error* failed to find identifier DUT.ex_mem_reg.reg_rd_id
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 36: 
+
+*Error* failed to find identifier PIPELINE_IF.ex_mem_control
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 37: 
+
+*Error* failed to find identifier DUT.ex_mem_reg.control
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 37: 
 
 *Error* failed to find identifier uvm_config_db(mem_if)::set
-"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 27: 
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 41: 
 
 *Error* failed to find identifier uvm_config_db(wb_if)::set
-"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 28: 
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 42: 
+
+*Error* failed to find identifier uvm_config_db(pipeline_if)::set
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 43: 
 
 *Error* failed to find identifier run_test
-"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 29: 
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 44: 
 
 *Error* view wb_if is not defined for instance WB_IF
 "/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 8: 
@@ -35,6 +110,9 @@ top_tb
 *Error* view mem_if is not defined for instance MEM_IF
 "/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 9: 
 
+*Error* view pipeline_if is not defined for instance PIPELINE_IF
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 10: 
+
 *Error* view cpu is not defined for instance DUT
-"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 12: 
-Total	10 error(s),   0 warning(s)
+"/home/sjp/Desktop/ICP2_verify/ICP2_verify/top_tb/tb/uvm_tb/top_tb.sv", 13: 
+Total	36 error(s),   0 warning(s)

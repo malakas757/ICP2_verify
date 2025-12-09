@@ -67,7 +67,7 @@ function void load_binary_to_mem(bit[31:0] base_addr, string bin);
     if (!bin_fd)
         `uvm_fatal(get_full_name(), $sformatf("Cannot open file %0s", bin))
     while ($fread(r8,bin_fd)) begin
-        `uvm_info(`gfn, $sformatf("Init spike mem [0x%h] = 0x%0h", addr, r8), UVM_LOW)
+        `uvm_info(`gfn, $sformatf("Init spike mem [0x%h] = 0x%0h", addr, r8), UVM_DEBUG)
         write_mem_byte(addr, r8);
         addr++;
     end

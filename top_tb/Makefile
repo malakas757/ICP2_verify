@@ -2,21 +2,18 @@
 # riscv-dv 仓库路径（改成你的实际路径）
 RISCV_DV_DIR ?= ./vendor/google_riscv-dv
 USR_EXT    ?= $(RISCV_DV_DIR)/user_extension
-UVM_TEST_NAME ?= base_test
+TEST_NAME  ?= riscv_rand_instr_test
 SEED ?=  
 
 # 交叉工具链（仅用于可选的 elf/hex 转换）
 LDS     ?= $(RISCV_DV_DIR)/scripts/link.ld
 
-# riscv-dv 生成参数（按需覆盖：make TEST=... ISA=... ）
-TEST ?= riscv_rand_instr_test
-ISA  ?= rv32im
+# riscv-dv 生成参数
+TEST ?= $(TEST_NAME)
+ISA  ?= rv32i
 MABI ?= ilp32
 ITER ?= 1
-CUSTOM_TARGET ?= my_rv32i
-STEPS ?= gen,compile
-# 有的老工具链不识别 _zifencei，这里可覆盖 GCC 选项（可留空）
-# 例如：make EXTRA_GCC_OPTS="-march=rv32imc -mabi=ilp32"
+CUSTOM_TARGET ?= $(TEST_NAME)
 EXTRA_GCC_OPTS ?=
 
 # 结果收集目录
@@ -39,7 +36,7 @@ CM_NAME  = -cm_name $(TEST_NAME)
 CM_DIR   = -cm_dir cover/$(TEST_NAME).vdb
 ASS_ON   = +define+SVA+ASSERT_ON
 ASS_RUN  = +sva_success
-UVM_VERBOSITY =	UVM_HIGH
+UVM_VERBOSITY =	UVM_DEBUG
 # Coverage paths
 DESIGN_VDB := cover/simv.vdb
 REPORT_DIR := cover/html
@@ -55,9 +52,9 @@ TEST_VDBS  := $(filter-out $(DESIGN_VDB),$(wildcard cover/*.vdb))
 # ===== Internals =====
 PYTHON ?= python3
 RUNPY  := $(RISCV_DV_DIR)/run.py
-TEST_YAML := ./testlist.yaml 
+TEST_YAML := $(RISCV_DV_DIR)/target/$(CUSTOM_TARGET)/testlist.yaml 
 # 运行 riscv-dv 的命令（用 run.py 避免入口脚本环境问题）
-DV_GEN_OUT ?= $(abspath ./dv_out/out_$(TEST_NAME)_seed$(SEED))
+DV_GEN_OUT ?= $(abspath ./dv_out/$(TEST_NAME)$(SEED))
 RUN_CMD := $(PYTHON) $(RUNPY) --custom_target=$(RISCV_DV_DIR)/target/$(CUSTOM_TARGET) --isa=$(ISA) --mabi=$(MABI) --test=$(TEST)  --iterations=$(ITER) --testlist=$(TEST_YAML) \
 	--o $(DV_GEN_OUT)
 ifneq ($(strip $(EXTRA_GCC_OPTS)),)
@@ -66,13 +63,9 @@ endif
 
 LATEST_OUT := $(DV_GEN_OUT)
 
-.PHONY:	gens bin_compile clean_dv vcs_compile vcs_sim buildso clean_so
+.PHONY:	gens bin_compile clean_log vcs_compile vcs_sim buildso clean_so
 
 
-#setup:
-# 	@echo "==> Installing riscv-dv dependencies (user mode)"
-# 	cd $(RISCV_DV_DIR) && $(PYTHON) -m pip install --user -r requirements.txt
-# 	cd $(RISCV_DV_DIR) && $(PYTHON) -m pip install --user -e .
 
 # 生成并编译（riscv-dv 会在 out_xxx/asm_test 下产生 .S/.o/.bin）
 gens:   
@@ -95,46 +88,11 @@ bin_compile:
 	  $(RISCV_OBJCOPY) -O binary $$b.elf $$b.bin; \
 	done
 
-clean_dv: 
+clean_log: 
 	@echo "==> Clean out_*"
-	rm -rf ./dv_out/out_*
-
-# 收集 .bin 到 BIN_DIR
-#collect:
-# 	@test -n "$(LATEST_OUT)" || (echo "No out_* dir found. Run 'make gens' first." && exit 1)
-# 	@echo "==> Latest out dir: $(LATEST_OUT)"
-# 	mkdir -p $(BIN_DIR)
-# 	cp -v $(LATEST_OUT)/asm_test/*.bin $(BIN_DIR)/
-# 	@echo "==> Collected BINs -> $(BIN_DIR)"
-
-# 一键生成并收集
-#bins: gens collect
-
-# 可选：把 .o（其实是 ELF）转成 Verilog memory（便于 `include`）
-# 用法：make hex  或 make hex WIDTH=32 BASE=0x00000000 END=0x0003FFFF
-#WIDTH ?= 32
-#BASE  ?= 0x00000000
-#END   ?= 0x0003FFFF
-#hex:
-# 	@test -n "$(LATEST_OUT)" || (echo "No out_* dir found. Run 'make gens' first." && exit 1)
-# 	@echo "==> Generating Verilog memory files (.vh) from ELF(.o)"
-# 	for f in $(LATEST_OUT)/asm_test/*_test_*.o; do \
-# 	  b=$$(basename $$f .o); \
-# 	  $(OBJCOPY) -O verilog $$f $(BIN_DIR)/$$b.vh; \
-# 	  echo "  -> $(BIN_DIR)/$$b.vh"; \
-# 	done
-# 	@echo "TIP: 也可用 elf2hex 生成给 $readmemh 用的扁平 hex（若你装了 elf2hex）："
- #	@echo "     elf2hex <elf> -b $(BASE) -w $(WIDTH) -e $(END) -o <out.hex>"
-
-## 显示最新 out 目录和其中的文件
-#list:
-# 	@echo "Latest out: $(LATEST_OUT)"
-# 	@ls -l $(LATEST_OUT)/asm_test 2>/dev/null || true
-
-# 清理
+	rm -rf ./dv_out/* ./log/* *.log *.fsdb *.rc *.conf work_lib
 
 
-# 彻底清理（包含 riscv-dv 的 out_*）
 
 
 #======================SPIKE_LIB=================================
@@ -204,17 +162,14 @@ vcs_compile:
 		-f $(AGENT_FILE)\
 		-f $(TEST_FILE)\
 		-f $(TOP_TB_FILE)
-	#	-f $(MEM_FILE) \
-	#   -f $(TOP_TB_FILE)\ 
-	
 
-vcs_sim:
+vcs_sim: gens
 	@echo "Running Tests"
 	@mkdir -p log
 	ln -sf $(abspath $(DPI_SO)) ./libcosim_dpi.so
 	LD_LIBRARY_PATH=/opt/spike-cosim/lib:$$LD_LIBRARY_PATH \
 	./work_lib/simv -sv_lib libcosim_dpi \
-	-l log/${TEST_NAME}.log +UVM_VERBOSITY=$(UVM_VERBOSITY) +MEM_FILE=$(LATEST_OUT)/asm_test/riscv_rand_instr_test_0.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
+	-l log/${TEST_NAME}.log +UVM_VERBOSITY=$(UVM_VERBOSITY) +MEM_FILE=$(LATEST_OUT)/asm_test/$(TEST_NAME)_0.bin  +UVM_TIMEOUT=900000000 +UVM_TESTNAME=${TEST_NAME};
 
 vcs_sim_all:
 	@echo "Running Tests"
@@ -255,8 +210,8 @@ vcs_sim_cov:
 		-report $(REPORT_DIR)
 
 vcs_check:
-	vcs -sverilog -full64 -ntb_opts uvm-1.2 -l compile.log -f ./fileset/test.f
-	
+	vcs -sverilog -full64 -ntb_opts uvm-1.2 -l compile.log -f ./fileset/test.f	
+
 vcs_clean:
 	rm -rf *fsdb* *.log
 
