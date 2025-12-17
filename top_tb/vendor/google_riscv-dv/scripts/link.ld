@@ -16,6 +16,9 @@
 OUTPUT_ARCH( "riscv" )
 ENTRY(_start)
 
+region_0 = 0x80000040;
+region_1 = 0x80000080;
+
 SECTIONS
 {
   . = 0x80000000;

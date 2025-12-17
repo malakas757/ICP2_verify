@@ -4,7 +4,7 @@ class mem_agent extends uvm_component;
 
     mem_monitor monitor;
     mem_agent_config cfg;
-   //uvm_analysis_port #(mem_seq_item) ap;
+    uvm_analysis_port #(mem_seq_item) ap;
 
     extern function new(string name = "mem_agent", uvm_component parent = null);
     extern function void build_phase(uvm_phase phase);
@@ -24,13 +24,13 @@ function void mem_agent::build_phase(uvm_phase phase);
     end
 
     monitor = mem_monitor::type_id::create("monitor", this);
-    //ap = new("ap", this);
+    ap = new("ap", this);
 
 endfunction
 
 function void mem_agent::connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     monitor.vif = cfg.vif;
-    //monitor.ap.connect(ap);
+    monitor.ap.connect(ap);
 
 endfunction

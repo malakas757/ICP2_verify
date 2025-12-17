@@ -148,7 +148,7 @@ function void load_binary_to_dut_mem(bit[31:0] base_addr, string bin);
   endfunction
 */
 virtual task wait_for_test_done();
-    int max_cycles = 1500;
+    int max_cycles = 1000;
     `uvm_info(get_type_name(), $sformatf("Waiting for test to complete (max %0d cycles)...", max_cycles), UVM_LOW)
     repeat(max_cycles) @(posedge m_wb_agent_cfg.vif.clk);
     `uvm_info(get_type_name(), "Test completed", UVM_LOW)

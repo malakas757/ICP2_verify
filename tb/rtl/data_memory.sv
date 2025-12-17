@@ -18,21 +18,13 @@ module data_memory (
     logic [31:0] next_word;
     logic [7:0] read_byte;
     logic [15:0] read_half;
-
-    logic reset_done = 1'b0;
     
     assign word_address = byte_address[15:2];
     assign byte_offset = byte_address[1:0];
     
     always_ff @(posedge clk) 
     begin
-	if (!reset_done) begin
-	    for(int i = 0; i < 16384; i++) begin
-		ram[i] = 32'b0;
-	    end
-	    reset_done <= 1'b1;
-        end
-        else if (write_enable)
+        if (write_enable)
         begin
             case (mem_size)
                 // byte

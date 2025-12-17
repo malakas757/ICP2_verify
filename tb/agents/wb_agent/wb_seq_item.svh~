@@ -1,0 +1,43 @@
+class wb_seq_item extends uvm_sequence_item;
+
+`uvm_object_utils_begin(wb_seq_item)
+    `uvm_field_int(rd_id, UVM_DEFAULT)
+    `uvm_field_int(pc, UVM_DEFAULT)
+    `uvm_field_int(data, UVM_DEFAULT)
+    `uvm_field_int(alu_op, UVM_DEFAULT)
+    `uvm_field_int(encoding, UVM_DEFAULT)
+    `uvm_field_int(alu_src, UVM_DEFAULT)
+    `uvm_field_int(mem_read, UVM_DEFAULT)
+    `uvm_field_int(mem_write, UVM_DEFAULT)
+    `uvm_field_int(reg_write, UVM_DEFAULT)
+    `uvm_field_int(mem_to_reg, UVM_DEFAULT)
+    `uvm_field_int(mem_size, UVM_DEFAULT)
+    `uvm_field_int(mem_sign, UVM_DEFAULT)
+    `uvm_field_int(is_branch, UVM_DEFAULT)
+    
+`uvm_object_utils_end
+
+   logic [4:0]  rd_id;   
+   logic [31:0] pc;
+   logic [31:0] data;
+   alu_op_type  alu_op;
+   encoding_type encoding;
+   logic 	alu_src;
+   logic 	mem_read;
+   logic 	mem_write;
+   logic 	reg_write;
+   logic 	mem_to_reg;
+   logic [1:0] 	mem_size; // 00: byte, 01: half word, 10: word
+   logic 	mem_sign;
+   logic 	is_branch;
+
+
+extern function new(string name = "wb_sequence_item");
+
+endclass
+
+function wb_seq_item::new(string name = "wb_sequence_item");
+    super.new(name);
+endfunction
+
+
